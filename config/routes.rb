@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  resources :users, only: [:new, :create, :show]
-  resources :jobs do
-    resources :reviews, only: [:show, :create, :destroy]
+  resources :users do
+    resources :jobs do
+      resources :reviews, only: [:show, :new, :destroy]
+    end
   end
 end

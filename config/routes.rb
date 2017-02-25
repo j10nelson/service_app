@@ -1,4 +1,4 @@
-Rails.application.routes.draw
+Rails.application.routes.draw do
   root "jobs#index"
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]

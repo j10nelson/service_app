@@ -3,25 +3,45 @@
 one:
   first_name: MyString
   last_name: MyString
+<<<<<<< HEAD
   phone_number: 1
   home_address: MyString
+=======
+  phone_number: MyString
+  address: MyString
+  email: MyString
+  password: MyString
+>>>>>>> justin1
   billing_address: MyString
   company_name: MyString
   trade: MyString
   license_plate: MyString
+<<<<<<< HEAD
   email: MyString
   crypted_password: MyString
   salt: MyString
+=======
+>>>>>>> justin1
 
 two:
   first_name: MyString
   last_name: MyString
+<<<<<<< HEAD
   phone_number: 1
   home_address: MyString
+=======
+  phone_number: MyString
+  address: MyString
+  email: MyString
+  password: MyString
+>>>>>>> justin1
   billing_address: MyString
   company_name: MyString
   trade: MyString
   license_plate: MyString
+<<<<<<< HEAD
   email: MyString
   crypted_password: MyString
   salt: MyString
+=======
+>>>>>>> justin1

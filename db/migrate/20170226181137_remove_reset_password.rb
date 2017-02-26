@@ -5,4 +5,5 @@ class RemoveResetPassword < ActiveRecord::Migration[5.0]
     t.remove :reset_password_token_expires_at
     t.remove :reset_password_email_sent_at
   end
+  end
 end

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
        flash[:notice] = "Signed up!"
       auto_login(@user)
-      redirect_to projects_url
+      redirect_to root_path
     else
       flash.now[:error] = 'Sorry, try again!'
       render 'new'

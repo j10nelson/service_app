@@ -1,1 +1,17 @@
+<%= form_for(@job, html: {multipart: true}) do |f| %>
+  <div>
+    <%= f.label :details %>
+    <%= f.text_area :details %>
+  </div>
 
+  <div>
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div>
+    <%= f.label :time %>
+    <%= f.time_select :time %>
+  </div>
+  <%= f.submit %>
+<% end %>

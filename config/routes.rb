@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
 
-  resources :users do
-    resources :jobs do
+  resources :users
+    resources :jobs
       resources :reviews, only: [:show, :new, :destroy]
-    end
-  end
+
 end

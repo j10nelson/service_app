@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :jobs, except: :index
   end
 
-  resources :jobs, except: :index do
-      resources :reviews, only: [:show, :new, :destroy]
+  resources :jobs, only: :show do
+      resources :reviews, only: [:show, :new, :create]
     end
   end
 end

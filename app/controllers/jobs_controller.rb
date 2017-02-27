@@ -23,7 +23,7 @@ class JobsController < ApplicationController
     @job.user = current_user
 
     if @job.save
-      redirect_to jobs_path
+      redirect_to current_user
       # redirect_to current_user_url
     else
       render :new
@@ -43,7 +43,7 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
       @job.destroy
-      redirect_to root_url
+      redirect_to current_user
     end
   end
 

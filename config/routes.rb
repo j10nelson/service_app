@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "jobs#index"
+  root "trades#index"
   resources :users, only: [:new, :create]
   resources :user_sessions, only: [:new, :create, :destroy]
   get 'login' => 'user_sessions#new', :as => :login

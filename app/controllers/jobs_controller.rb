@@ -29,11 +29,11 @@ class JobsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @job = Job.find(params:[id])
-  #     @job.destroy
-  #     redirect_to current_user_url
-  #   end
+  def destroy
+    @job = Job.find(params:[id])
+      @job.destroy
+      redirect_to current_user_url
+    end
   end
 
   private

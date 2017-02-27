@@ -12,6 +12,5 @@ Rails.application.routes.draw do
 
   resources :jobs, only: :show do
       resources :reviews, only: [:show, :new, :create]
-    end
   end
 end

@@ -1,0 +1,7 @@
+<h1><%= @job.title %></h1>
+<p><%= @job.details %></p>
+<p><%= @job.date %></p>
+<p><%= @job.time %></p>
+
+<%= link_to "Back to Service Requests", jobs_url %> |
+<%= link_to "Edit", edit_job_path(@job) %>

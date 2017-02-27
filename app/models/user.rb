@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :reviews, through: :jobs
 
-  validates :password, length: { minimum: 4 }, on: :create
+  validates :password, length: { minimum: 4 }, presence: true, on: :create
   validates :password, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create
 

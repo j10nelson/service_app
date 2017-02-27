@@ -2,7 +2,8 @@
 <%= link_to "New Service Request", new_job_path %>
 
 <% @jobs.each do |job| %>
-<h1 class="job-title"><%= job.details %></h1>
+<h1 class="job-title"><%= job.title %></h1>
+<p><%= job.details %></p>
 <p><%= job.date %></p>
 <p><%= job.time %></p>
 <% end %>

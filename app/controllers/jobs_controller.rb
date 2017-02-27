@@ -22,7 +22,7 @@ class JobsController < ApplicationController
     # @job.user = current_user
 
     if @job.save
-redirect_to jobs_path
+      redirect_to jobs_path
       # redirect_to current_user_url
     else
       render :new
@@ -39,5 +39,5 @@ redirect_to jobs_path
   private
 
   def job_params
-    params.require(:job).permit(:details, :date, :time)
+    params.require(:job).permit(:title, :details, :date, :time)
   end

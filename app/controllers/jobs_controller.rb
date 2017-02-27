@@ -12,6 +12,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @trade = Trade.find(params[:trade_id])
   end
 
   def edit

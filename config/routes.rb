@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :users
-    resources :jobs
+    resources :jobs, except: [:index]
       resources :reviews, only: [:show, :new, :destroy]
 
 end

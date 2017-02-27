@@ -42,7 +42,7 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
       @job.destroy
-      redirect_to current_user_url
+      redirect_to root_url
     end
   end
 

@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
 
-  resources :trades
-  resources :services
+  resources :trades do
     resources :jobs, except: :index
-    resources :reviews, only: [:show, :new, :destroy]
+  end
 
+  resources :jobs, except: :index do
+      resources :reviews, only: [:show, :new, :destroy]
+    end
+  end
 end

@@ -3,8 +3,6 @@
 <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
 <p>Email: <%= @user.email %></p>
 
-<h2><%= link_to "New Service Request", new_job_path %></h2>
-
 <h2>Jobs Requested</h2>
   <% @user.jobs.each do |job| %>
   <h2 class="job-title">

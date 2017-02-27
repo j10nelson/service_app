@@ -1,5 +1,5 @@
 <% @jobs.each do |job| %>
 <h1 class="job-title"><%= job.details %></h1>
 <p><%= job.date %></p>
-<p><%= job.time %></p>
+<p><%= job.time.strftime('%H:%M:%S') %></p>
 <% end %>

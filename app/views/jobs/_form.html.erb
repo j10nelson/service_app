@@ -1,8 +1,5 @@
-<%= form_for([@trade, @job], html: {multipart: true}) do |f| %>
 
-  <div class="field">
-    <%= @trade.name %>
-  </div>
+<%= form_for([@trade, @job], html: {multipart: true}) do |f| %>
 
   <div class="field">
     <%= f.label :details %>
@@ -23,4 +20,4 @@
      <%= f.submit %>
   </div>
 
-<% end %>
+  <% end %>

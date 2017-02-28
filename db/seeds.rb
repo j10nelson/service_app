@@ -7,47 +7,34 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "beginning seed file"
 
-Trade.destroy_all
 Service.destroy_all
 
-trades = Trade.create!(
-name: "Hairdresser",
+Service.create!(
+trade: "Hairdresser",
+type_of_service: "Cut",
 )
 
-trades.services.create!(
-type_of_service: "cut",
-price: 10.5,
-
+Service.create!(
+trade: "Massage Therapist",
+type_of_service: "Deep Tissue",
 )
 
-Trade.create!(
-name: "Massage Therapist",
+Service.create!(
+trade: "Nail",
+type_of_service: "Paint Nails",
 )
 
-Trade.create!(
-name: "Nails",
+
+Service.create!(
+trade: "Pool Cleaning",
+type_of_service: "Clean Pool",
 )
 
-Trade.create!(
-name: "Pool Cleaning",
-)
-
-Trade.create!(
-name: "Snow Removal",
-)
-
-Trade.create!(
-name: "House Cleaning",
-)
-
-Trade.create!(
-name: "Heating",
-)
-
-Trade.create!(
-name: "Air Conditioning",
+Service.create!(
+trade: "Snow Removal",
+type_of_service: "Clean Driveway",
 )
 
 
 
-  puts "#{Trade.count} trades created"
+  puts "#{Service.count} trades created"

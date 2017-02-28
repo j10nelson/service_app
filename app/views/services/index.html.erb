@@ -1,0 +1,11 @@
+<h2>Services Offered</h2>
+<% @services.each do |service| %>
+<h3 class="trade-title">
+ <%= link_to new_service_job_path(service) do %>
+ <p><%= service.trade %></p></h3>
+ <% end %>
+   <p><%= service.type_of_service %></p>
+
+
+
+<% end %>

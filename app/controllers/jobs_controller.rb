@@ -12,7 +12,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
-    @trade = Trade.find(params[:trade_id])
+    @service = Service.find(params[:service_id])
   end
 
   def edit
@@ -22,7 +22,8 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
-    @trade = Trade.find(params[:trade_id])
+    @job.service_id = params[:service_id]
+    @service = Service.find(params[:service_id])
 
 
     if @job.save
@@ -52,6 +53,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:details, :date, :time, :service_ids => [])
+    params.require(:job).permit(:details, :date, :time, :service_id)
   end
 end

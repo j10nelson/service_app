@@ -2,7 +2,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :jobs
-  belongs_to :trade
+  has_many :services
   has_many :reviews
   has_many :reviews, through: :jobs
 

@@ -8,9 +8,16 @@
 puts "beginning seed file"
 
 Trade.destroy_all
+Service.destroy_all
 
-Trade.create!(
+trades = Trade.create!(
 name: "Hairdresser",
+)
+
+trades.services.create!(
+type_of_service: "cut",
+price: 10.5,
+
 )
 
 Trade.create!(

@@ -10,10 +10,36 @@ puts "beginning seed file"
 Trade.destroy_all
 
 Trade.create!(
-  name: "Hairdresser",
-    )
+name: "Hairdresser",
+)
 
+Trade.create!(
+name: "Massage Therapist",
+)
 
+Trade.create!(
+name: "Nails",
+)
+
+Trade.create!(
+name: "Pool Cleaning",
+)
+
+Trade.create!(
+name: "Snow Removal",
+)
+
+Trade.create!(
+name: "House Cleaning",
+)
+
+Trade.create!(
+name: "Heating",
+)
+
+Trade.create!(
+name: "Air Conditioning",
+)
 
 
 

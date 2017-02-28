@@ -46,10 +46,10 @@ class JobsController < ApplicationController
       @job.destroy
       redirect_to current_user
     end
-  end
 
   private
 
   def job_params
     params.require(:job).permit(:title, :details, :date, :time)
   end
+end

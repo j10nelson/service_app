@@ -12,6 +12,8 @@
 
 <h1>Book a Service</h1>
 
-<p><%= @service.trade %> </p>
+  <p><%= @service.trade %> </p>
+  <p>Service: <%= @service.type_of_service %> </p>
+  
 <%= render 'form' %>
 <%= link_to "Back to Home", root_url %>

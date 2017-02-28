@@ -1,8 +1,7 @@
 <%= form_for([@trade, @job], html: {multipart: true}) do |f| %>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_area :title %>
+    <%= @trade.name %>
   </div>
 
   <div class="field">

@@ -28,6 +28,14 @@ class UsersController < ApplicationController
     # @jobs = @user.backed_projects
   end
 
+  def destroy
+    if @user == current_user
+      @job = Job.find(params[:id])
+      @job.destroy
+      render new
+  end
+end
+
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)

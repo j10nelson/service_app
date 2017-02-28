@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :require_login, only: [:show, :new, :create, :destroy]
 
   def index
     @jobs = Job.all
@@ -11,6 +12,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @trade = Trade.find(params[:trade_id])
   end
 
   def edit
@@ -19,25 +21,35 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    # @job.user = current_user
+    @job.user = current_user
 
     if @job.save
-redirect_to jobs_path
+      redirect_to current_user
       # redirect_to current_user_url
     else
       render :new
     end
   end
 
-  # def destroy
-  #   @job = Job.find(params:[id])
-  #     @job.destroy
-  #     redirect_to current_user_url
-  #   end
+  def update
+    @job = Job.find(params[:id])
+
+    if @job.update_attributes(job_params)
+      redirect_to "/jobs/#{@job.id}"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @job = Job.find(params[:id])
+      @job.destroy
+      redirect_to current_user
+    end
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:details, :date, :time)
+    params.require(:job).permit(:title, :details, :date, :time)
   end

@@ -1,7 +1,19 @@
 
-<h1>Account</h1>
+<h2>Account</h2>
 <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
 <p>Email: <%= @user.email %></p>
 
-<h1>Request New Service</h1>
-<%= link_to "New Service Request", new_job_path %>
+<h2>Jobs Requested</h2>
+  <% @user.jobs.each do |job| %>
+  <h2 class="job-title">
+    <%= link_to job_path(job) do %>
+    <%= job.title %></h2>
+    <% end %>
+    <p><%= job.details %></p>
+    <p><%= job.date.strftime('%B %d, %Y') %></p>
+    <p><%= job.time.strftime('%I:%M%p')%></p>
+
+
+  <%= link_to "Edit", edit_trade_job_path(job), method: :edit %>
+  <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
+  <% end %>

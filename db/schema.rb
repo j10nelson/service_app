@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226222819) do
+ActiveRecord::Schema.define(version: 20170228010145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,34 @@ ActiveRecord::Schema.define(version: 20170226222819) do
     t.datetime "updated_at", null: false
     t.date     "date"
     t.time     "time"
+    t.string   "title"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "worker_id"
     t.integer  "job_id"
     t.integer  "rating"
-    t.string   "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "comments"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string   "type_of_service"
+    t.integer  "price"
+    t.time     "time"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "trade_id"
+  end
+
+  create_table "services_users", force: :cascade do |t|
+    t.integer "services_id"
+    t.integer "worker_id"
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +72,7 @@ ActiveRecord::Schema.define(version: 20170226222819) do
     t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.integer  "trade_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   end

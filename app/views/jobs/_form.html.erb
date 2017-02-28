@@ -1,17 +1,27 @@
-<%= form_for(@job, html: {multipart: true}) do |f| %>
-  <div>
+<%= form_for([@trade, @job], html: {multipart: true}) do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_area :title %>
+  </div>
+
+  <div class="field">
     <%= f.label :details %>
     <%= f.text_area :details %>
   </div>
 
-  <div>
+  <div class="field">
     <%= f.label :date %>
     <%= f.date_select :date %>
   </div>
 
-  <div>
+  <div class="field">
     <%= f.label :time %>
     <%= f.time_select :time %>
   </div>
-  <%= f.submit %>
+
+  <div class="actions">
+     <%= f.submit %>
+  </div>
+
 <% end %>

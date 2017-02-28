@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     # @pledges = Pledge.where(user_id: current_user)
     # @jobs = @user.backed_projects
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)

@@ -22,6 +22,8 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
+    @trade = Trade.find(params[:trade_id])
+
 
     if @job.save
       redirect_to current_user
@@ -50,6 +52,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :details, :date, :time)
+    params.require(:job).permit(:details, :date, :time, :service_ids => [])
   end
 end

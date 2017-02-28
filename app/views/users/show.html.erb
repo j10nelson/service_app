@@ -13,9 +13,7 @@
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
 
-
-  <%= link_to "Edit", edit_trade_job_path(job), method: :edit %>
+<% byebug %>
+  <%= link_to "Edit", edit_trade_job_path(job.service.trade, job), method: :edit %>
   <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
   <% end %>
-
-  <br><%= link_to "Home Page", root_url %>

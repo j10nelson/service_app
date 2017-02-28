@@ -1,9 +1,9 @@
 class Job < ApplicationRecord
-  belongs_to :service
+  has_many :services
   belongs_to :user
   belongs_to :worker, class_name: "User"
 
 
-  validates :title, :details, presence: true, on: :create
+  # validates :title, :details, presence: true, on: :create
 
 end

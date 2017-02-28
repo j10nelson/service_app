@@ -1,9 +1,6 @@
 <%= form_for([@trade, @job], html: {multipart: true}) do |f| %>
+<%= collection_check_boxes(:trade, :service_ids, @trade.services.all, :id, :type_of_service) %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_area :title %>
-  </div>
 
   <div class="field">
     <%= f.label :details %>

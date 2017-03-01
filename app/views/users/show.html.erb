@@ -14,7 +14,7 @@
     <p>Service: <%= job.service.type_of_service %></p>
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
-    <p>Notes: <%= job.details %></p>
+    <p>Notes: <%= job.notes %></p>
 
     <%= link_to "Edit", edit_service_job_path(job.service, job) %> |
     <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>

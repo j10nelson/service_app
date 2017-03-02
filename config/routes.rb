@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'workers/show'
+
   root "services#index"
   resources :users, only: [:new, :create, :index, :show]
   resources :user_sessions, only: [:new, :create, :destroy]

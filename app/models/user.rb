@@ -12,4 +12,6 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, on: :create
 
   validates :email, uniqueness: true
+
+  ROLES = ["client", "worker", "admin"]
 end

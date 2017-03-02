@@ -8,8 +8,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    authorize! :read, @job
-  end
+    end
 
   def new
     @job = Job.new

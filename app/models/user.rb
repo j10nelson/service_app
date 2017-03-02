@@ -2,6 +2,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :jobs
+  # has_one :worker :source :user
   has_many :services
   has_many :reviews
   has_many :reviews, through: :jobs
@@ -13,5 +14,5 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  ROLES = ["client", "worker", "admin"]
+  # ROLES = ["client", "worker", "admin"]
 end

@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_many :jobs
+  has_many :jobs  # requested client_jobs
+
   # has_one :worker :source :user
   has_many :services
   has_many :reviews

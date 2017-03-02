@@ -18,9 +18,7 @@ class UsersController < ApplicationController
   def show
     @jobs = []
     @user = User.find(params[:id])
-    # if current_user.role != client
-    #   redirect_to root_path
-    #   end
+    @requested_services = Service.where(trade: @user.trade)
 
     if @user != current_user
       redirect_to current_user

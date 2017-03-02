@@ -10,23 +10,23 @@ puts "beginning seed file"
 Service.destroy_all
 
 Service.create!(
-trade: "Hairdresser",
+trade: "hairdresser",
 type_of_service: "Cut",
 )
 
 Service.create!(
-trade: "Massage Therapist",
+trade: "massage Therapist",
 type_of_service: "Deep Tissue",
 )
 
 Service.create!(
-trade: "Nail",
+trade: "nail",
 type_of_service: "Paint Nails",
 )
 
 
 Service.create!(
-trade: "Pool Cleaning",
+trade: "pool Cleaning",
 type_of_service: "Clean Pool",
 )
 

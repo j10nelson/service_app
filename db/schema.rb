@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170301005301) do
   end
 
   create_table "services_users", force: :cascade do |t|
-    t.integer "services_id"
+    t.int3eger "services_id"
     t.integer "worker_id"
   end
 

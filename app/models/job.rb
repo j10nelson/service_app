@@ -7,5 +7,4 @@ class Job < ApplicationRecord
 
   # validates :title, :details, presence: true, on: :create
 
-  end
 end

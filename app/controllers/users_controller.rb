@@ -16,11 +16,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.role = worker
+    if current_user.role == worker
+        redirect_to worker_path
+      end
     @jobs = []
     @user = User.find(params[:id])
-    if @user != current_user
-      redirect_to current_user
+    # if @user != current_user
+    #   redirect_to current_user
+
      end
   end
   #

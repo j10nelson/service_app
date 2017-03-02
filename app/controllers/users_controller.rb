@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    if current_user.role = worker
     @jobs = []
     @user = User.find(params[:id])
     if @user != current_user

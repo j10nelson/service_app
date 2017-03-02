@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root "services#index"
   resources :users, only: [:new, :create, :index, :show]
+  resources :workers, only: [:show]
   resources :user_sessions, only: [:new, :create, :destroy]
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

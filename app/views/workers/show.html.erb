@@ -1,2 +1,22 @@
-<h1>Workers#show</h1>
-<p>Find me in app/views/workers/show.html.erb</p>
+<h2>Account</h2>
+<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+<p>Email: <%= @user.email %></p>
+
+<h2>Jobs Requested</h2>
+  <% @user.jobs.each do |job| %>
+    <h2 class="job-title">
+    <%= link_to job_path(job) do %>
+    <%= job.service.trade %></h2>
+
+    <% end %>
+
+    <p>Service: <%= job.service.type_of_service %></p>
+    <p><%= job.date.strftime('%B %d, %Y') %></p>
+    <p><%= job.time.strftime('%I:%M%p')%></p>
+    <p>Notes: <%= job.notes %></p>
+
+    <%= link_to "Edit", edit_service_job_path(job.service, job) %> |
+    <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
+  <% end %>
+
+  <br><%= link_to "Back to Home", root_path %>

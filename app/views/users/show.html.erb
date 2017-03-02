@@ -3,12 +3,12 @@
 <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
 <p>Email: <%= @user.email %></p>
 
- <% if current_user.role == "client" %>
-<h2>Jobs Requested</h2>
-  <% @user.jobs.each do |job| %>
-    <h2 class="job-title">
-    <%= link_to job_path(job) do %>
-    <%= job.service.trade %></h2>
+<% if current_user.role == "client" %>
+  <h2>Jobs Requested</h2>
+    <% @user.jobs.each do |job| %>
+      <h2 class="job-title">
+      <%= link_to job_path(job) do %>
+      <%= job.service.trade %></h2>
 
     <% end %>
 
@@ -22,15 +22,23 @@
   <% end %>
 
   <br><%= link_to "Back to Home", root_path %>
-  <% end %>
+<% end %>
 
 
 
 
 <% if current_user.role == "worker" %>
-  <% @requested_services.each do |service| %>
-    <%= service.type_of_service %>
+  <% @jobs_from_requested_services.each do |job| %>
+    <h1><%= job.service.trade.capitalize %></h1>
+    <p>Service: <%= job.service.type_of_service %></p>
+    <p><%= job.date.strftime('%B %d, %Y') %></p>
+    <p><%= job.time.strftime('%I:%M%p')%></p>
+    <p>Notes: <%= job.notes %></p>
 
-    <% end %>
+
+
+
+
+  <% end %>
 
 <% end %>

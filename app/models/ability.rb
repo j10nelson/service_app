@@ -2,8 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if User::ALLOWED.include?(client.role)
-      can :read, :write, Job
+    if User::ALLOWED.include?(worker.role)
+      can :read, Job
     end
     # Define abilities for the passed in user here. For example:
     #

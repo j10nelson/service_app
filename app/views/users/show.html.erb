@@ -36,7 +36,7 @@
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Note: <%= job.notes %></p>
-    <%= form_for [job] do |f| %>
+    <%= form_for [job], method: :patch do |f| %>
       <%= f.submit "Accept" %>
       <% end %>
   <% end %>

@@ -4,15 +4,13 @@
 <p>Email: <%= @user.email %></p>
 
 <% if current_user.role == "client" %>
-  <h2>Jobs Requested</h2>
+  <h2>Service Requests: <%= @user.jobs.count %></h2>
     <% @user.jobs.each do |job| %>
       <h2 class="job-title">
       <%= link_to job_path(job) do %>
-      <%= job.service.trade %></h2>
-
-    <% end %>
-
+      <%= job.service.trade.capitalize %></h2>
     <p>Service: <%= job.service.type_of_service %></p>
+    <% end %>
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Notes: <%= job.notes %></p>
@@ -28,22 +26,18 @@
 
 
 <% if current_user.role == "worker" %>
+<h2><%= @user.trade.capitalize %></h2>
+<h2>Job Requests: <%= @user.jobs.count %></h2>
+<h2>Job Accepted: <%= @user.jobs.count %></h2>
   <% @jobs_from_requested_services.each do |job| %>
   <%= link_to job_path(job) do %>
-    <h1><%= job.service.trade.capitalize %></h1>
+    <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
     <% end %>
-
-    <p>Service: <%= job.service.type_of_service %></p>
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Note: <%= job.notes %></p>
-
     <%= form_for [job] do |f| %>
       <%= f.submit "Accept" %>
-
       <% end %>
-
-
   <% end %>
-
 <% end %>

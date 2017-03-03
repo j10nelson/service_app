@@ -27,7 +27,7 @@
 
 <% if current_user.role == "worker" %>
 <h2><%= @user.trade.capitalize %></h2>
-<h2>Job Requests: <%= @user.jobs.count %></h2>
+<h2>Jobs Requested (not accepted yet): <%= @jobs_from_requested_services.count %></h2>
 <h2>Job Accepted: <%= @user.jobs.count %></h2>
   <% @jobs_from_requested_services.each do |job| %>
   <%= link_to job_path(job) do %>

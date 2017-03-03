@@ -20,6 +20,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @requested_services = Service.where(trade: @user.trade)
     @jobs_from_requested_services = Job.where(service_id: @requested_services.ids)
+    @jobs_accepted = Job.accepted_jobs.count
+    @jobs_pending = Job.pending_jobs.count
 
     if @user != current_user
       redirect_to current_user

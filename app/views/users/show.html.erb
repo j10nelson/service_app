@@ -35,8 +35,10 @@
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Notes: <%= job.notes %></p>
 
+    <%= form_for [job] do |f| %>
+      <%= f.submit "Accept" %>
 
-
+      <% end %>
 
 
   <% end %>

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-      @jobs = []
+    @jobs = []
     @user = User.find(params[:id])
     @requested_services = Service.where(trade: @user.trade)
     @jobs_from_requested_services = Job.where(service_id: @requested_services.ids)

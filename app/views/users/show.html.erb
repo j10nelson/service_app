@@ -14,15 +14,15 @@
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Note: <%= job.notes %></p>
-
+<% if job.accepted? %>
+<p>Name: <%= job.worker.first_name %> <%= job.worker.last_name %></p>
+<% end %>
     <%= link_to "Edit", edit_service_job_path(job.service, job) %> |
     <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
   <% end %>
 
   <br><%= link_to "Back to Home", root_path %>
 <% end %>
-
-
 
 
 <% if current_user.role == "worker" %>

@@ -48,17 +48,19 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
       @job.destroy
       redirect_to current_user
-    end
+  end
 
 
   def accept
     @job = Job.find(params[:id])
     @job.worker_id = current_user.id
-      if @job.save
+
+    if @job.save
         redirect_to current_user
-      else
-    redirect_to root_path
-  end
+    else
+        redirect_to root_path
+    end
+
   end
 
   private

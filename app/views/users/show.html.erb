@@ -43,6 +43,7 @@
     <p>Note: <%= job.notes %></p>
     <% if job.accepted? %>
     <p>Status: In Progress</p>
+    <%= link_to "Leave a review", new_job_review_path(job) %>
     <%else %>
     <%= form_tag(job_accept_path(job), method: "put") do %>
       <%= submit_tag ("Accept") %>

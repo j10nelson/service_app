@@ -1,0 +1,11 @@
+<%= form_for [@job, @review] do |f| %>
+  <div class="field">
+     <%= f.label :comments %><br />
+     <%= f.text_area :comments %>
+  </div>
+
+  <div class="field">
+     <%= f.label :rating %><br />
+     <%= f.text_field :rating %>
+  </div>
+<% end %>

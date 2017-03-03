@@ -15,7 +15,7 @@ type_of_service: "Cut",
 )
 
 Service.create!(
-trade: "massage Therapist",
+trade: "massage therapist",
 type_of_service: "Deep Tissue",
 )
 
@@ -26,12 +26,12 @@ type_of_service: "Paint Nails",
 
 
 Service.create!(
-trade: "pool Cleaning",
+trade: "pool cleaning",
 type_of_service: "Clean Pool",
 )
 
 Service.create!(
-trade: "Snow Removal",
+trade: "snow removal",
 type_of_service: "Clean Driveway",
 )
 

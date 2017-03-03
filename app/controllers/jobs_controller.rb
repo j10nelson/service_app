@@ -50,9 +50,20 @@ class JobsController < ApplicationController
       redirect_to current_user
     end
 
+
+  def accept
+    @job = Job.find(params[:id])
+    @job.worker_id = current_user.id
+      if @job.save
+        redirect_to current_user
+      else
+    redirect_to root_path
+  end
+  end
+
   private
 
   def job_params
-    params.require(:job).permit(:notes, :date, :time, :service_id, :worker_id)
+    params.require(:job).permit(:notes, :date, :time, :service_id)
   end
 end

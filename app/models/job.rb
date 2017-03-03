@@ -5,7 +5,13 @@ class Job < ApplicationRecord
 
 
 
-
+def accepted?
+  if self.worker_id
+    return true
+  else
+    return false
+  end
+end
 
   # validates :title, :details, presence: true, on: :create
 

@@ -36,6 +36,11 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
+    @job.worker_id = params[:user_id]
+    @job.update
+    redirect_to current_user
+
+
 
     if @job.update_attributes(job_params)
       # redirect_to "/jobs/#{@job.id}"
@@ -54,6 +59,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:notes, :date, :time, :service_id)
+    params.require(:job).permit(:notes, :date, :time, :service_id, :worker_id)
   end
 end

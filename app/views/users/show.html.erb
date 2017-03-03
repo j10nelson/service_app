@@ -29,11 +29,14 @@
 
 <% if current_user.role == "worker" %>
   <% @jobs_from_requested_services.each do |job| %>
+  <%= link_to job_path(job) do %>
     <h1><%= job.service.trade.capitalize %></h1>
+    <% end %>
+
     <p>Service: <%= job.service.type_of_service %></p>
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
-    <p>Notes: <%= job.notes %></p>
+    <p>Note: <%= job.notes %></p>
 
     <%= form_for [job] do |f| %>
       <%= f.submit "Accept" %>

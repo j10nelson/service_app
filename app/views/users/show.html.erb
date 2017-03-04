@@ -27,7 +27,7 @@
           <% end %>
 
           <% if review.submitted? %>
-          <%= link_to "Read Review", new_job_review_path(job) %>
+          <%= link_to "Read Review", job_review_path(job) %>
           <% end %>
 
         <% end %>

@@ -18,6 +18,7 @@
       <%= job.service.trade.capitalize %></h2>
     <p>Service: <%= job.service.type_of_service %></p>
     <% end %>
+    <p>Price: <%= job.service.price %></p>
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Note: <%= job.notes %></p>
@@ -55,6 +56,7 @@
   <%= link_to job_path(job) do %>
     <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
     <% end %>
+    <p>Price: <%= job.service.price %></p>
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Note: <%= job.notes %></p>
@@ -88,6 +90,9 @@
       <h3> Jobs </h3>
         </div>
 </div>
+<div class="dashboard-feed">
+
+
   <h2>My Account</h2>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
@@ -95,3 +100,4 @@
 <h2>Jobs Pending: <%= @jobs_pending %></h2>
 <h2>Job Accepted: <%= @jobs_accepted %></h2>
 <% end %>
+</div>

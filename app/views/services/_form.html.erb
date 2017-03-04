@@ -1,0 +1,22 @@
+<%= form_for [@service] do |f| %>
+
+    <div class="field">
+       <%= f.label :trade %><br />
+       <%= f.text_field :trade %>
+    </div>
+
+<div class="field">
+     <%= f.label :type_of_service %><br />
+     <%= f.text_field :type_of_service %>
+  </div>
+
+  <div class="field">
+       <%= f.label :price %><br />
+       <%= f.text_field :price %>
+    </div>
+
+  <div class="actions">
+     <%= f.submit %>
+  </div>
+
+<% end %>

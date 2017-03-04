@@ -24,7 +24,6 @@
   <% end %>
     <%= link_to "Edit", edit_service_job_path(job.service, job) %> |
     <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
-    <%= link_to "Leave a Review", new_job_review_path(job) %>
 
   <% end %>
   <br>

@@ -1,3 +1,27 @@
 // Place all the styles related to the services controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.services-offered {
+  border: 1px solid lightgrey;
+  margin: 0px 15px 15px 15px ;
+  width: 200px;
+  float: left;
+}
+
+.services-offered-details {
+  text-align: center;
+  padding-top: 10px;
+
+}
+
+.services-offered-details a {
+  text-decoration: none;
+}
+
+.job-title {
+  text-transform: capitalize;
+}
+
+.service-home {
+  border: 1px solid lightgrey;
+}

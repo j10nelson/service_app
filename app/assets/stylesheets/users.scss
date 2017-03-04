@@ -11,3 +11,15 @@
 // .dashboard-feed {
 //   clear: left;
 // }
+.side-menu {
+position: fixed;
+top: 100;
+z-index: 99;
+background-color: #ffffff;
+width: 120px;
+height: 100%;
+}
+
+.dashboard-feed {
+  margin-left: 190px;
+}

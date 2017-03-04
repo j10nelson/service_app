@@ -1,11 +1,22 @@
 <h2>Services Offered</h2>
+
   <% @services.each do |service| %>
-    <h3 class="trade-title">
+  <div class="services-home">
+
+
+  <div class="services-offered">
+    <div class="services-offered-details">
     <%= link_to new_service_job_path(service) do %>
-    <p><%= service.trade %></p></h3>
+      <div class="job-title">
+    <%= service.trade %>
+  </div>
   <% end %>
+
 
    <p>Service: <%= service.type_of_service %></p>
    <p>Price: <%= service.price %></p>
+   </div>
+  </div>
 
 <% end %>
+</div>

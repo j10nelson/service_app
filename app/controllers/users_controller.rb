@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @jobs_accepted = Job.accepted_jobs.count
     @jobs_pending = Job.pending_jobs.count
 
+
     if @user != current_user
       redirect_to current_user
 

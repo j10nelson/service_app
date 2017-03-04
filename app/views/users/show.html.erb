@@ -1,8 +1,11 @@
 <% if current_user.role == "client" %>
-<p><%= @user.role.capitalize%> Dashboard</p>
+<div class="user-dashboard">
+<%= @user.role.capitalize%> Dashboard</p>
+</div>
 <div class="side-menu">
   <div class="account-side-menu">
-  <h3> Account Details </h3>
+  <%= link_to "Book new service!", root_path %>
+  <h3>Account</h3>
   <a href="#">Personal</a>
   <a href="#">Billing</a>
     </div>
@@ -35,16 +38,17 @@
   <% end %>
   <br>
   <br>
-  <%= link_to "Back to Home", root_path %>
 <% end %>
 </div>
 
 
 <% if current_user.role == "worker" %>
-<p><%= @user.role.capitalize%> Dashboard</p>
+<div class="user-dashboard">
+<%= @user.role.capitalize%> Dashboard</p>
+</div>
 <div class="side-menu">
   <div class="account-side-menu">
-  <h3> Account Details </h3>
+  <h3>Account</h3>
   <a href="#">Personal</a>
   <a href="#">Billing</a>
     </div>
@@ -78,7 +82,9 @@
 
 
 <% if current_user.role == "admin" %>
-<p><%= @user.role.capitalize%> Dashboard</p>
+<div class="user-dashboard">
+<%= @user.role.capitalize%> Dashboard</p>
+</div>
 <div class="side-menu">
   <div class="account-side-menu">
   <h3> Account Details </h3>

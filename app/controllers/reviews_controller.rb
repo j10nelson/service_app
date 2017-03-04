@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
 
 
   def show
-
+    @review = Review.find(params[:id])
   end
 
   def new
@@ -14,7 +14,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new
+    @review = Review.new(review_params)
+    @review.user = current_user
+    @review.job_id = params[:job_id]
+    @job = Job.find(params[:job_id])
 
     if @review.save
       redirect_to current_user, notice: 'Review submitted'
@@ -25,6 +28,10 @@ class ReviewsController < ApplicationController
 
   end
 
+  private
 
+  def review_params
+    params.require(:review).permit(:rating, :comments, :user_id, :job_id)
+  end
 
 end

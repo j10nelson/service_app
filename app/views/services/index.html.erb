@@ -1,5 +1,6 @@
+<div class="services-offered-home">
 <h2>Services Offered</h2>
-
+</div>
   <% @services.each do |service| %>
   <div class="services-home">
 
@@ -11,12 +12,12 @@
     <%= service.trade %>
   </div>
   <% end %>
-
-
    <p>Service: <%= service.type_of_service %></p>
    <p>Price: <%= service.price %></p>
    </div>
+  <%= form_tag(new_service_job_path(service), method: "get", class: 'book-service') do %>
+    <%= submit_tag ("Book") %>
+    <% end %>
   </div>
-
 <% end %>
 </div>

@@ -6,6 +6,7 @@
   margin: 0px 15px 15px 15px ;
   width: 200px;
   float: left;
+  background-color: rgb(234, 238, 213)
 }
 
 .services-offered-details {
@@ -24,4 +25,13 @@
 
 .service-home {
   border: 1px solid lightgrey;
+}
+
+.services-offered-home {
+  padding-left: 15px;
+}
+.book-service {
+  text-align: center;
+  padding-bottom: 10px;
+
 }

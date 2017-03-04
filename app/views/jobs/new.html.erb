@@ -9,11 +9,13 @@
     </ul>
   </div>
 <% end %>
+<div class="book-service">
 
 <h1>Book a Service</h1>
-
-  <h2><p><%= @service.trade %> </p></h2>
+  <h2><p><%= @service.trade.capitalize %> </p></h2>
   <p>Service: <%= @service.type_of_service %> </p>
 
 <%= render 'form' %>
 <%= link_to "Back to Home", root_url %>
+
+</div>

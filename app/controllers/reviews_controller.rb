@@ -14,7 +14,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @review = Review.new
 
+    if @review.save
+      redirect_to current_user, notice: 'Review submitted'
+
+    else
+      render :new
+    end
 
   end
 

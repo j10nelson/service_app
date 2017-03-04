@@ -17,6 +17,7 @@
     <p>Note: <%= job.notes %></p>
 <% if job.accepted? %>
 <p>Worker Name: <b><%= job.worker.first_name %> <%= job.worker.last_name %></b></p>
+<%= link_to "Leave a Review", new_job_review_path(job) %>
 <% end %>
 <% if job.pending? %>
 <p>Status: <b> Awaiting Acceptance</b></p>

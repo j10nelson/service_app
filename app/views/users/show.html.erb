@@ -6,8 +6,10 @@
   <div class="account-side-menu">
   <%= link_to "Book new service!", root_path %>
   <h3>Account</h3>
-  <a href="#">Personal</a>
-  <a href="#">Billing</a>
+  <ul>
+  <li><a href="#">Personal</a></li>
+  <li><a href="#">Billing</a></li>
+  </ul>
     </div>
 </div>
 <div class="dashboard-feed">
@@ -48,9 +50,11 @@
 </div>
 <div class="side-menu">
   <div class="account-side-menu">
-  <h3>Account</h3>
-  <a href="#">Personal</a>
-  <a href="#">Billing</a>
+    <h3>Account</h3>
+    <ul>
+    <li><a href="#">Personal</a></li>
+    <li><a href="#">Billing</a></li>
+    </ul>
     </div>
 </div>
 <div class="dashboard-feed">
@@ -87,14 +91,18 @@
 </div>
 <div class="side-menu">
   <div class="account-side-menu">
-  <h3> Account Details </h3>
-  <a href="#">Personal</a>
-  <a href="#">Billing</a>
+    <h3>Account</h3>
+    <ul>
+    <li><a href="#">Personal</a></li>
+    <li><a href="#">Billing</a></li>
+    </ul>
     </div>
 
     <div class="service-side-menu">
     <h3> Services </h3>
-    <%= link_to "Create a service", new_service_url %>
+  <ul>
+    <li><%= link_to "Create a service", new_service_url %></li>
+  </ul>
       </div>
 
       <div class="job-side-menu">

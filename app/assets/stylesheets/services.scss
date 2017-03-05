@@ -2,13 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .root-banner {
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/home-img.jpg);
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("home-img.jpg");
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("home-img.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+    background-size: 100%;
+    background-position: top;
+    top: 0;  
+    height: 70vh;
     background-attachment: fixed;
-    margin-top: 0;
+    background-repeat: no-repeat;
+    overflow :hidden;
+
 }
 
 .banner-text {
@@ -18,11 +21,12 @@
     color: white;
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     text-align: center;
     text-transform: uppercase;
-    
+    font-size: 30px;
+
 
 }
 

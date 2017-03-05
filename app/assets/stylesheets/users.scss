@@ -89,3 +89,32 @@ margin: none;
   .actions-new-user a {
   text-decoration: none;
 }
+
+.btn-new-user {
+display: inline-block;
+text-align: center;
+padding: 6px;
+font-size: 24px;
+width: 95%;
+cursor: pointer;
+margin: 10px auto;
+text-decoration: none;
+outline: 1px solid rgba(214, 214, 214, 0.68);
+color: #000;
+background-color: #fff;
+border: none;
+border-radius: 1px;
+box-shadow: 0 4px #999;
+
+}
+
+.btn-new-user:hover {
+background-color: #242424;
+color: #fff;
+}
+
+.btn-new-user:active {
+background-color: rgba(#3298eb, 0.84);
+box-shadow: 0 5px #666;
+transform: translateY(4px);
+}

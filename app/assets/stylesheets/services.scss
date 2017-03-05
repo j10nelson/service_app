@@ -6,7 +6,7 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("home-img.jpg");
     background-size: 100%;
     background-position: top;
-    top: 0;  
+    top: 0;
     height: 70vh;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -46,6 +46,8 @@
 
 .services-offered-details a {
   text-decoration: none;
+  color: rgb(34, 36, 30);
+
 }
 
 .job-title {

@@ -21,12 +21,12 @@
   line-height: 30px;
 }
 
-.btn-book-home {
+.btn-new-job {
 display: inline-block;
 text-align: center;
 padding: 6px;
 font-size: 24px;
-width: 90%;
+width: 60%;
 cursor: pointer;
 margin: 10px;
 text-decoration: none;
@@ -39,12 +39,12 @@ box-shadow: 0 4px #999;
 margin: auto;
 }
 
-.btn-book-home:hover {
+.btn-new-job:hover {
 background-color: #242424;
 color: #fff;
 }
 
-.btn-book-home:active {
+.btn-new-job:active {
 background-color: rgba(#3298eb, 0.84);
 box-shadow: 0 5px #666;
 transform: translateY(4px);

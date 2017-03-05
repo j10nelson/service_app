@@ -1,8 +1,8 @@
 <div class="job-show">
-  <h2 class="job-title">
-  <%= @job.service.trade %></h2>
+  <h1>
+  <%= @job.service.trade.capitalize %></h1>
 <p>Service: <%= @job.service.type_of_service %></p>
-<p>Price: <%= @job.price %></p>
+<p>Price: <%= @job.service.price %></p>
 
 <h1><%= @job.title %></h1>
 <p><%= @job.date.strftime('%B %d, %Y') %></p>

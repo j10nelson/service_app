@@ -10,3 +10,21 @@
   width: 50%;
   text-align: center;
 }
+.field-job {
+  padding-left: 15px;
+  font-weight: 700;
+}
+.field-job input {
+    width: 90%;
+    padding: 12px 12px;
+    margin: 8px 8px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+.field-job input:focus {
+    border: 3px solid #ffc563;
+}

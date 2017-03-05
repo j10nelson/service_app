@@ -53,3 +53,36 @@ list-style: none;
 padding: none;
 margin: none;
 }
+
+.user-new {
+    border: 1px solid lightgrey;
+    margin: 30px auto;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    width: 50%;
+    text-align: center;
+  }
+  .field-new-user {
+    padding-left: 15px;
+    font-weight: 700;
+  }
+  .field-new-user input {
+      width: 90%;
+      padding: 12px 12px;
+      margin: 8px 8px;
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+  }
+
+  .field-new-user input:focus {
+      border: 3px solid #ffc563;
+  }
+
+  .actions-new-user {
+    text-align: left;
+    padding-left: 25px;
+
+  }

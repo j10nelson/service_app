@@ -1,6 +1,18 @@
 // Place all the styles related to the Jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.job-form, .job-show {
+  border: 1px solid black;
+  width: 40%;
+  text-align: center;
+  padding: 5px;
+  line-height: 30px;
+  margin: auto auto;
+}
+
+.job-show a {
+  text-decoration: none;
+}
 
 .book-service {
   border: 1px solid lightgrey;
@@ -10,25 +22,24 @@
   width: 50%;
   text-align: center;
 }
-.field-job {
-  padding-left: 15px;
-  width: 44%;
-  text-align: center;
-  font-weight: 700;
-  border: 1px solid lightgrey;
-  padding: 15px;
-  margin: auto;
-  line-height: 30px;
-}
+// .field-job {
+//   padding-left: 15px;
+//   width: 44%;
+//   text-align: center;
+//   font-weight: 700;
+//   padding: 5px;
+//   margin: auto;
+//   line-height: 30px;
+// }
 
 .btn-new-job {
 display: inline-block;
 text-align: center;
 padding: 6px;
 font-size: 24px;
-width: 60%;
+width: 70%;
 cursor: pointer;
-margin: 10px;
+margin-bottom: 10px;
 text-decoration: none;
 outline: 1px solid rgba(214, 214, 214, 0.68);
 color: #000;
@@ -36,7 +47,6 @@ background-color: #fff;
 border: none;
 border-radius: 1px;
 box-shadow: 0 4px #999;
-margin: auto;
 }
 
 .btn-new-job:hover {

@@ -3,20 +3,23 @@
   <div class="field-job">
     <%= f.label :date %>
     <%= f.date_select :date %>
+  </div>
 
+  <div class="field-job">
     <%= f.label :time %>
     <%= f.time_select :time %>
+  </div>
 
 
   <br>
-    <div class="field-job-notes">
+    <div class="field-job">
     <%= f.label :notes %>
     <%= f.text_area :notes %>
     </div>
 
-</div>
-  <br><div class="">
-     <%= f.submit("Create Job", class: "btn-new-job") %>
+
+  <br><div class="field-job">
+     <%= f.submit( class: "btn-new-job") %>
   </div>
 
 

@@ -63,7 +63,16 @@
       <%= form_tag(job_accept_path(job), method: "put") do %>
         <%= submit_tag ("Accept") %>
       <% end %>
+
+      <% @reviews.each do |review| %>
+      <% if review.done? %>
+      <p>Status: done</p>
+      <% end %>
+      <% end %>
     <% end %>
+
+
+
 
   <% end %>
 

@@ -21,6 +21,13 @@ class Job < ApplicationRecord
     end
   end
 
+  def done?
+    if @reviews
+      return true
+    else
+      return false
+    end
+  end
 
   def self.accepted_jobs
     where("worker_id IS NOT NULL")

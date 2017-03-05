@@ -17,7 +17,7 @@
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
   <h2>Jobs Pending: <%=  %></h2>
-  <h2>Jobs Accepted: <%=  %></h2>
+  <h2>Jobs Accepted: <%= %></h2>
 
     <% @user.jobs.each do |job| %>
       <h2 class="job-title">

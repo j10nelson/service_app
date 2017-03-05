@@ -25,8 +25,7 @@ class UsersController < ApplicationController
 
     if @user != current_user
       redirect_to current_user
-
-     end
+    end
   end
   #
   # if @user.worker = current_user

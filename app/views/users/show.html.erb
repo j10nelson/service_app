@@ -27,7 +27,7 @@
           <% end %>
 
           <% if review.submitted? %>
-          <%= link_to "Read Review", job_review_path(job) %>
+          <%= link_to "Read Review", new_job_review_path(job) %>
           <% end %>
 
         <% end %>
@@ -50,23 +50,29 @@
 
 
 <% if current_user.role == "worker" %>
-<h2><%= @user.trade.capitalize %></h2>
-<h2>Jobs Pending: <%= @jobs_pending %></h2>
-<h2>Job Accepted: <%= @jobs_accepted %></h2>
+  <h2><%= @user.trade.capitalize %></h2>
+  <h2>Jobs Pending: <%= @jobs_pending %></h2>
+  <h2>Job Accepted: <%= @jobs_accepted %></h2>
+
   <% @jobs_from_requested_services.each do |job| %>
-  <%= link_to job_path(job) do %>
+
+    <%= link_to job_path(job) do %>
     <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
     <% end %>
+
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Note: <%= job.notes %></p>
+
     <% if job.accepted? %>
     <p>Status: In Progress</p>
     <%= link_to "Leave a review", new_job_review_path(job) %>
+
     <%else %>
-    <%= form_tag(job_accept_path(job), method: "put") do %>
-      <%= submit_tag ("Accept") %>
+      <%= form_tag(job_accept_path(job), method: "put") do %>
+        <%= submit_tag ("Accept") %>
       <% end %>
-      <% end %>
+
+    <% end %>
   <% end %>
 <% end %>

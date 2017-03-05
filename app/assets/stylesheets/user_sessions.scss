@@ -8,11 +8,21 @@
     padding-bottom: 20px;
     width: 50%;
     text-align: center;
+
   }
 
-  .remember-submit {
+  .remember-submit, .actions-session {
     text-align: left;
     padding-left: 15px;
+  }
+
+  .actions-session a {
+    text-decoration: none;
+  }
+  
+
+  .field-session {
+    font-weight: 700;
   }
   .field-session input {
       width: 90%;

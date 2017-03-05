@@ -63,7 +63,7 @@ margin: none;
     text-align: center;
   }
   .field-new-user {
-    padding-left: 15px;
+    // padding-left: 15px;
     font-weight: 700;
   }
   .field-new-user input {
@@ -84,5 +84,8 @@ margin: none;
   .actions-new-user {
     text-align: left;
     padding-left: 25px;
-
   }
+
+  .actions-new-user a {
+  text-decoration: none;
+}

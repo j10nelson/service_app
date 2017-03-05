@@ -14,6 +14,7 @@
 <h1>Book a Service</h1>
   <h2><p><%= @service.trade.capitalize %> </p></h2>
   <p>Service: <%= @service.type_of_service %> </p>
+  <p>Price: <%= @service.price %> </p>
 
 <%= render 'form' %>
 <%= link_to "Back to Home", root_url %>

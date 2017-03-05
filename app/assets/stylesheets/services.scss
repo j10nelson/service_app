@@ -11,6 +11,21 @@
     margin-top: 0;
 }
 
+.banner-text {
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    
+
+}
+
 .services-offered {
   border: 1px solid lightgrey;
   margin: 0px 15px 15px 15px ;

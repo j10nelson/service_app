@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     @jobs_from_requested_services = Job.where(service_id: @requested_services.ids)
     @jobs_accepted = Job.accepted_jobs.count
     @jobs_pending = Job.pending_jobs.count
+    @reviews_submitted = Review.submitted_reviews
+    @reviews_not_submitted = Review.not_submitted_reviews
 
 
     if @user != current_user

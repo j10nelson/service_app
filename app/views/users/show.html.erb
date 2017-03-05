@@ -21,15 +21,6 @@
 
         <% if job.accepted? %>
           <p>Worker Name: <b><%= job.worker.first_name %> <%= job.worker.last_name %></b></p>
-
-
-          <%= link_to "Close Job", new_job_review_path(job) %>
-
-
-
-          <%= link_to "Read Review", job_review_path(job) %>
-
-
         <% end %>
 
         <% if job.pending? %>
@@ -67,15 +58,13 @@
     <% if job.accepted? %>
     <p>Status: In Progress</p>
     <%= link_to "Close Job", new_job_review_path(job) %>
-    <%= link_to "Read Review", job_review_path(job) %>
-
-
 
     <%else %>
       <%= form_tag(job_accept_path(job), method: "put") do %>
         <%= submit_tag ("Accept") %>
       <% end %>
-
     <% end %>
+
   <% end %>
+
 <% end %>

@@ -5,12 +5,12 @@ class ServicesController < ApplicationController
 
   def new
     @service = Service.new
-
   end
+  
   def create
     @service = Service.new(service_params)
     if @service.save
-       flash[:notice] = "Signed up!"
+       flash[:notice] = "New Trade Created!"
       redirect_to current_user
     else
       flash.now[:error] = 'Sorry, try again!'

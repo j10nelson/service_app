@@ -16,8 +16,8 @@
 
         <nav class="site-nav">
           <% if current_user %>
-            Hello <%= current_user.first_name %>
-            <%= link_to "My Account", current_user %>
+            <%= current_user.first_name.capitalize %>
+            <%= link_to "Dashboard", current_user %> |
             <%= link_to "Logout", :logout, method: :post %>
 
           <% else %>
@@ -36,7 +36,7 @@
       </main>
 
       <footer class="site-footer">
-        <small></small>
+        <p>&copy; 2017 ServiceApp.com<p>
       </footer>
       <%= console %>
   </body>

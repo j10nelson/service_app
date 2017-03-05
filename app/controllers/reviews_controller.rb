@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
     @job = Job.find(params[:job_id])
 
     if @review.save
-      redirect_to current_user, notice: 'Review submitted'
+      redirect_to current_user, notice: 'Job Closed'
 
     else
       render :new

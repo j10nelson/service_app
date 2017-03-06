@@ -27,14 +27,19 @@ class Job < ApplicationRecord
 
 
   # we hope that poop_id is the current user's id, but it's up to whoever calls this to do the right thing
+  #accepted for worker
   def self.accepted_jobs(poop_id)
     where("worker_id IS NOT NULL AND worker_id = #{poop_id}")
+  end
+
+  def self.accepted_jobs_client(poop)
+    where("worker_id IS NOT NULL AND user_id = #{poop}")
   end
 
   def self.pending_jobs_client(wtv)
     where("worker_id IS NULL AND user_id = #{wtv}")
   end
-  
+
   def self.pending_jobs_client(wtv)
     where("worker_id IS NULL AND user_id = #{wtv}")
   end

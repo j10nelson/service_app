@@ -9,9 +9,6 @@
   <% if @user.home_address? %>
   <li><%= render 'form_home_address' %></li>
   <% end %>
-  <% if @user.filled_home_address? %>
-  <li><a href="#">HOME ADRESS filled</a></li>
-  <% end %>
   <li><a href="#">Personal</a></li>
   <li><a href="#">Billing</a></li>
   </ul>
@@ -26,7 +23,7 @@
   <p>Address: <%= @user.home_address %></p>
   <% end %>
   <h2>Jobs Pending: <%= @jobs_pending_client %></h2>
-  <h2>Jobs Accepted: <%=  @jobs_accepted%></h2>
+  <h2>Jobs Accepted: <%=  @jobs_accepted_client%></h2>
 
     <% @user.jobs.each do |job| %>
       <h2 class="job-title">

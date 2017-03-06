@@ -31,6 +31,10 @@ class Job < ApplicationRecord
     where("worker_id IS NOT NULL AND worker_id = #{poop_id}")
   end
 
+  def self.pending_jobs_client(wtv)
+    where("worker_id IS NULL AND user_id = #{wtv}")
+  end
+
   def self.pending_jobs(wtv)
     where("worker_id IS NULL AND user_id = #{wtv}")
   end

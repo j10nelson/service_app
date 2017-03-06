@@ -3,7 +3,8 @@ class Job < ApplicationRecord
   belongs_to :user
   belongs_to :worker, class_name: "User"
 
-
+  validates :date, :time, presence: true, on: :create
+  validates :notes, length: { maximum: 255 }, presence: true, on: :create
 
   def accepted?
     if self.worker_id

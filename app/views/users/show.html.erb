@@ -1,6 +1,5 @@
 <% if current_user.role == "client" %>
 <div class="user-dashboard">
-<%= @user.role.capitalize%> Dashboard</p>
 </div>
 <div class="side-menu">
   <div class="account-side-menu">
@@ -14,6 +13,7 @@
 </div>
 <div class="dashboard-feed">
   <h2>My Account</h2>
+  <h3><%= @user.role.capitalize%> Dashboard</p></h3>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
   <h2>Jobs Pending: <%=  %></h2>

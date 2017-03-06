@@ -2,6 +2,7 @@ class Job < ApplicationRecord
   belongs_to :service
   belongs_to :user
   belongs_to :worker, class_name: "User"
+  has_many :reviews
 
 
 
@@ -21,12 +22,22 @@ class Job < ApplicationRecord
     end
   end
 
-  def done?
-    if @reviews
-      return true
-    else
-      return false
+  def worker_done?
+    self.reviews.each do |review|
+      if review.user == self.worker
+        return true
+      end
     end
+    return false
+  end
+
+  def client_done?
+    self.reviews.each do |review|
+      if review.user == self.user
+        return true
+      end
+    end
+    return false
   end
 
   def self.accepted_jobs

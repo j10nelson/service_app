@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = current_user
     @requested_services = Service.where(trade: @user.trade)
     @jobs_from_requested_services = Job.where(service_id: @requested_services.ids)
-    @jobs_accepted = Job.accepted_jobs(current_user.id).count
+    @jobs_accepted_worker = Job.accepted_jobs(current_user.id).count
     @jobs_accepted_client = Job.accepted_jobs_client(current_user.id).count
     @jobs_pending_client = Job.pending_jobs_client(current_user.id).count
 

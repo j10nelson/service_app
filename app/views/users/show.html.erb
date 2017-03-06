@@ -35,6 +35,7 @@
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Note: <%= job.notes %></p>
+
 <% if job.accepted? %>
 <p>Worker Name: <b><%= job.worker.first_name %> <%= job.worker.last_name %></b></p>
 <% end %>
@@ -69,7 +70,7 @@
   <p>Email: <%= @user.email %></p>
 <h2><%= @user.trade.capitalize %></h2>
 <h2>Jobs Pending: <%= @jobs_pending %></h2>
-<h2>Job Accepted: <%= @jobs_accepted %></h2>
+<h2>Job Accepted: <%= @jobs_accepted_worker %></h2>
   <% @jobs_from_requested_services.each do |job| %>
   <%= link_to job_path(job) do %>
     <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
@@ -78,6 +79,10 @@
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Note: <%= job.notes %></p>
+
+    <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
+    <p>Address: <%= job.user.home_address %></p>
+
     <% if job.accepted? %>
     <p>Status: In Progress</p>
     <%= link_to "Leave a review", new_job_review_path(job) %>

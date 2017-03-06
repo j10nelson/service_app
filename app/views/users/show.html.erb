@@ -3,11 +3,11 @@
 </div>
 <div class="side-menu">
   <div class="account-side-menu">
-  <%= link_to "Book new service!", root_path %>
+  <%= link_to "Book new service!", root_path %></%>
   <ul>
   <h3>Account</h3>
   <% if @user.home_address? %>
-  <li><a href="#">HOME ADRESS MISSING</a></li>
+  <li><%= render 'form_home_address' %></li>
   <% end %>
   <% if @user.filled_home_address? %>
   <li><a href="#">HOME ADRESS filled</a></li>
@@ -22,8 +22,8 @@
   <h3><%= @user.role.capitalize%> Dashboard</p></h3>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
-  <h2>Jobs Pending: <%=  %></h2>
-  <h2>Jobs Accepted: <%= %></h2>
+  <h2>Jobs Pending: <%= @jobs_pending %></h2>
+  <h2>Jobs Accepted: <%=  @jobs_accepted%></h2>
 
     <% @user.jobs.each do |job| %>
       <h2 class="job-title">
@@ -68,8 +68,8 @@
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
 <h2><%= @user.trade.capitalize %></h2>
-<h2>Jobs Pending: <%=  %></h2>
-<h2>Job Accepted: <%=  %></h2>
+<h2>Jobs Pending: <%= @jobs_pending %></h2>
+<h2>Job Accepted: <%= @jobs_accepted %></h2>
   <% @jobs_from_requested_services.each do |job| %>
   <%= link_to job_path(job) do %>
     <h3>Service: <%= job.service.type_of_service.capitalize %></h3>

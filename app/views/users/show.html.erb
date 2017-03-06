@@ -28,7 +28,7 @@
     <% @user.jobs.each do |job| %>
       <h2 class="job-title">
       <%= link_to job_path(job) do %>
-      <%= job.service.trade.capitalize %></h2>
+      <!-- <%= job.service.trade.capitalize %></h2> -->
     <p>Service: <%= job.service.type_of_service %></p>
     <% end %>
     <p>Price: <%= job.service.price %></p>

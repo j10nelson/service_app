@@ -29,14 +29,26 @@ class UsersController < ApplicationController
   end
 
   def update
-    @job = Job.find(params[:id])
-    if @job.update_attributes(job_params)
+    @user = current_user
+    if @user.save
       # redirect_to "/jobs/#{@job.id}"
       redirect_to current_user
     else
-      render :edit
+      redirect_to root_path
     end
   end
+
+  def accept
+    @job = Job.find(params[:id])
+    @job.worker_id = current_user.id
+
+    if @job.save
+        redirect_to current_user
+    else
+        redirect_to root_path
+    end
+  end
+
   #
   # if @user.worker = current_user
   #   redirect_to root_path

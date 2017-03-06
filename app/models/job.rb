@@ -24,7 +24,7 @@ class Job < ApplicationRecord
 
 
   def self.accepted_jobs
-    where("worker_id IS NOT NULL")
+    where("worker_id IS NOT NULL") 
   end
 
   def self.pending_jobs

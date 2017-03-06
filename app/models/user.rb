@@ -26,5 +26,13 @@ class User < ApplicationRecord
     end
   end
 
-  
+  def filled_home_address?
+    if self.home_address
+      return true
+    else
+      return false
+    end
+  end
+
+
 end

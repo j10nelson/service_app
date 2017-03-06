@@ -23,7 +23,15 @@
       <% if job.accepted? && job.worker_done? && job.client_done? %>
         <p>Worker Name: <b><%= job.worker.first_name %> <%= job.worker.last_name %></b></p>
         <p>Status: Job Closed</p>
-        <p>Review: <%= %></p>
+        <p>Reviews:</p>
+          <% job.reviews.each do |review| %>
+            <p>Reviewed by: <%= review.user.role.capitalize %></p>
+            <p>Role <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
+            <p>Rating: <%= review.rating %></p>
+            <p>Comments: <%= review.comments %></p>
+          <% end %>
+        <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
+
 
       <% elsif job.accepted? && job.worker_done? %>
         <p>Worker Name: <b><%= job.worker.first_name %> <%= job.worker.last_name %></b></p>
@@ -64,6 +72,14 @@
 
     <% if job.accepted? && job.worker_done? %>
       <p>Status: Job Closed</p>
+      <p>Reviews:</p>
+        <% job.reviews.each do |review| %>
+          <p>Reviewed by: <%= review.user.role.capitalize %></p>
+          <p>Role <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
+          <p>Rating: <%= review.rating %></p>
+          <p>Comments: <%= review.comments %></p>
+        <% end %>
+
 
     <% elsif job.accepted? %>
       <p>Status: In Progress</p>

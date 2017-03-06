@@ -31,8 +31,8 @@ class Job < ApplicationRecord
     where("worker_id IS NOT NULL AND worker_id = #{poop_id}")
   end
 
-  def self.pending_jobs
-    where("worker_id IS NULL")
+  def self.pending_jobs(wtv)
+    where("worker_id IS NULL AND user_id = #{wtv}")
   end
 
   # validates :title, :details, presence: true, on: :create

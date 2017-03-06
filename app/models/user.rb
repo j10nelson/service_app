@@ -16,4 +16,15 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   # ROLES = ["client", "worker", "admin"]
+
+
+  def home_address?
+    if self.home_address
+      return false
+    else
+      return true
+    end
+  end
+
+  
 end

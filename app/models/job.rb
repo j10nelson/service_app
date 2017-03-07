@@ -2,6 +2,7 @@ class Job < ApplicationRecord
   belongs_to :service
   belongs_to :user
   belongs_to :worker, class_name: "User"
+  has_many :reviews
 
   validates :date, :time, presence: true, on: :create
   validates :notes, length: { maximum: 255 }, presence: true, on: :create
@@ -24,6 +25,23 @@ class Job < ApplicationRecord
     end
   end
 
+  def worker_done?
+    self.reviews.each do |review|
+      if review.user == self.worker
+        return true
+      end
+    end
+    return false
+  end
+
+  def client_done?
+    self.reviews.each do |review|
+      if review.user == self.user
+        return true
+      end
+    end
+    return false
+  end
 
 
   # we hope that poop_id is the current user's id, but it's up to whoever calls this to do the right thing

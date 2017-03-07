@@ -86,8 +86,9 @@
   <h2>My Account</h2>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
-<h2>TRADE NAME <%=%></h2>
-<h2>Jobs Pending: <%= @jobs_pending %></h2>
+<h2>TRADE id: <%= @user.trade_id%>******</h2>
+
+<h2>Jobs Pending:**** <%= @jobs_pending %></h2>
 <h2>Job Accepted: <%= @jobs_accepted_worker %></h2>
     <% @jobs_from_requested_services.each do |job| %>
   <%= link_to job_path(job) do %>

@@ -1,8 +1,6 @@
 class ServicesController < ApplicationController
   def index
     @services = Service.all
-    @trade = Service.where(trade_id: :trade_id)
-
   end
 
   def new
@@ -25,7 +23,7 @@ class ServicesController < ApplicationController
 
   private
   def service_params
-  params.require(:service).permit(:type_of_service, :trade, :price)
+  params.require(:service).permit(:type_of_service, :trade_id, :price)
   end
 
 end

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :services
   has_many :reviews
   has_many :reviews, through: :jobs
-  # belongs_to :trade
+  belongs_to :trade
 
   validates :first_name, :last_name, :email, presence: true, on: :create
   validates :password, length: { minimum: 4 }, presence: true, on: :create

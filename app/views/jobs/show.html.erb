@@ -1,3 +1,6 @@
+<% if current_user.role == "client" %>
+
+
 <div class="job-show">
   <h1>
   <%= @job.service.trade.name.capitalize %></h1>
@@ -12,9 +15,34 @@
 <p><%= @job.time.strftime('%I:%M%p') %></p>
 <p>Notes: <%= @job.note %></p>
 </div>
-<%= link_to "Edit", edit_service_job_path(@job.service, @job) %> |
-<%= link_to "Delete", @job, method: :delete, data: {confirm: "Are you sure you want to delete this service request?"} %> <br>
-<br><%= link_to "Back to Account", current_user %> |
-<%= link_to "Home", root_path %>
+
+
+
+
+
+<% if @job.accepted? && @job.worker_done? && @job.client_done? %>
+<p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
+<p>Status: Job Closed</p>
+<p>Reviews:</p>
+  <% @job.reviews.each do |review| %>
+    <p>Role <%= review.user.role.capitalize %></p>
+    <p>Reviewed by: <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
+    <p>Rating: <%= review.rating %></p>
+    <p>Comments: <%= review.comment %></p>
+  <% end %>
+
+  <% elsif @job.accepted? %>
+    <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
+
+  <% else @job.pending? %>
+    <p>Status: <b> Awaiting Acceptance</b></p>
+
+    <%= link_to "Edit", edit_service_job_path(@job.service, @job) %> |
+    <%= link_to "Delete", @job, method: :delete, data: {confirm: "Are you sure you want to delete this service request?"} %><br>
+    <br><%= link_to "Back to Account", current_user %> |
+    <%= link_to "Home", root_path %>
+  <% end %>
+
 
 </div>
+<% end %>

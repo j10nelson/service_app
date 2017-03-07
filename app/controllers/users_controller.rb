@@ -23,8 +23,7 @@ class UsersController < ApplicationController
 
 
 
-    # @jobs_accepted_worker = Job.where("worker_id ISnN NULL").where(service_id: @user.services.ids)
-
+   @jobs_accepted_worker = @jobs_from_requested_services.select(&:accepted?).count
 
 
     @pending_jobs_user = Job.where("worker_id IS NULL").where(service_id: @user.services.ids)

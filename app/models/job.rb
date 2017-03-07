@@ -9,21 +9,20 @@ class Job < ApplicationRecord
 
   # make one change:
   # pass in the current_user as a piece of data to this method
+
   def accepted?
-    if self.worker_id
-      return true
-    else
-      return false
-    end
+    self.worker_id && self.reviews.size == 0
+  end
+
+
+  def completed?
+  self.reviews.size == 2
   end
 
   def pending?
-    if self.worker_id
-      return false
-    else
-      return true
-    end
+  self.worker_id
   end
+
 
   def worker_done?
     self.reviews.each do |review|

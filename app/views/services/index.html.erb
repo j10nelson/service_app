@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -16,9 +17,13 @@
         </div>
       </div>
     </header>
+    <% if current_user.role == "client" %>
+
     <div class="services-offered-home">
     <h2>Services Offered</h2>
     </div>
+
+
       <% @services.each do |service| %>
       <div class="services-home">
 
@@ -38,7 +43,12 @@
           <% end %>
         </div>
     <% end %>
-    </div>
+    <% end %>
 
+    </div>
+<% if current_user.role == "worker" %>
+<h1>Worker cannot book a Service</h1>
+</div>
+<% end %>
   </body>
 </html>

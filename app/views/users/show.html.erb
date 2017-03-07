@@ -32,20 +32,19 @@
     <% end %>
     <p>Price: <%= job.service.price %></p>
       <%= job.service.trade.capitalize %></h2>
-      <% end %>
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
-    <p>Note: <%= job.notes %></p>
+    <p>Note: <%= job.note %></p>
 
       <% if job.accepted? && job.worker_done? && job.client_done? %>
         <p>Worker Name: <b><%= job.worker.first_name %> <%= job.worker.last_name %></b></p>
         <p>Status: Job Closed</p>
         <p>Reviews:</p>
           <% job.reviews.each do |review| %>
-            <p>Reviewed by: <%= review.user.role.capitalize %></p>
-            <p>Role <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
+            <p>Role <%= review.user.role.capitalize %></p>
+            <p>Reviewed by: <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
             <p>Rating: <%= review.rating %></p>
-            <p>Comments: <%= review.comments %></p>
+            <p>Comments: <%= review.comment %></p>
           <% end %>
         <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
 
@@ -64,7 +63,7 @@
         <%= link_to "Edit", edit_service_job_path(job.service, job) %> |
         <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
       <% end %>
-    <% end %>
+      <% end %>
   <%= link_to "Back to Home", root_path %>
 <% end %>
 </div>
@@ -97,7 +96,7 @@
     <p>Price: <%= job.service.price %></p>
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
-    <p>Note: <%= job.notes %></p>
+    <p>Note: <%= job.note %></p>
 
     <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
     <p>Address: <%= job.user.home_address %></p>
@@ -105,11 +104,12 @@
     <% if job.accepted? && job.worker_done? %>
       <p>Status: Job Closed</p>
       <p>Reviews:</p>
+
         <% job.reviews.each do |review| %>
-          <p>Reviewed by: <%= review.user.role.capitalize %></p>
-          <p>Role <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
+          <p>Role: <%= review.user.role.capitalize %></p>
+          <p>Name: <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
           <p>Rating: <%= review.rating %></p>
-          <p>Comments: <%= review.comments %></p>
+          <p>Comments: <%= review.comment %></p>
         <% end %>
 
 
@@ -123,7 +123,8 @@
       <% end %>
     <% end %>
   <% end %>
-<% end %>
+  <% end %>
+
 </div>
 
 

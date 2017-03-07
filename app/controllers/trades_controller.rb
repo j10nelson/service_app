@@ -4,16 +4,15 @@ class TradesController < ApplicationController
   @trade = Trade.new
   end
 
-
   def create
     @trade = Trade.new(trade_params)
-    @trade.user = current_user
-
+    
     if @trade.save
+       flash[:notice] = "New Trade Created!"
       redirect_to current_user
-      # redirect_to current_user_url
     else
-      render :new
+      flash.now[:error] = 'Sorry, try again!'
+        redirect_to root_path
     end
   end
 

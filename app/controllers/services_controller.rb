@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     if @service.save
-       flash[:notice] = "New Trade Created!"
+       flash[:notice] = "New Service Created!"
       redirect_to current_user
     else
       flash.now[:error] = 'Sorry, try again!'

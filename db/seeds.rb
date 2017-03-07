@@ -24,7 +24,6 @@ type_of_service: "Paint Nails",
 price: 40
 )
 
-
 Service.create!(
 type_of_service: "Clean Pool",
 price: 100

@@ -13,7 +13,7 @@
 
 <% if current_user.role == "client" %>
 <h1>Book a Service</h1>
-  <h2>TRADE NAME<p> </p></h2>
+  <h2><p> <%= @service.trade.name.capitalize %> </p></h2>
   <p>Service: <%= @service.type_of_service %> </p>
   <p>Price: <%= @service.price %> </p>
 

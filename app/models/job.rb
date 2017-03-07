@@ -20,8 +20,12 @@ class Job < ApplicationRecord
   end
 
   def pending?
-  self.worker_id
+  if self.worker_id
+    true
+  else
+    false
   end
+end
 
 
   def worker_done?

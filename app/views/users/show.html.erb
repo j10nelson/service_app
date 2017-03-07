@@ -31,7 +31,7 @@
     <p>Service: <%= job.service.type_of_service %></p>
     <% end %>
     <p>Price: <%= job.service.price %></p>
-      <%= job.service.trade.capitalize %></h2>
+      <%=  %>TRADE</h2>
     <p><%= job.date.strftime('%B %d, %Y') %></p>
     <p><%= job.time.strftime('%I:%M%p')%></p>
     <p>Note: <%= job.note %></p>
@@ -86,7 +86,7 @@
   <h2>My Account</h2>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
-<h2> <%= @user.trade.name.capitalize %></h2>
+<h2>TRADE NAME <%= %></h2>
 <h2>Jobs Pending: <%= @jobs_pending %></h2>
 <h2>Job Accepted: <%= @jobs_accepted_worker %></h2>
     <% @jobs_from_requested_services.each do |job| %>

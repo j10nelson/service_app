@@ -1,6 +1,8 @@
 class ServicesController < ApplicationController
   def index
     @services = Service.all
+    @trade = Service.where(trade_id: :trade_id)
+
   end
 
   def new

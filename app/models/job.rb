@@ -5,7 +5,7 @@ class Job < ApplicationRecord
   has_many :reviews
 
   validates :date, :time, presence: true, on: :create
-  validates :notes, length: { maximum: 255 }, presence: true, on: :create
+  validates :note, length: { maximum: 255 }, presence: true, on: :create
 
   # make one change:
   # pass in the current_user as a piece of data to this method

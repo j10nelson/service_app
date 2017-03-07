@@ -40,9 +40,10 @@ class Job < ApplicationRecord
     where("worker_id IS NULL AND user_id = #{wtv}")
   end
 
-  # def self.pending_jobs_worker(wtv)
-  #   where("worker_id IS NULL AND user_id = #{wtv}")
-  # end
+  def self.pending_jobs_worker(wtv)
+    where("worker_id IS NULL AND user_id = #{wtv}")
+    # current_user.trade.services.first.jobs.where("worker_id IS NULL AND user_id = ?", current_user.id)
+  end
 
 # def client_info
 #   if current_user == role.worker

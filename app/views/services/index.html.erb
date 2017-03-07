@@ -17,8 +17,6 @@
         </div>
       </div>
     </header>
-    <% if current_user.role == "client" %>
-
     <div class="services-offered-home">
     <h2>Services Offered</h2>
     </div>
@@ -43,12 +41,7 @@
           <% end %>
         </div>
     <% end %>
-    <% end %>
-
     </div>
-<% if current_user.role == "worker" %>
-<h1>Worker cannot book a Service</h1>
-</div>
-<% end %>
+
   </body>
 </html>

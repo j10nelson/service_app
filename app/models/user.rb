@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_many :jobs  # requested client_jobs
+  has_many :jobs, -> { order('updated_at DESC').uniq }
 
   # has_one :worker :source :user
-  has_many :services
+  has_many :services, through: :trade
   has_many :reviews
   has_many :reviews, through: :jobs
   belongs_to :trade

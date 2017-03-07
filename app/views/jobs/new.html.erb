@@ -31,7 +31,7 @@
 
 <% if current_user.role == "admin" %>
 <h1>Book a Service</h1>
-  <h2><p><%= @service.trade.capitalize %> </p></h2>
+  <h2><p><%= @service.trade.name.capitalize %> </p></h2>
   <p>Service: <%= @service.type_of_service %> </p>
   <p>Price: <%= @service.price %> </p>
 

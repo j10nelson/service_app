@@ -82,6 +82,7 @@
     </div>
 </div>
 <div class="dashboard-feed">
+  <div class="jobs-feed">
   <h2>My Account</h2>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
@@ -124,6 +125,14 @@
         <%= submit_tag ("Accept") %>
       <% end %>
     <% end %>
+
+<div class="job-history">
+
+
+<% if job.completed? %>
+<% @jobs_history_worker %>
+  <% end %>
+  </div>
   <% end %>
   <% end %>
 

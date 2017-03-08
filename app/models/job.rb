@@ -78,6 +78,13 @@ end
     where("worker_id IS NULL AND user_id = #{wtv}")
   end
 
+
+  def self.completed_jobs(wtv)
+    where("state IS completed AND user_id = #{wtv}")
+  end
+
+
+
   # def self.pending_jobs_worker(s)
   #   where("worker_id IS NULL")
   #   # current_user.trade.services.first.jobs.where("worker_id IS NULL AND user_id = ?", current_user.id)

@@ -54,6 +54,7 @@ class JobsController < ApplicationController
   def accept
     @job = Job.find(params[:id])
     @job.worker_id = current_user.id
+    @job.state = "accepted"
 
     if @job.save
         redirect_to current_user

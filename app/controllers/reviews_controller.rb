@@ -11,13 +11,15 @@ class ReviewsController < ApplicationController
     @job = Job.find(params[:job_id])
     @review = Review.new
 
+
   end
 
   def create
+    @job = Job.find(params[:job_id])
     @review = Review.new(review_params)
     @review.user = current_user
     @review.job_id = params[:job_id]
-    @job = Job.find(params[:job_id])
+    @job.state = "completed"
 
     if @review.save
       redirect_to current_user, notice: 'Job Closed'

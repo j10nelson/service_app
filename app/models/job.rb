@@ -11,16 +11,20 @@ class Job < ApplicationRecord
   # pass in the current_user as a piece of data to this method
 
   def job_pending?
-  self.state == "pending"
-end
+    self.state == "pending"
+  end
 
-def job_accepted?
-  self.state == "accepted"
-end
+  def job_accepted?
+    self.state == "accepted"
+  end
 
-def job_completd?
-  self.state == "completed"
-end
+  def job_completd?
+    self.state == "completed"
+  end
+
+  def job_completd_client?
+    self.state == "completed" && self.reviews.size == 1
+  end
 
 
   def accepted?

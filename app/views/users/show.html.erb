@@ -90,13 +90,8 @@
   <p>Email: <%= @user.email %></p>
 <h2> <%= @user.trade.name.capitalize%> </h2>
 
-<h2>Jobs Pending: <%= @jobs_pending_worker.count %></h2>
-<h2>Jobs Accepted: <%= @jobs_accepted_worker.count %></h2>
-<h2>Jobs Completed: <%= @jobs_completed_worker.count %></h2>
-<h2>Jobs in History: <%=  @jobs_history_worker.count %></h2>
-
-
-    <% @jobs_from_requested_services.each do |job| %>
+<h1>Jobs Pending: <%= @jobs_pending_worker.count %> </h1>
+    <% @jobs_pending_worker.each do |job| %>
   <%= link_to job_path(job) do %>
     <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
     <% end %>
@@ -108,7 +103,46 @@
     <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
     <p>Address: <%= job.user.home_address %></p>
 
-    <% if job.worker_done? %>
+  <% if job.job_pending? %>
+      <%= form_tag(job_accept_path(job), method: "put") do %>
+        <%= submit_tag ("Accept") %>
+      <% end %>
+
+    <% end %>
+  <% end %>
+
+  <h1>Jobs Accepted: <%= @jobs_accepted_worker.count %></h1>
+      <% @jobs_accepted_worker.each do |job| %>
+    <%= link_to job_path(job) do %>
+      <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
+      <% end %>
+      <p>Price: <%= job.service.price %></p>
+      <p><%= job.date.strftime('%B %d, %Y') %></p>
+      <p><%= job.time.strftime('%I:%M%p')%></p>
+      <p>Note: <%= job.note %></p>
+
+      <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
+      <p>Address: <%= job.user.home_address %></p>
+      <% if job.job_accepted? %>
+      <p>Status: In Progress</p>
+      <%= link_to "Close Job", new_job_review_path(job) %>
+            <% end %>
+      <% end %>
+
+
+  <h1>Jobs Completed: <%= @jobs_completed_worker.count %> </h1>
+      <% @jobs_completed_worker.each do |job| %>
+    <%= link_to job_path(job) do %>
+      <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
+      <% end %>
+      <p>Price: <%= job.service.price %></p>
+      <p><%= job.date.strftime('%B %d, %Y') %></p>
+      <p><%= job.time.strftime('%I:%M%p')%></p>
+      <p>Note: <%= job.note %></p>
+
+      <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
+      <p>Address: <%= job.user.home_address %></p>
+      <% if job.job_completed? %>
       <p>Status: Job Closed</p>
       <p>Reviews:</p>
 
@@ -117,23 +151,29 @@
           <p>Name: <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
           <p>Rating: <%= review.rating %></p>
           <p>Comments: <%= review.comment %></p>
-        <% end %>
-
-
-    <% elsif job.accepted? %>
-      <p>Status: In Progress</p>
-      <%= link_to "Close Job", new_job_review_path(job) %>
-
-    <% else %>
-      <%= form_tag(job_accept_path(job), method: "put") do %>
-        <%= submit_tag ("Accept") %>
+          <% end %>
+            <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-  <% end %>
+
+
+  <h1>History: <%= @jobs_history_worker.count %> </h1>
+      <% @jobs_history_worker.each do |job| %>
+    <%= link_to job_path(job) do %>
+      <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
+      <% end %>
+      <p>Price: <%= job.service.price %></p>
+      <p><%= job.date.strftime('%B %d, %Y') %></p>
+      <p><%= job.time.strftime('%I:%M%p')%></p>
+      <p>Note: <%= job.note %></p>
+
+      <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
+      <p>Address: <%= job.user.home_address %></p>
+      
+      <% end %>
+<% end %>
 
 </div>
-
+</div>
 
 <% if current_user.role == "admin" %>
 <div class="user-dashboard">

@@ -16,11 +16,7 @@
 <p>Notes: <%= @job.note %></p>
 </div>
 
-
-
-
-
-<% if @job.accepted? && @job.worker_done? && @job.client_done? %>
+<% if @job.history? %>
 <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
 <p>Status: Job Closed</p>
 <p>Reviews:</p>
@@ -31,7 +27,7 @@
     <p>Comments: <%= review.comment %></p>
   <% end %>
 
-  <% elsif @job.accepted? %>
+  <% elsif @job.accepted? || @job.job_completed? %>
     <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
 
   <% else @job.pending? %>

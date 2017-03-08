@@ -18,9 +18,14 @@ class Job < ApplicationRecord
     self.state == "accepted"
   end
 
-  def job_completd?
+  def job_completed?
     self.state == "completed"
   end
+
+  def history?
+    self.state == "history"
+  end
+
 
   def job_completd_client?
     self.state == "completed" && self.reviews.size == 1

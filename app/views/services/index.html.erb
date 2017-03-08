@@ -1,47 +1,29 @@
-<!DOCTYPE html>
+<div class="services-offered-home">
+  <h2>Services Offered</h2>
+</div>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Services Offered</title>
+<% @services.each do |service| %>
 
+  <div class="services-home">
+    <div class="services-offered">
+      <div class="services-offered-details">
 
-  </head>
-  <body>
-    <header>
-      <div class="root-banner">
-        <div class="banner-text">
-        <h1>Sit back &amp relax.<br>Help is on the way!</h1>
-        <!-- <a class="btn btn-full" href="#">I'm hungry</a>
-        <a class="btn btn-ghost" href="#">Show me more</a> -->
-        </div>
-      </div>
-    </header>
-    <div class="services-offered-home">
-    <h2>Services Offered</h2>
-    </div>
-
-
-      <% @services.each do |service| %>
-      <div class="services-home">
-
-
-        <div class="services-offered">
-          <div class="services-offered-details">
-          <%= link_to new_service_job_path(service) do %>
-            <div class="job-title">
-          <%= service.trade.name %>
-        </div>
+        <%= link_to new_service_job_path(service) do %>
+          <div class="job-title">
+            <%= service.trade.name %>
+          </div>
         <% end %>
-         <p>Service: <%= service.type_of_service %></p>
-         <p>Price: <%= service.price %></p>
-         </div>
-        <%= form_tag(new_service_job_path(service), method: "get", class: 'book-service-button') do %>
-          <%= submit_tag("Book", class:"btn-book-home") %>
-          <% end %>
-        </div>
-    <% end %>
+
+        <p>Service: <%= service.type_of_service %></p>
+        <p>Price: <%= service.price %></p>
+      </div>
+
+      <%= form_tag(new_service_job_path(service), method: "get", class: 'book-service-button') do %>
+        <%= submit_tag("Book", class:"btn-book-home") %>
+      <% end %>
+
     </div>
 
-  </body>
-</html>
+<% end %>
+
+</div>

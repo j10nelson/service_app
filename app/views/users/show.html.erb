@@ -24,6 +24,7 @@
   <% end %>
   <h2>Jobs Pending: <%= @jobs_pending_client %></h2>
   <h2>Jobs Accepted: <%=  @jobs_accepted_client%></h2>
+  <h2>Jobs Completed: <%=  @jobs_completed_client%></h2>
 
     <% @user.jobs.each do |job| %>
       <h2 class="job-title">
@@ -125,14 +126,6 @@
         <%= submit_tag ("Accept") %>
       <% end %>
     <% end %>
-
-<div class="job-history">
-
-
-<% if job.completed? %>
-<% @jobs_history_worker %>
-  <% end %>
-  </div>
   <% end %>
   <% end %>
 

@@ -79,7 +79,7 @@ end
   end
 
 
-  def self.completed_jobs(wtv)
+  def self.completed_jobs_client(wtv)
     where("state IS completed AND user_id = #{wtv}")
   end
 

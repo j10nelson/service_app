@@ -19,14 +19,18 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.job_id = params[:job_id]
-    @job.state = "completed"
 
     if @review.save
-      redirect_to current_user, notice: 'Job Closed'
+      if @job.client_done?
+        @job.state = "completed"
+        @job.save
+      end
+
+        redirect_to current_user, notice: 'Job Closed'
 
     else
       render :new
-    end
+  end
 
   end
 

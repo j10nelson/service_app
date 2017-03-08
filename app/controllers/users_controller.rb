@@ -30,8 +30,8 @@ class UsersController < ApplicationController
 
     @jobs_accepted_client = Job.where(state: "accepted").where(user: current_user)
     @jobs_pending_client = Job.where(state: "pending").where(user: current_user)
-    @jobs_completed_client = Job.where(state: "history").where(user: current_user)
-    #@jobs_history_client = Job.where(state: "history").where(user: current_user)
+    @jobs_completed_client = Job.where(state: "completed").where(user: current_user)
+    @jobs_history_client = Job.where(state: "history").where(user: current_user)
 
 
     if @user != current_user

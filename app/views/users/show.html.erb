@@ -24,7 +24,8 @@
   <% end %>
   <h2>Jobs Pending: <%= @jobs_pending_client.count %></h2>
   <h2>Jobs Accepted: <%=  @jobs_accepted_client.count %></h2>
-  <h2>Jobs Completed: <%=  @jobs_completed_client.count %></h2>
+  <h2>Jobs To Be Closed: <%=  @jobs_completed_client.count %></h2>
+  <h2>Jobs Closed: <%=  @jobs_history_client.count %></h2>
 
     <% @user.jobs.each do |job| %>
       <h2 class="job-title">

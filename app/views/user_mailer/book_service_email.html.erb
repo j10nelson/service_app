@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+   </head>
+   <body>
+     <h1>Hi <%= @user.first_name %></h1>,
+     <p>You have successfully booked a service!</p>
+     <h4><%=@job.title %></h4>
+     <p> Date:  <%= @job.date %>
+     <p> Time:  <%= @job.time %>
+     <p> Note:  <%= @job.note %>
+
+   </body>
+ </html>

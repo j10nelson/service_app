@@ -27,6 +27,7 @@ class JobsController < ApplicationController
 
 
     if @job.save
+       UserMailer.book_service_email(current_user, @job).deliver_now
       redirect_to current_user
       # redirect_to current_user_url
     else

@@ -24,6 +24,8 @@ class UsersController < ApplicationController
 
 
    @jobs_accepted_worker = @jobs_from_requested_services.select(&:accepted?).count
+   @jobs_completed_worker = @jobs_from_requested_services.select(&:completed?).count
+
     @pending_jobs_worker = Job.where("worker_id IS NULL").where(service_id: @user.services.ids)
 
     @jobs_accepted_client = Job.accepted_jobs_client(current_user.id).count

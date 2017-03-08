@@ -22,18 +22,17 @@ class UsersController < ApplicationController
     @jobs_from_requested_services = Job.where(service_id: @requested_services.ids)
 
 
+   @jobs_pending_worker = Job.where(state: "pending").where(service_id: @requested_services.ids)
+   @jobs_accepted_worker = Job.where(state: "accepted").where(service_id: @requested_services.ids)
+   @jobs_completed_worker = Job.where(state: "completed").where(service_id: @requested_services.ids)
+   @jobs_history_worker = Job.where(state: "history").where(service_id: @requested_services.ids)
 
-   @jobs_accepted_worker = @jobs_from_requested_services.select(&:accepted?).count
-   @jobs_completed_worker = @jobs_from_requested_services.select(&:completed?).count
 
-   @jobs_history_worker = Job.where(state: "completed").where(service_id: @requested_services.ids)
-   @jobs_history_client = Job.where(state: "completed").where(user: current_user)
+    @jobs_accepted_client = Job.where(state: "accepted").where(user: current_user)
+    @jobs_pending_client = Job.where(state: "pending").where(user: current_user)
+    @jobs_completed_client = Job.where(state: "history").where(user: current_user)
+    #@jobs_history_client = Job.where(state: "history").where(user: current_user)
 
-    @pending_jobs_worker = Job.where("worker_id IS NULL").where(service_id: @user.services.ids)
-
-    @jobs_accepted_client = Job.where(state: "accepted").where(user: current_user).count
-    @jobs_pending_client = Job.where(state: "pending").where(user: current_user).count
-    @jobs_completed_client = Job.where(state: "completed").where(user: current_user).count
 
     if @user != current_user
       redirect_to current_user

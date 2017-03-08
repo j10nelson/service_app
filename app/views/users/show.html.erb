@@ -22,9 +22,9 @@
   <% if @user.filled_home_address? %>
   <p>Address: <%= @user.home_address %></p>
   <% end %>
-  <h2>Jobs Pending: <%= @jobs_pending_client %></h2>
-  <h2>Jobs Accepted: <%=  @jobs_accepted_client%></h2>
-  <h2>Jobs Completed: <%=  @jobs_completed_client%></h2>
+  <h2>Jobs Pending: <%= @jobs_pending_client.count %></h2>
+  <h2>Jobs Accepted: <%=  @jobs_accepted_client.count %></h2>
+  <h2>Jobs Completed: <%=  @jobs_completed_client.count %></h2>
 
     <% @user.jobs.each do |job| %>
       <h2 class="job-title">
@@ -89,9 +89,11 @@
   <p>Email: <%= @user.email %></p>
 <h2> <%= @user.trade.name.capitalize%> </h2>
 
-<h2>Jobs Pending: <%= @pending_jobs_worker.count %></h2>
-<h2>Jobs Accepted: <%= @jobs_accepted_worker %></h2>
-<h2>Jobs completed: <%= @jobs_completed_worker %></h2>
+<h2>Jobs Pending: <%= @jobs_pending_worker.count %></h2>
+<h2>Jobs Accepted: <%= @jobs_accepted_worker.count %></h2>
+<h2>Jobs Completed: <%= @jobs_completed_worker.count %></h2>
+<h2>Jobs in History: <%=  @jobs_history_worker.count %></h2>
+
 
     <% @jobs_from_requested_services.each do |job| %>
   <%= link_to job_path(job) do %>

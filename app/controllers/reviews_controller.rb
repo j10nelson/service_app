@@ -21,8 +21,12 @@ class ReviewsController < ApplicationController
     @review.job_id = params[:job_id]
 
     if @review.save
-      if @job.client_done?
+      if @job.worker_done?
         @job.state = "completed"
+        @job.save
+      end
+      if @job.client_done?
+        @job.state = "history"
         @job.save
       end
 

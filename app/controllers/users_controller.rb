@@ -7,6 +7,18 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
        UserMailer.welcome_email(@user).deliver_now
+      #  render text: "Thank you! You will receive an SMS shortly with verification instructions."
+
+       # Instantiate a Twilio client
+            client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+
+            # Create and send an SMS message
+            client.account.sms.messages.create(
+              from: TWILIO_CONFIG['from'],
+              to: @user.phone_number,
+              body: "Thanks for signing up. To verify your account, please reply HELLO to this message."
+            )
+
        flash[:notice] = "Signed up!"
       auto_login(@user)
       redirect_to root_path
@@ -51,7 +63,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :home_address)
+    params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation, :home_address)
   end
 
 

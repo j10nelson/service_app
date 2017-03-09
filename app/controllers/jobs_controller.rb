@@ -24,7 +24,6 @@ class JobsController < ApplicationController
     @job.user = current_user
     @job.service_id = params[:service_id]
     @service = Service.find(params[:service_id])
-    @worker_text = @job.service.trade.users.pluck(:phone_number)
     @message = @job.text_message
 
     if @job.save
@@ -36,7 +35,7 @@ class JobsController < ApplicationController
        client.account.sms.messages.create(
          from: TWILIO_CONFIG['from'],
          to: @message,
-         body: "Thanks for booking a service."
+         body: "You have a service request pending. Click the link to go to your account: http://localhost:3000/users/"
        )
       redirect_to current_user
       # redirect_to current_user_url

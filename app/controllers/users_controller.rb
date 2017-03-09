@@ -16,7 +16,7 @@ class UsersController < ApplicationController
             client.account.sms.messages.create(
               from: TWILIO_CONFIG['from'],
               to: @user.phone_number,
-              body: "Thanks for signing up. To verify your account, please reply HELLO to this message."
+              body: "Thanks for signing up."
             )
 
        flash[:notice] = "Signed up!"

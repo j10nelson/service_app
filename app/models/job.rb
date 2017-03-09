@@ -47,6 +47,12 @@ end
   end
 
 
+  def text_message
+    self.service.trade.users.pluck(:phone_number).each do |number|
+      puts number
+    end
+  end
+
   # we hope that poop_id is the current user's id, but it's up to whoever calls this to do the right thing
   #accepted for worker
   # def self.accepted_jobs(poop_id)

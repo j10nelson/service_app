@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # @home_address = User.where()
     if @user.save
        flash[:notice] = "Signed up!"
       auto_login(@user)
@@ -14,6 +15,8 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+
 
   def show
     @jobs = []
@@ -42,6 +45,11 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(user_params)
+    @user.home_address = [params[:user][:house_number],
+                          params[:user][:apt_number],
+                          params[:user][:street],
+                          params[:user][:province],
+                          params[:user][:country]].join(" ").titleize
     if @user.save
       # redirect_to "/jobs/#{@job.id}"
       redirect_to current_user

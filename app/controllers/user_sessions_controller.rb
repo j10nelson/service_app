@@ -4,14 +4,21 @@ class UserSessionsController < ApplicationController
     end
 
     def create
-
        if @user = login(params[:email], params[:password], params[:remember_me])
-        redirect_back_or_to(root_url)
+
+        if params[:origin] = "email_link"
+          redirect_to user_url(current_user.id)
+
+        else
+          redirect_back_or_to(root_url)
+        end
         #  notice: 'Login successful'
       else
         flash.now[:alert] = 'Login failed'
         render action: 'new'
       end
+
+
     end
 
     def destroy

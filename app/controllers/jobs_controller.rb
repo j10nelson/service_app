@@ -35,7 +35,7 @@ class JobsController < ApplicationController
        client.account.sms.messages.create(
          from: TWILIO_CONFIG['from'],
          to: @message,
-         body: "You have a service request pending. Click the link to go to your account: http://localhost:3000/users/#{current_user.id}"
+         body: "You have a service request pending. Click the link to go to your account: http://localhost:3000/users/3?origin=email_link"
        )
       redirect_to current_user
       # redirect_to current_user_url

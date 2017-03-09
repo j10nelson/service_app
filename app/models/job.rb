@@ -46,7 +46,6 @@ end
     return false
   end
 
-
   def text_message
     self.service.trade.users.pluck(:phone_number).each do |number|
       puts number

@@ -22,11 +22,12 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
-    @job.service_id = params[:service_id]
     @trade = Trade.find(params[:trade_id])
+    @job.service_id = params[:service][:id]
 
 
     if @job.save
+      #@service_id.save
       redirect_to current_user
       # redirect_to current_user_url
     else

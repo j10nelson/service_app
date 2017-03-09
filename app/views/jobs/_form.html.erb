@@ -1,4 +1,12 @@
-<%= form_for([@service, @job], html: {multipart: true}) do |f| %>
+<%= form_for([@trade, @job], html: {multipart: true}) do |f| %>
+
+<h2><p> <%= @trade.name.capitalize %> </p></h2>
+
+<% @trade.services.each do |service| %>
+<%= radio_button(:service, :id, service.id) %>
+<p>Service: <%= service.type_of_service %></p> </p>
+<p>Price: <%= service.price %></p>
+<% end %>
 
   <div class="field-job">
     <%= f.label :date %>

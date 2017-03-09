@@ -13,10 +13,12 @@
 
 <% if current_user.role == "client" %>
 <h1>Book a Service</h1>
-  <h2><p> <%= @service.trade.name.capitalize %> </p></h2>
-  <p>Service: <%= @service.type_of_service %> </p>
-  <p>Price: <%= @service.price %> </p>
+  <h2><p> <%= @trade.name.capitalize %> </p></h2>
 
+  <% @trade.services.each do |service| %>
+  <p>Service: <%= service.type_of_service %></p>
+  <p>Price: <%= service.price %></p>
+  <% end %>
 <%= render 'form' %>
 <%= link_to "Back to Home", root_url %>
 <% end %>

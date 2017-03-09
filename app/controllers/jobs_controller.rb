@@ -12,7 +12,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
-    @service = Service.find(params[:service_id])
+    @trade = Trade.find(params[:trade_id])
   end
 
   def edit
@@ -23,7 +23,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = current_user
     @job.service_id = params[:service_id]
-    @service = Service.find(params[:service_id])
+    @trade = Trade.find(params[:trade_id])
 
 
     if @job.save

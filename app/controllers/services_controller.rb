@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
   def index
-    @services = Service.all
+    #@services = Service.all
+    @trade = Trade.all
   end
 
   def new

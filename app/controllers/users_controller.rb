@@ -9,20 +9,20 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # @home_address = User.where()
     if @user.save
-       UserMailer.welcome_email(@user).deliver_now
-      #  render text: "Thank you! You will receive an SMS shortly with verification instructions."
+      #  UserMailer.welcome_email(@user).deliver_now
+      # #  render text: "Thank you! You will receive an SMS shortly with verification instructions."
+      #
+      #  # Instantiate a Twilio client
+      #       client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+      #
+      #       # Create and send an SMS message
+      #       client.account.sms.messages.create(
+      #         from: TWILIO_CONFIG['from'],
+      #         to: @user.phone_number,
+      #         body: "Thanks for signing up. Click the link to go to your account: http://localhost:3000/users/#{current_user.id}"
+      #       )
 
-       # Instantiate a Twilio client
-            client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
-
-            # Create and send an SMS message
-            client.account.sms.messages.create(
-              from: TWILIO_CONFIG['from'],
-              to: @user.phone_number,
-              body: "Thanks for signing up. Click the link to go to your account: http://localhost:3000/users/#{current_user.id}"
-            )
-
-       flash[:notice] = "Signed up!"
+      flash[:notice] = "Signed up!"
       auto_login(@user)
       redirect_to root_path
     else

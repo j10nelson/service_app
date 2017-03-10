@@ -22,6 +22,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    @user = current_user
     @job.user = current_user
     @trade = Trade.find(params[:trade_id])
     @job.service_id = params[:service][:id]
@@ -69,7 +70,7 @@ class JobsController < ApplicationController
     @client = @job.user.email
     @job.state = "accepted"
 
-    
+
     if @job.save
 
       UserMailer.service_accepted(@client, @job).deliver_now

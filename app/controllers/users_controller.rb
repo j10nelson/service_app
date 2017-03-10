@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
 
     if @user != current_user
-      redirect_to current_user
+      redirect_to(:back)
     end
   end
 
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
                           params[:user][:country]].join(" ").titleize
     if @user.save
       # redirect_to "/jobs/#{@job.id}"
-      redirect_to current_user
+      redirect_back(fallback_location: current_user)
     else
       redirect_to root_path
     end
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :home_address)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :home_address, :phone_number)
   end
 
 

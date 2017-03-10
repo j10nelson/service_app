@@ -6,9 +6,6 @@
   <%= link_to "Book new service!", root_path %></%>
   <ul>
   <h3>Account</h3>
-  <% if @user.home_address? %>
-  <li><%= render 'form_home_address' %></li>
-  <% end %>
   <li><a href="#">Personal</a></li>
   <li><a href="#">Billing</a></li>
   </ul>

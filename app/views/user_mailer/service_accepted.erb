@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+   </head>
+   <body>
+     <h1>Hi <%= @client.first_name %></h1>,
+     <p>Your service request has been accepted!</p>
+     <h4><%=@job.title %></h4>
+     <p> Date:  <%= @job.date %> </p>
+     <p> Time:  <%= @job.time %> </p>
+     <p> Note:  <%= @job.note %> </p>
+
+    <%= link_to "My account", root_url %>
+
+   </body>
+ </html>

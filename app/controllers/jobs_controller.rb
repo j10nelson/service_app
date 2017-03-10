@@ -65,10 +65,11 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.worker_id = current_user.id
     @user = current_user
+    @client = @job.user.email
 
     if @job.save
 
-      UserMailer.book_service_email(current_user, @job).deliver_now
+      UserMailer.service_accepted(@client, @job).deliver_now
 
       client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
 
@@ -76,7 +77,7 @@ class JobsController < ApplicationController
       client.account.sms.messages.create(
         from: TWILIO_CONFIG['from'],
         to: @user.phone_number,
-        body: "You have an accepted service request. Go to your account: http://localhost:3000/users/3?origin=email_link"
+        body: "You accepted a service request. Go to your account: http://localhost:3000/users/3?origin=email_link"
       )
         redirect_to current_user
     else

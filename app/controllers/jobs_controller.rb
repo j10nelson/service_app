@@ -23,9 +23,8 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
-<<<<<<< HEAD
-    @job.service_id = params[:service_id]
-    @service = Service.find(params[:service_id])
+    @trade = Trade.find(params[:trade_id])
+    @job.service_id = params[:service][:id]
     @message = @job.text_message
 
     if @job.save
@@ -39,14 +38,6 @@ class JobsController < ApplicationController
          to: @message,
          body: "You have a service request pending. Click the link to go to your account: http://localhost:3000/users/3?origin=email_link"
        )
-=======
-    @trade = Trade.find(params[:trade_id])
-    @job.service_id = params[:service][:id]
-
-
-    if @job.save
-      #@service_id.save
->>>>>>> d8523d2997cef3936e8d3121b1ae1985d350abdd
       redirect_to current_user
       # redirect_to current_user_url
     else
@@ -74,13 +65,11 @@ class JobsController < ApplicationController
   def accept
     @job = Job.find(params[:id])
     @job.worker_id = current_user.id
-<<<<<<< HEAD
     @user = current_user
     @client = @job.user.email
-=======
     @job.state = "accepted"
->>>>>>> d8523d2997cef3936e8d3121b1ae1985d350abdd
 
+    
     if @job.save
 
       UserMailer.service_accepted(@client, @job).deliver_now

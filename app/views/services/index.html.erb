@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-<div class="services-offered-home">
-  <h2>Services Offered</h2>
-</div>
-
-<% @services.each do |service| %>
-
-  <div class="services-home">
-    <div class="services-offered">
-      <div class="services-offered-details">
-
-        <%= link_to new_service_job_path(service) do %>
-          <div class="job-title">
-            <%= service.trade.name %>
-          </div>
-        <% end %>
-
-        <p>Service: <%= service.type_of_service %></p>
-        <p>Price: <%= service.price %></p>
-      </div>
-
-      <%= form_tag(new_service_job_path(service), method: "get", class: 'book-service-button') do %>
-        <%= submit_tag("Book", class:"btn-book-home") %>
-      <% end %>
-
-    </div>
-=======
-<!DOCTYPE html>
-
 <html>
   <head>
     <meta charset="utf-8">
@@ -67,9 +38,4 @@
 
 </div>
 <% end %>
-</div>
->>>>>>> d8523d2997cef3936e8d3121b1ae1985d350abdd
-
-<% end %>
-
 </div>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :services, only: [:index, :create, :new]
 
-  resources :trades, only: [:new, :create] do
+  resources :trades, only: [:index, :new, :create] do
     resources :jobs, except: :index
 
   end

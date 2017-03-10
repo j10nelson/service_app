@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170309042352) do
-=======
 ActiveRecord::Schema.define(version: 20170310034947) do
->>>>>>> d8523d2997cef3936e8d3121b1ae1985d350abdd
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,11 +71,7 @@ ActiveRecord::Schema.define(version: 20170310034947) do
     t.datetime "remember_me_token_expires_at"
     t.string   "role",                         default: "client"
     t.integer  "trade_id"
-<<<<<<< HEAD
     t.bigint   "phone_number"
-=======
-    t.string   "phone_number"
->>>>>>> d8523d2997cef3936e8d3121b1ae1985d350abdd
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   end

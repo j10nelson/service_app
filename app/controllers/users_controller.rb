@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # @home_address = User.where()
     if @user.save
        UserMailer.welcome_email(@user).deliver_now
       #  render text: "Thank you! You will receive an SMS shortly with verification instructions."
@@ -30,6 +31,8 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   def show
     @jobs = []
     @user = current_user
@@ -37,26 +40,34 @@ class UsersController < ApplicationController
     @jobs_from_requested_services = Job.where(service_id: @requested_services.ids)
 
 
+   @jobs_pending_worker = Job.where(state: "pending").where(service_id: @requested_services.ids)
+   @jobs_accepted_worker = Job.where(state: "accepted").where(service_id: @requested_services.ids)
+   @jobs_completed_worker = Job.where(state: "completed").where(service_id: @requested_services.ids)
+   @jobs_history_worker = Job.where(state: "history").where(service_id: @requested_services.ids)
 
-   @jobs_accepted_worker = @jobs_from_requested_services.select(&:accepted?).count
-   @jobs_completed_worker = @jobs_from_requested_services.select(&:completed?).count
 
-    @pending_jobs_worker = Job.where("worker_id IS NULL").where(service_id: @user.services.ids)
+    @jobs_accepted_client = Job.where(state: "accepted").where(user: current_user)
+    @jobs_pending_client = Job.where(state: "pending").where(user: current_user)
+    @jobs_completed_client = Job.where(state: "completed").where(user: current_user)
+    @jobs_history_client = Job.where(state: "history").where(user: current_user)
 
-    @jobs_accepted_client = Job.accepted_jobs_client(current_user.id).count
-    @jobs_pending_client = Job.pending_jobs_client(current_user.id).count
 
     if @user != current_user
-      redirect_to current_user
+      redirect_to(:back)
     end
   end
 
   def update
     @user = current_user
     @user.update_attributes(user_params)
+    @user.home_address = [params[:user][:house_number],
+                          params[:user][:apt_number],
+                          params[:user][:street],
+                          params[:user][:province],
+                          params[:user][:country]].join(" ").titleize
     if @user.save
       # redirect_to "/jobs/#{@job.id}"
-      redirect_to current_user
+      redirect_back(fallback_location: current_user)
     else
       redirect_to root_path
     end
@@ -65,7 +76,11 @@ class UsersController < ApplicationController
 
   private
   def user_params
+<<<<<<< HEAD
     params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation, :home_address)
+=======
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :home_address, :phone_number)
+>>>>>>> d8523d2997cef3936e8d3121b1ae1985d350abdd
   end
 
 

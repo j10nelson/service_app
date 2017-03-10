@@ -18,6 +18,7 @@ class User < ApplicationRecord
 
   # ROLES = ["client", "worker", "admin"]
 
+  attr_accessor :house_number, :apt_number, :street, :province, :country
 
   def home_address?
     if self.home_address

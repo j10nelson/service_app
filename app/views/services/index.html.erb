@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="services-offered-home">
   <h2>Services Offered</h2>
 </div>
@@ -23,6 +24,51 @@
       <% end %>
 
     </div>
+=======
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Services Offered</title>
+
+
+  </head>
+  <body>
+    <header>
+      <div class="root-banner">
+        <div class="banner-text">
+        <h1>Sit back &amp relax.<br>Help is on the way!</h1>
+        <!-- <a class="btn btn-full" href="#">I'm hungry</a>
+        <a class="btn btn-ghost" href="#">Show me more</a> -->
+        </div>
+      </div>
+    </header>
+
+<div class="services-offered-home">
+<h2>Services Offered</h2>
+</div>
+<% @trade.each do |trade| %>
+<div class="services-home">
+  <div class="services-offered">
+    <div class="services-offered-details">
+        <div class="job-title">
+<%= trade.name %>
+</div>
+<% trade.services.each do |service| %>
+<p>Service: <%= service.type_of_service %></p>
+<p>Price: <%= service.price %></p>
+<% end %>
+</div>
+<%= form_tag(new_trade_job_path(trade), method: "get", class: 'book-service-button') do %>
+  <%= submit_tag("Book", class:"btn-book-home") %>
+  <% end %>
+
+
+</div>
+<% end %>
+</div>
+>>>>>>> d8523d2997cef3936e8d3121b1ae1985d350abdd
 
 <% end %>
 

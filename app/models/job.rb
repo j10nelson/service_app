@@ -10,6 +10,28 @@ class Job < ApplicationRecord
   # make one change:
   # pass in the current_user as a piece of data to this method
 
+  def job_pending?
+    self.state == "pending"
+  end
+
+  def job_accepted?
+    self.state == "accepted"
+  end
+
+  def job_completed?
+    self.state == "completed"
+  end
+
+  def history?
+    self.state == "history"
+  end
+
+
+  def job_completd_client?
+    self.state == "completed" && self.reviews.size == 1
+  end
+
+
   def accepted?
     self.worker_id && self.reviews.size == 0
   end
@@ -65,6 +87,13 @@ end
   def self.pending_jobs_client(wtv)
     where("worker_id IS NULL AND user_id = #{wtv}")
   end
+
+
+  def self.completed_jobs_client(wtv)
+    where("state IS completed AND user_id = #{wtv}")
+  end
+
+
 
   # def self.pending_jobs_worker(s)
   #   where("worker_id IS NULL")

@@ -1,0 +1,38 @@
+<%= form_for @user do |f| %>
+
+<div class="field-session">
+   <%= f.label :phone_number %><br />
+   <%= f.text_field :phone_number %>
+ </div>
+
+
+  <div class="field-session">
+     <%= f.label :house_number %><br />
+     <%= f.text_field :house_number %>
+   </div>
+
+   <div class="field-session">
+      <%= f.label :apt_number %><br />
+      <%= f.text_field :apt_number %>
+    </div>
+
+   <div class="field-session">
+      <%= f.label :street %><br />
+      <%= f.text_field :street %>
+    </div>
+
+     <div class="field-session">
+        <%= f.label :province %><br />
+        <%= f.text_field :province %>
+      </div>
+
+      <div class="field-session">
+         <%= f.label :country %><br />
+         <%= f.text_field :country %>
+       </div>
+
+  <div class="actions-home-address">
+     <%= f.submit("Complete Account", method: "put", class: "btn-session") %>
+  </div>
+
+<% end %>

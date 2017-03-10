@@ -1,7 +1,5 @@
 <%= form_for [@service] do |f| %>
 
-
-
 <%= f.select(:trade_id) do %>
   <% Trade.all.each do |c| -%>
     <%= content_tag(:option, c.name, value: c.id) %>

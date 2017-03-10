@@ -14,13 +14,11 @@
 <p><%= @job.date.strftime('%B %d, %Y') %></p>
 <p><%= @job.time.strftime('%I:%M%p') %></p>
 <p>Notes: <%= @job.note %></p>
+<h2><%= @job.user.home_address %></h2>
+
 </div>
 
-
-
-
-
-<% if @job.accepted? && @job.worker_done? && @job.client_done? %>
+<% if @job.history? %>
 <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
 <p>Status: Job Closed</p>
 <p>Reviews:</p>
@@ -31,18 +29,16 @@
     <p>Comments: <%= review.comment %></p>
   <% end %>
 
-  <% elsif @job.accepted? %>
+  <% elsif @job.accepted? || @job.job_completed? %>
     <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
 
   <% else @job.pending? %>
     <p>Status: <b> Awaiting Acceptance</b></p>
 
-    <%= link_to "Edit", edit_service_job_path(@job.service, @job) %> |
+    <%= link_to "Edit", edit_trade_job_path(@job.service.trade, @job) %> |
     <%= link_to "Delete", @job, method: :delete, data: {confirm: "Are you sure you want to delete this service request?"} %><br>
     <br><%= link_to "Back to Account", current_user %> |
     <%= link_to "Home", root_path %>
   <% end %>
-
-
 </div>
 <% end %>

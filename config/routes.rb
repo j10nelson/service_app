@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  resources :trades, only: [:new, :create]
-  resources :services, only: [:index, :create, :new] do
+
+  resources :services, only: [:index, :create, :new]
+
+  resources :trades, only: [:index, :new, :create] do
     resources :jobs, except: :index
 
   end

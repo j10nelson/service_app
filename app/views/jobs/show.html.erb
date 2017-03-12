@@ -45,8 +45,16 @@
     width="500"
     height="450"
     frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY
-      &q= <%= @job.user.home_address %>" allowfullscreen>
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&q= <%= @job.user.home_address.split %>" allowfullscreen>
+  </iframe>
+
+
+
+  <iframe
+    width="500"
+    height="450"
+    frameborder="0" style="border:0"
+    src=" https://www.google.com/maps/embed/v1/directions?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&origin= <%= @job.user.home_address.split %>&destination=17+kingsbridge+circle+thornhill+ontario&avoid=tolls|highways" allowfullscreen>
   </iframe>
 
 </div>

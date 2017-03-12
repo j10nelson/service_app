@@ -61,8 +61,8 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update_attributes(user_params)
     @user.home_address = [params[:user][:house_number],
-                          params[:user][:apt_number],
                           params[:user][:street],
+                          params[:user][:apt_number],
                           params[:user][:province],
                           params[:user][:country]].join(" ").titleize
     if @user.save

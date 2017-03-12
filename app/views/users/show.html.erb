@@ -122,6 +122,13 @@
 </div>
 <div class="dashboard-feed">
   <h2>My Account</h2>
+
+   <% if @user.home_address? %>
+   <h1>Complete Your Account</h1>
+   <h3>Before you can book your first service request, you must complete your account by adding your primary address</h3>
+  <%= render 'form_home_address_worker' %>
+  <% else @user.filled_home_address? %>
+
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
 <h2> <%= @user.trade.name.capitalize%> </h2>
@@ -205,7 +212,7 @@
       <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
       <p>Address: <%= job.user.home_address %></p>
       <% end %>
-
+  <% end %>
 <% end %>
 </div>
 </div>

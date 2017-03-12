@@ -71,20 +71,22 @@
 
   <% else @job.pending? %>
     <p>Status: <b> Awaiting Acceptance</b></p>
+<% if current_user.role == "worker" %>
 
-    <%= link_to "Edit", edit_trade_job_path(@job.service.trade, @job) %> |
-    <%= link_to "Delete", @job, method: :delete, data: {confirm: "Are you sure you want to delete this service request?"} %><br>
+    <%= form_tag(job_accept_path, method: "put") do %>
+      <%= submit_tag ("Accept") %>
+  <% end %>
 
-
-    <% if current_user.role == "worker" %>
-    <iframe
-      width="500"
-      height="450"
-      frameborder="0" style="border:0"
-      src=" https://www.google.com/maps/embed/v1/directions?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&origin= <%= @job.user.home_address.split %>&destination=<%= @user.home_address.split %>&avoid=tolls|highways" allowfullscreen>
-    </iframe>
+<iframe
+  width="500"
+  height="450"
+  frameborder="0" style="border:0"
+  src=" https://www.google.com/maps/embed/v1/directions?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&origin= <%= @job.user.home_address.split %>&destination=<%= @user.home_address.split %>&avoid=tolls|highways" allowfullscreen>
+</iframe>
 
     <% elsif current_user.role == "client" %>
+    <%= link_to "Edit", edit_trade_job_path(@job.service.trade, @job) %> |
+    <%= link_to "Delete", @job, method: :delete, data: {confirm: "Are you sure you want to delete this service request?"} %><br>
     <iframe
       width="500"
       height="450"

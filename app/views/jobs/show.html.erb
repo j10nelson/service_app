@@ -31,31 +31,52 @@
 
   <% elsif @job.accepted? || @job.job_completed? %>
     <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
+    <% if current_user.role == "worker" %>
+    <iframe
+      width="500"
+      height="450"
+      frameborder="0" style="border:0"
+      src=" https://www.google.com/maps/embed/v1/directions?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&origin= <%= @job.user.home_address.split %>&destination=<%= @job.worker.home_address.split %>&avoid=tolls|highways" allowfullscreen>
+    </iframe>
+
+    <% elsif current_user.role == "client" %>
+    <iframe
+      width="500"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&q= <%= @job.user.home_address.split %>" allowfullscreen>
+    </iframe>
+    <% end %>
 
   <% else @job.pending? %>
     <p>Status: <b> Awaiting Acceptance</b></p>
 
     <%= link_to "Edit", edit_trade_job_path(@job.service.trade, @job) %> |
     <%= link_to "Delete", @job, method: :delete, data: {confirm: "Are you sure you want to delete this service request?"} %><br>
+
+
+    <% if current_user.role == "worker" %>
+    <iframe
+      width="500"
+      height="450"
+      frameborder="0" style="border:0"
+      src=" https://www.google.com/maps/embed/v1/directions?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&origin= <%= @job.user.home_address.split %>&destination=<%= @user.home_address.split %>&avoid=tolls|highways" allowfullscreen>
+    </iframe>
+
+    <% elsif current_user.role == "client" %>
+    <iframe
+      width="500"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&q= <%= @job.user.home_address.split %>" allowfullscreen>
+    </iframe>
+    <% end %>
+      <br>
     <br><%= link_to "Back to Account", current_user %> |
     <%= link_to "Home", root_path %>
   <% end %>
 
-  <iframe
-    width="500"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&q= <%= @job.user.home_address.split %>" allowfullscreen>
-  </iframe>
 
-
-
-  <iframe
-    width="500"
-    height="450"
-    frameborder="0" style="border:0"
-    src=" https://www.google.com/maps/embed/v1/directions?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&origin= <%= @job.user.home_address.split %>&destination=17+kingsbridge+circle+thornhill+ontario&avoid=tolls|highways" allowfullscreen>
-  </iframe>
 
 </div>
 <% end %>

@@ -63,7 +63,9 @@ class UsersController < ApplicationController
     @user.home_address = [params[:user][:house_number],
                           params[:user][:street],
                           params[:user][:apt_number],
+                          params[:user][:city],
                           params[:user][:province],
+                          params[:user][:postal_code],
                           params[:user][:country]].join(" ").titleize
     if @user.save
       # redirect_to "/jobs/#{@job.id}"

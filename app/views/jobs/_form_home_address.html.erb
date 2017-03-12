@@ -22,11 +22,20 @@
     </div>
 
     <div class="field-session">
+       <%= f.label :city %><br />
+       <%= f.text_field :city %>
+     </div>
+
+    <div class="field-session">
     <%= f.select(:province) do %>
         <%= content_tag(:option, "Ontario", value: "ontario") %>
     <% end %>
   </div>
 
+  <div class="field-session">
+     <%= f.label :postal_code %><br />
+     <%= f.text_field :postal_code %>
+   </div>
 
     <div class="field-session">
     <%= f.select(:country) do %>

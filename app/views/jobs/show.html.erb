@@ -27,9 +27,30 @@
     <p>Reviewed by: <%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
     <p>Rating: <%= review.rating %></p>
     <p>Comments: <%= review.comment %></p>
+    <% end %>
+
+    <% if current_user.role == "client" || "worker" %>
+    <iframe
+      width="500"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&q= <%= @job.user.home_address.split %>" allowfullscreen>
+    </iframe>
+
+    <% end %>
+
+    <% elsif @job.job_completed? %>
+    <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
+    <% if current_user.role == "client" || "worker" %>
+    <iframe
+      width="500"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCdwSfbD9qCgu0qgvlo0XPi9Lw2ox13UuY&q= <%= @job.user.home_address.split %>" allowfullscreen>
+    </iframe>
   <% end %>
 
-  <% elsif @job.accepted? || @job.job_completed? %>
+  <% elsif @job.accepted? %>
     <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
     <% if current_user.role == "worker" %>
     <iframe

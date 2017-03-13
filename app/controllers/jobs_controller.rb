@@ -37,7 +37,7 @@ class JobsController < ApplicationController
        client = Twilio::REST::Client.new(ENV['sid'], ENV['token'])
        # Create and send an SMS message
        client.account.sms.messages.create(
-         from: '+16479313394',
+         from: ENV['from'],
          to: @message,
          body: "You have a service request pending. Click the link to go to your account: http://localhost:3000/users/3?origin=email_link"
        )
@@ -81,7 +81,7 @@ class JobsController < ApplicationController
 
       # Create and send an SMS message
       client.account.sms.messages.create(
-        from: TWILIO_CONFIG['from'],
+        from: ENV['from'],
         to: @user.phone_number,
         body: "You accepted a service request. Go to your account: http://localhost:3000/users/3?origin=email_link"
       )

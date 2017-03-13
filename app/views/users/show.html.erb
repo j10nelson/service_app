@@ -40,8 +40,9 @@
     <% end %>
     <p>Price: <%= job.service.price %></p>
       </h2>
-    <p><%= job.date.strftime('%B %d, %Y') %></p>
-    <p><%= job.time.strftime('%I:%M%p')%></p>
+    <p><%= job.datetime.strftime('%a, %d %b %Y')%></p>
+    <p><%= job.datetime.strftime('%I:%M %p')%></p>
+
     <p>Note: <%= job.note %></p>
     <% if job.job_pending? %>
       <p>Status: <b> Awaiting Acceptance</b></p>
@@ -62,8 +63,8 @@
       <% end %>
       <p>Price: <%= job.service.price %></p>
       </h2>
-      <p><%= job.date.strftime('%B %d, %Y') %></p>
-      <p><%= job.time.strftime('%I:%M%p')%></p>
+      <p><%= job.datetime.strftime('%a, %d %b %Y')%></p>
+      <p><%= job.datetime.strftime('%I:%M %p')%></p>
       <p>Note: <%= job.note %></p>
 
       <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
@@ -84,8 +85,8 @@
       <% end %>
       <p>Price: <%= job.service.price %></p>
         </h2>
-      <p><%= job.date.strftime('%B %d, %Y') %></p>
-      <p><%= job.time.strftime('%I:%M%p')%></p>
+        <p><%= job.datetime.strftime('%a, %d %b %Y')%></p>
+        <p><%= job.datetime.strftime('%I:%M %p')%></p>
       <p>Note: <%= job.note %></p>
 
       <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
@@ -106,8 +107,8 @@
       <% end %>
       <p>Price: <%= job.service.price %></p>
     </h2>
-      <p><%= job.date.strftime('%B %d, %Y') %></p>
-      <p><%= job.time.strftime('%I:%M%p')%></p>
+    <p><%= job.datetime.strftime('%a, %d %b %Y')%></p>
+    <p><%= job.datetime.strftime('%I:%M %p')%></p>
       <p>Note: <%= job.note %></p>
 
       <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
@@ -151,15 +152,15 @@
   <%= image_tag(@user.photo_url.to_s)%>
   <% end %>
 
-  
+
 <h1>Jobs Pending: <%= @jobs_pending_worker.count %> </h1>
     <% @jobs_pending_worker.each do |job| %>
   <%= link_to job_path(job) do %>
     <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
     <% end %>
     <p>Price: <%= job.service.price %></p>
-    <p><%= job.date.strftime('%B %d, %Y') %></p>
-    <p><%= job.time.strftime('%I:%M%p')%></p>
+    <p><%= job.datetime.strftime('%a, %d %b %Y')%></p>
+    <p><%= job.datetime.strftime('%I:%M %p')%></p>
     <p>Note: <%= job.note %></p>
 
     <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
@@ -180,8 +181,8 @@
       <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
       <% end %>
       <p>Price: <%= job.service.price %></p>
-      <p><%= job.date.strftime('%B %d, %Y') %></p>
-      <p><%= job.time.strftime('%I:%M%p')%></p>
+      <p><%= job.datetime.strftime('%a, %d %b %Y')%></p>
+      <p><%= job.datetime.strftime('%I:%M %p')%></p>
       <p>Note: <%= job.note %></p>
 
       <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
@@ -200,8 +201,7 @@
       <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
       <% end %>
       <p>Price: <%= job.service.price %></p>
-      <p><%= job.date.strftime('%B %d, %Y') %></p>
-      <p><%= job.time.strftime('%I:%M%p')%></p>
+      <p><%= job.datetime %></p>
       <p>Note: <%= job.note %></p>
 
       <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
@@ -223,8 +223,8 @@
       <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
       <% end %>
       <p>Price: <%= job.service.price %></p>
-      <p><%= job.date.strftime('%B %d, %Y') %></p>
-      <p><%= job.time.strftime('%I:%M%p')%></p>
+      <p><%= job.datetime.strftime('%a, %d %b %Y')%></p>
+      <p><%= job.datetime.strftime('%I:%M %p')%></p>
       <p>Note: <%= job.note %></p>
 
       <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>

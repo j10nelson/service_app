@@ -4,7 +4,7 @@ class Job < ApplicationRecord
   belongs_to :worker, class_name: "User"
   has_many :reviews
 
-  validates :date, :time, presence: true, on: :create
+  validates :datetime, presence: true, on: :create
   validates :note, length: { maximum: 255 }, presence: true, on: :create
 
   # make one change:
@@ -76,7 +76,7 @@ class Job < ApplicationRecord
   # def self.accepted_jobs(poop_id)
   #   where("worker_id IS NOT NULL AND worker_id = #{poop_id}")
   # end
-  # 
+  #
   # def self.accepted_jobs_client(poop)
   #   where("worker_id IS NOT NULL AND user_id = #{poop}")
   # end

@@ -37,4 +37,12 @@ class User < ApplicationRecord
   end
 
 
+  def worker?
+    if self.role == "worker"
+      return true
+    else
+      return false
+    end
+  end
+
 end

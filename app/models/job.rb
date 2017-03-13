@@ -38,7 +38,11 @@ class Job < ApplicationRecord
 
 
   def completed?
-  self.reviews.size == 2
+    if self.reviews.user_id
+      true
+    else
+      false
+    end
   end
 
   def pending?
@@ -52,7 +56,7 @@ end
 
   def worker_done?
     self.reviews.each do |review|
-      if review.user == self.worker
+      if review.user == self.user
         return true
       end
     end
@@ -61,7 +65,7 @@ end
 
   def client_done?
     self.reviews.each do |review|
-      if review.user == self.user
+      if review.worker_id == self.worker_id
         return true
       end
     end

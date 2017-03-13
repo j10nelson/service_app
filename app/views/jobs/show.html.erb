@@ -21,13 +21,12 @@
 <% if @job.history? %>
 <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
 <p>Status: Job Closed</p>
-<p>Reviews:</p>
-  <#% @job.reviews.each do |review| %>
-    <p>Role <#%= review.user.role.capitalize %></p>
-    <p>Reviewed by: <#%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></p>
-    <p>Rating: <#%= review.rating %></p>
-    <p>Comments: <#%= review.comment %></p>
-    <#% end %>
+  <% @client_comment.each do |review| %>
+    <p>Client Review: <%= review.comment %></p>
+    <% end %>
+    <% @worker_comment.each do |review| %>
+      <p>Worker Review: <%= review.comment %></p>
+      <% end %>
 
     <% if current_user.role == "client" || "worker" %>
     <iframe

@@ -9,6 +9,8 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @user = current_user
+    @client_comment = Review.client_comment(@job.id)
+    @worker_comment = Review.worker_comment(@job.id)
     end
 
   def new

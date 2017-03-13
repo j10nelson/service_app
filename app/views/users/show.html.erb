@@ -12,6 +12,10 @@
     </div>
 </div>
 <div class="dashboard-feed">
+<h3>My Rating</h3>
+
+<%= @client_rating %>
+
   <h2>My Account</h2>
   <h3><%= @user.role.capitalize%> Dashboard</p></h3>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
@@ -121,6 +125,8 @@
     </div>
 </div>
 <div class="dashboard-feed">
+  <h3>My Rating</h3>
+<%= @worker_rating %>
   <h2>My Account</h2>
 
    <% if @user.home_address? %>

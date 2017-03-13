@@ -1,13 +1,14 @@
 <%= form_for [@job, @review] do |f| %>
-  <div class="field-job">
+<div class="stars">
+<legend>Please rate your client:</legend>
+<%= radio_button(:review, :rating, "5", class: "star-5") %><%= f.label "Perfect!" %>
 
-    <legend>Please rate your worker:</legend>
-    <%= radio_button(:review, :rating, "5",) %>
-    <%= radio_button(:review, :rating, "4",) %>
-    <%= radio_button(:review, :rating, "3",) %>
-    <%= radio_button(:review, :rating, "2",) %>
-    <%= radio_button(:review, :rating, "1",) %>
 
+<%= radio_button(:review, :rating, "4",class: "star-4") %><%= f.label "Great" %>
+<%= radio_button(:review, :rating, "3", class: "star-3") %><%= f.label "Ok" %>
+<%= radio_button(:review, :rating, "2", class: "star-2") %><%= f.label "Had a few issues" %>
+<%= radio_button(:review, :rating, "1", class: "star-1") %><%= f.label "Would stay away from" %>
+</div>
 
   <div class="field-job">
     Job <%= f.label :comments %><br />

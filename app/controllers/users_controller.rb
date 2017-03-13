@@ -51,6 +51,12 @@ class UsersController < ApplicationController
     @jobs_completed_client = Job.where(state: "completed").where(user: current_user)
     @jobs_history_client = Job.where(state: "history").where(user: current_user)
 
+    @client_job = Job.where(user: current_user)
+    @client_rating = Review.where(user: current_user).average(:rating).to_f
+
+
+
+
 
     if @user != current_user
       redirect_to(:back)

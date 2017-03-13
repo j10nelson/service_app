@@ -34,11 +34,10 @@ class JobsController < ApplicationController
     if @job.save
        UserMailer.book_service_email(current_user, @job).deliver_now
 
-       client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
-
+       client = Twilio::REST::Client.new(ENV['sid'], ENV['token'])
        # Create and send an SMS message
        client.account.sms.messages.create(
-         from: TWILIO_CONFIG['from'],
+         from: '+16479313394',
          to: @message,
          body: "You have a service request pending. Click the link to go to your account: http://localhost:3000/users/3?origin=email_link"
        )
@@ -78,7 +77,7 @@ class JobsController < ApplicationController
 
       UserMailer.service_accepted(@client, @job).deliver_now
 
-      client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+      client = Twilio::REST::Client.new(ENV['sid'], ENV['token'])
 
       # Create and send an SMS message
       client.account.sms.messages.create(

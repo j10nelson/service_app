@@ -69,7 +69,7 @@
     </iframe>
     <% end %>
 
-  <% else @job.pending? %>
+  <% else @job.job_pending? %>
     <p>Status: <b> Awaiting Acceptance</b></p>
 <% if current_user.role == "worker" %>
 

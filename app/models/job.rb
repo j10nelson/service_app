@@ -27,31 +27,26 @@ class Job < ApplicationRecord
   end
 
 
-  def job_completd_client?
-    self.state == "completed" && self.reviews.size == 1
-  end
+  # def accepted?
+  #   self.worker_id && self.reviews.size == 0
+  # end
 
+  #
+  # def completed?
+  #   if self.reviews.user_id
+  #     true
+  #   else
+  #     false
+  #   end
+  # end
 
-  def accepted?
-    self.worker_id && self.reviews.size == 0
-  end
-
-
-  def completed?
-    if self.reviews.user_id
-      true
-    else
-      false
-    end
-  end
-
-  def pending?
-  if self.worker_id
-    true
-  else
-    false
-  end
-end
+#   def pending?
+#   if self.worker_id
+#     true
+#   else
+#     false
+#   end
+# end
 
 
   def worker_done?
@@ -81,19 +76,19 @@ end
   # def self.accepted_jobs(poop_id)
   #   where("worker_id IS NOT NULL AND worker_id = #{poop_id}")
   # end
+  # 
+  # def self.accepted_jobs_client(poop)
+  #   where("worker_id IS NOT NULL AND user_id = #{poop}")
+  # end
+  #
+  # def self.pending_jobs_client(wtv)
+  #   where("worker_id IS NULL AND user_id = #{wtv}")
+  # end
 
-  def self.accepted_jobs_client(poop)
-    where("worker_id IS NOT NULL AND user_id = #{poop}")
-  end
 
-  def self.pending_jobs_client(wtv)
-    where("worker_id IS NULL AND user_id = #{wtv}")
-  end
-
-
-  def self.completed_jobs_client(wtv)
-    where("state IS completed AND user_id = #{wtv}")
-  end
+  # def self.completed_jobs_client(wtv)
+  #   where("state IS completed AND user_id = #{wtv}")
+  # end
 
 
 

@@ -22,10 +22,11 @@
 <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
 <p>Status: Job Closed</p>
   <% @client_comment.each do |review| %>
-    <p>Client Review: <%= review.comment %></p>
+    <p>Client Review: <%= review.comment %> - <%= review.rating %>/5 Stars</p>
+
     <% end %>
     <% @worker_comment.each do |review| %>
-      <p>Worker Review: <%= review.comment %></p>
+      <p>Worker Review: <%= review.comment %> - <%= review.rating %>/5 Stars</p>
       <% end %>
 
     <% if current_user.role == "client" || "worker" %>
@@ -49,7 +50,7 @@
     </iframe>
   <% end %>
 
-  <% elsif @job.accepted? %>
+  <% elsif @job.job_accepted? %>
     <p>Worker Name: <b><%= @job.worker.first_name %> <%= @job.worker.last_name %></b></p>
     <% if current_user.role == "worker" %>
     <iframe

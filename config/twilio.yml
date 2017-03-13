@@ -1,4 +1,4 @@
 development:
   from: "+16479313394"
   sid: "AC15076bcb36853470c8515eada8fe2f32" # Your Account SID from www.twilio.com/console
-  token: "d0a6fc3f644fc63a705761d902f9f969"   # Your Auth Token from www.twilio.com/console
+  token: "a73da4298a0362382a6f9bf4be8e8b80"   # Your Auth Token from www.twilio.com/console

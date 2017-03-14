@@ -1,26 +1,25 @@
 <%= form_for([@trade, @job], html: {multipart: true}) do |f| %>
 
-<h2><p> <%= @trade.name.capitalize %> </p></h2>
+  <h2><p> <%= @trade.name.capitalize %> </p></h2>
 
-<% @trade.services.each do |service| %>
-<%= radio_button(:service, :id, service.id) %>
-<p>Service: <%= service.type_of_service %></p> </p>
-<p>Price: <%= service.price %></p>
-<% end %>
-
-  <div class="field-job">
-    <p>Date: <%= date_field_tag :date %></p>
-    <p> Time: <%= f.time_select :datetime, include_blank: true, ampm:true %></p>
-  </div>
+    <% @trade.services.each do |service| %>
+      <%= radio_button(:service, :id, service.id) %>
+        <p>Service: <%= service.type_of_service %></p> </p>
+        <p>Price: <%= service.price %></p>
+    <% end %>
 
     <div class="field-job">
-    <%= f.label :note %>
-    <%= f.text_area :note %>
-    </div>
+      <p>Date: <%= date_field_tag :date %></p>
+      <p>Time: <%= f.time_select :datetime, include_blank: true, ampm:true %></p>
+    </div>
 
-  <br><div class="field-job">
-     <%= f.submit(class: "btn-new-job") %>
-  </div>
+    <div class="field-job">
+      <%= f.label :note %>
+      <%= f.text_area :note %>
+    </div><br><br>
 
+    <div class="field-job">
+      <%= f.submit(class: "btn-new-job") %>
+    </div><br>
 
-<br><% end %>
+<% end %>

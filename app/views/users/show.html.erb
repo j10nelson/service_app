@@ -3,35 +3,34 @@
 </div>
 <div class="side-menu">
   <div class="account-side-menu">
-  <%= link_to "Book new service!", trades_path %></%>
-
-  </div>
   <ul>
   <h3>Account</h3>
   <li><a href="#" data-tab="personal">Personal</a></li>
   </ul>
-
+    </div>
   <ul>
-  <h3>Jobs</h3>
+  <h3>Jobs Diary</h3>
+  <li><%= link_to "Book Job!", trades_path %><li>
   <li><a href="#" data-tab="pending">Pending</a></li>
   <li><a href="#" data-tab="accepted">Accepted</a></li>
   <li><a href="#" data-tab="completed">To be completed</a></li>
   <li><a href="#" data-tab="history">History</a></li>
   </ul>
     </div>
-
-<div class="dashboard-feed">
-<h3>My Rating</h3>
-
-<%= @client_rating %>
-
+    <div class="dashboard-feed">
+  <div class="personal-dashboard-details" id="dashboard-details">
+  <h1><%= @user.first_name.capitalize %>'s Dashboard (<%= @user.role.capitalize%>)</h1>
+</div>
+  <div class="personal-dashboard show2" id="personal-details">
   <h2>My Account</h2>
-  <h3><%= @user.role.capitalize%> Dashboard</p></h3>
+  <h3>My Rating: <%= @client_rating %></h3>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
   <% if @user.filled_home_address? %>
   <p>Address: <%= @user.home_address %></p>
+  <p>Phone Number: <%= number_to_phone(@user.phone_number) %></p>
   <% end %>
+</div>
 
 
 <div class="jobs-dashboard show wtv" id="jobs-pending">

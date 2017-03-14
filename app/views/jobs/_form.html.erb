@@ -10,7 +10,7 @@
 
   <div class="field-job">
     <p>Date: <%= date_field_tag :date %></p>
-    <p> Time: <%= f.time_select :datetime, ampm:true %></p>
+    <p> Time: <%= f.time_select :datetime, include_blank: true, ampm:true %></p>
   </div>
 
     <div class="field-job">

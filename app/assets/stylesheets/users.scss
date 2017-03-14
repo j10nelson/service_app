@@ -196,11 +196,15 @@ transform: translateY(4px);
 }
 
 .wtv {
-  width: 30%;
-  margin: auto auto;
+  width: 47%;
+  margin: 10px 5px;
   vertical-align: top;
 }
 
 .show2 {
+  display: none;
+}
+
+#personal-details {
   display: none;
 }

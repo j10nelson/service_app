@@ -1,0 +1,37 @@
+<% if current_user.role == "admin" %>
+<div class="user-dashboard">
+<%= @user.role.capitalize%> Dashboard</p>
+</div>
+<div class="side-menu">
+  <div class="account-side-menu">
+    <ul>
+    <h3>Account</h3>
+    <li><a href="#">Personal</a></li>
+    <li><a href="#">Billing</a></li>
+    </ul>
+    </div>
+
+    <div class="service-side-menu">
+    <ul>
+    <h3> Services </h3>
+    <li><%= link_to "Create a service", new_service_url %></li>
+    <h3> Trade </h3>
+    <li><%= link_to "Create a trade", new_trade_url %></li>
+  </ul>
+      </div>
+
+      <div class="job-side-menu">
+      <h3> Jobs </h3>
+        </div>
+</div>
+<div class="dashboard-feed">
+
+
+  <h2>My Account</h2>
+  <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+  <p>Email: <%= @user.email %></p>
+<h2><%= @user.role.capitalize %></h2>
+<h2>Jobs Pending: <%= @jobs_pending %></h2>
+<h2>Job Accepted: <%= @jobs_accepted %></h2>
+<% end %>
+</div>

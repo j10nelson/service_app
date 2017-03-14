@@ -9,17 +9,14 @@
 <% end %>
 
   <div class="field-job">
-     <%= f.label :datetime %><br>
-     <%= f.date_field :datetime %><br><br>
-     <%= f.time_select :datetime, ampm:true %>
+    <p>Date: <%= date_field_tag :date %></p>
+    <p> Time: <%= f.time_select :datetime, ampm:true %></p>
   </div>
 
-  <br>
     <div class="field-job">
     <%= f.label :note %>
     <%= f.text_area :note %>
     </div>
-
 
   <br><div class="field-job">
      <%= f.submit(class: "btn-new-job") %>

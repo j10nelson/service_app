@@ -9,8 +9,9 @@
 <% end %>
 
   <div class="field-job">
-     <%= f.label :datetime %><br />
-     <%= f.datetime_select :datetime, ampm:true %>
+     <%= f.label :datetime %><br>
+     <%= f.date_field :datetime %><br><br>
+     <%= f.time_select :datetime, ampm:true %>
   </div>
 
   <br>

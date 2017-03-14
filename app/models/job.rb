@@ -6,9 +6,8 @@ class Job < ApplicationRecord
 
   validates :datetime, presence: true, on: :create
   validates :note, length: { maximum: 255 }, presence: true, on: :create
+  validates :datetime, numericality: { greater_than: 0 }
 
-  # make one change:
-  # pass in the current_user as a piece of data to this method
 
   def job_pending?
     self.state == "pending"

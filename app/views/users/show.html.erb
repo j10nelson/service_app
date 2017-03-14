@@ -20,7 +20,22 @@
     <div class="dashboard-feed">
   <div class="personal-dashboard-details" id="dashboard-details">
   <h1><%= @user.first_name.capitalize %>'s Dashboard (<%= @user.role.capitalize%>)</h1>
+
+  <div class="dashboard-categories">
+    <div class="dashboard-categories-boxes">
+      <ul>
+    <% @trade.each do |trade| %>
+      <li><%= trade.category %></li>
+    <% end %>
+  </ul>
+  </div>
+
 </div>
+
+
+
+</div>
+
   <div class="personal-dashboard show2" id="personal-details">
   <h2>My Account</h2>
   <h3>My Rating: <%= @client_rating %></h3>

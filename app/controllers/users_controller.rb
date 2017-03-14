@@ -54,6 +54,7 @@ class UsersController < ApplicationController
   @worker_rating = Review.where(worker_id: @user.id).average(:rating).to_f
   @client_rating = Review.where(user_id: @user.id).average(:rating).to_f
 
+  @trade = Trade.all
 
 
     if @user != current_user

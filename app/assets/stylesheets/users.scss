@@ -23,6 +23,34 @@ height: 300px;
   margin-bottom: 100px;
 }
 
+.dashboard-categories-boxes {
+  border: 1px solid lightgrey;
+  width: 74%;
+  height: 200px;
+  margin: auto auto 20px auto;
+}
+.dashboard-categories-boxes li {
+  border: 1px solid lightgrey;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px;
+  vertical-align: top;
+  width: 150px;
+  padding-top: 45px;
+  height: 80px;
+}
+
+.dashboard-categories-boxes ul {
+  display: inline-block;
+  margin: 30px;
+  height: 100px;
+  padding-left: 0px;
+  height: 200px;
+
+
+}
+
 .jobs-dashboard {
   border: 1px solid lightgrey;
   min-height: 400%;

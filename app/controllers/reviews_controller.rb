@@ -29,6 +29,8 @@ class ReviewsController < ApplicationController
 
         if @job.worker_done?
           @job.state = "completed"
+          @job.work_finsihed = Time.now.asctime
+
           @job.save
         end
 
@@ -38,6 +40,7 @@ class ReviewsController < ApplicationController
 
       if @job.client_done?
           @job.state = "history"
+          @job.job_closed = Time.now.asctime
           @job.save
         end
       end

@@ -31,36 +31,29 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   def show
     @jobs = []
     @user = current_user
+    @trade = Trade.all
     @requested_services = Service.where(trade_id: @user.trade_id)
     @jobs_from_requested_services = Job.where(service_id: @requested_services.ids)
 
-
-   @jobs_pending_worker = Job.where(state: "pending").where(service_id: @requested_services.ids)
-   @jobs_accepted_worker = Job.where(state: "accepted").where(service_id: @requested_services.ids)
-   @jobs_completed_worker = Job.where(state: "completed").where(service_id: @requested_services.ids)
-   @jobs_history_worker = Job.where(state: "history").where(service_id: @requested_services.ids)
-
+    @jobs_pending_worker = Job.where(state: "pending").where(service_id: @requested_services.ids)
+    @jobs_accepted_worker = Job.where(state: "accepted").where(service_id: @requested_services.ids)
+    @jobs_completed_worker = Job.where(state: "completed").where(service_id: @requested_services.ids)
+    @jobs_history_worker = Job.where(state: "history").where(service_id: @requested_services.ids)
 
     @jobs_accepted_client = Job.where(state: "accepted").where(user: current_user)
     @jobs_pending_client = Job.where(state: "pending").where(user: current_user)
     @jobs_completed_client = Job.where(state: "completed").where(user: current_user)
     @jobs_history_client = Job.where(state: "history").where(user: current_user)
 
-  @worker_rating = Review.where(worker_id: @user.id).average(:rating).to_f
-  @client_rating = Review.where(user_id: @user.id).average(:rating).to_f
-
-  @trade = Trade.all
-
+    @worker_rating = Review.where(worker_id: @user.id).average(:rating).to_f
+    @client_rating = Review.where(user_id: @user.id).average(:rating).to_f
 
     if @user != current_user
       redirect_to(:back)
     end
-
 
     if current_user.role == "client"
       render "client_info"
@@ -69,7 +62,6 @@ class UsersController < ApplicationController
     else current_user.role == "admin"
       render "admin"
     end
-
   end
 
   def update
@@ -90,12 +82,8 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation, :home_address)
-
   end
-
-
 end

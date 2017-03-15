@@ -25,8 +25,14 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    d = Date.parse(params[:date])
-    @job.datetime = @job.datetime.change(day: d.day, month: d.month, year: d.year)
+
+    if params[:date].present?
+      d = Date.parse(params[:date])
+      @job.datetime = @job.datetime.change(day: d.day, month: d.month, year: d.year)
+    else
+      @job.datetime = nil
+    end
+
     @user = current_user
     @job.user = current_user
     @trade = Trade.find(params[:trade_id])

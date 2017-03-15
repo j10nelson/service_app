@@ -11,8 +11,7 @@
 <p>Price: <%= @job.service.price %></p>
 
 <h1><%= @job.title %></h1>
-<p><%= @job.date.strftime('%B %d, %Y') %></p>
-<p><%= @job.time.strftime('%I:%M%p') %></p>
+<p><%= @job.datetime %></p>
 <p>Notes: <%= @job.note %></p>
 <h2><%= @job.user.home_address %></h2>
 

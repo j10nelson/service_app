@@ -29,3 +29,6 @@ db/.DS_Store
 lib/.DS_Store
 test/.DS_Store
 vendor/.DS_Store
+
+# Ignore application configuration
+/config/application.yml

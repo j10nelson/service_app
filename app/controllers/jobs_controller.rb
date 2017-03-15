@@ -25,6 +25,8 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    d = Date.parse(params[:date])
+    @job.datetime = @job.datetime.change(day: d.day, month: d.month, year: d.year)
     @user = current_user
     @job.user = current_user
     @trade = Trade.find(params[:trade_id])
@@ -34,11 +36,10 @@ class JobsController < ApplicationController
     if @job.save
        UserMailer.book_service_email(current_user, @job).deliver_now
 
-       client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
-
+       client = Twilio::REST::Client.new(ENV['sid'], ENV['token'])
        # Create and send an SMS message
        client.account.sms.messages.create(
-         from: TWILIO_CONFIG['from'],
+         from: ENV['from'],
          to: @message,
          body: "You have a service request pending. Click the link to go to your account: http://localhost:3000/users/3?origin=email_link"
        )
@@ -78,11 +79,11 @@ class JobsController < ApplicationController
 
       UserMailer.service_accepted(@client, @job).deliver_now
 
-      client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+      client = Twilio::REST::Client.new(ENV['sid'], ENV['token'])
 
       # Create and send an SMS message
       client.account.sms.messages.create(
-        from: TWILIO_CONFIG['from'],
+        from: ENV['from'],
         to: @user.phone_number,
         body: "You accepted a service request. Go to your account: http://localhost:3000/users/3?origin=email_link"
       )
@@ -95,6 +96,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:note, :date, :time, :service_id, :price)
+    params.require(:job).permit(:note, :datetime, :service_id, :price)
   end
 end

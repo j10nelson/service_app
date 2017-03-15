@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  mount_uploader :photo, PhotoUploader
 
   has_many :jobs, -> { order('updated_at DESC').uniq }
 

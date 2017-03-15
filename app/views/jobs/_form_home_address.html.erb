@@ -27,7 +27,7 @@
      </div>
 
     <div class="field-session">
-    <%= f.select(:province) do %>
+    <p>Province: <%= f.select(:province) do %></p>
         <%= content_tag(:option, "Ontario", value: "ontario") %>
     <% end %>
   </div>
@@ -38,10 +38,10 @@
    </div>
 
     <div class="field-session">
-    <%= f.select(:country) do %>
+    <p>Country: <%= f.select(:country) do %></p>
         <%= content_tag(:option, "Canada", value: "canada") %>
     <% end %>
-  </div>
+  </div><br>
 
   <div class="actions-home-address">
      <%= f.submit("Complete Account", method: "put", class: "btn-session") %>

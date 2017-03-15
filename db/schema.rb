@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315050104) do
+ActiveRecord::Schema.define(version: 20170313205315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170315050104) do
     t.string   "state",         default: "pending"
     t.datetime "job_closed"
     t.datetime "work_finsihed"
+    t.datetime "datetime"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170315050104) do
     t.string   "role",                         default: "client"
     t.integer  "trade_id"
     t.bigint   "phone_number"
+    t.string   "photo"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   end

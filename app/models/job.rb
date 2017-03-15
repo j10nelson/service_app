@@ -4,11 +4,9 @@ class Job < ApplicationRecord
   belongs_to :worker, class_name: "User"
   has_many :reviews
 
-  validates :date, :time, presence: true, on: :create
+  validates :datetime, presence: true, on: :create
   validates :note, length: { maximum: 255 }, presence: true, on: :create
-
-  # make one change:
-  # pass in the current_user as a piece of data to this method
+  validates :datetime, numericality: { greater_than: 0 }
 
   def job_pending?
     self.state == "pending"
@@ -76,7 +74,7 @@ class Job < ApplicationRecord
   # def self.accepted_jobs(poop_id)
   #   where("worker_id IS NOT NULL AND worker_id = #{poop_id}")
   # end
-  # 
+  #
   # def self.accepted_jobs_client(poop)
   #   where("worker_id IS NOT NULL AND user_id = #{poop}")
   # end

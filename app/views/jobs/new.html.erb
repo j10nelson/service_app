@@ -6,9 +6,12 @@
     <% @job.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
+
     </ul>
   </div>
+
 <% end %>
+
 <div class="book-service">
 
 <% if current_user.role == "client" %>

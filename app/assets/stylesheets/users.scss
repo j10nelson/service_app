@@ -30,20 +30,22 @@ width: 180px;
 border: 1px solid black;
 margin-left: 17px;
 height: 300px;
+margin-right: 15px;
 
 }
 
 .dashboard-feed {
-  margin-left: 213px;
+  left: 213px;
   border: 1px solid lightgrey;
   padding-left: 9px;
   width: 80%;
   margin-top: 70px;
   margin-bottom: 100px;
+  position: relative;
 }
 
 .dashboard-categories-boxes {
-  border: 1px solid lightgrey;
+  border: 1px dashed lightgrey;
   width: 74%;
   height: 200px;
   margin: auto auto 20px auto;

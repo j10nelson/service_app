@@ -61,16 +61,13 @@ class UsersController < ApplicationController
       redirect_to(:back)
     end
 
+
     if current_user.role == "client"
       render "client_info"
-
     elsif current_user.role == "worker"
       render "worker_info"
-
     else current_user.role == "admin"
       render "admin"
-
-
     end
 
   end

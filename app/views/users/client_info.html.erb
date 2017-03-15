@@ -5,15 +5,15 @@
   <div class="account-side-menu">
   </div>
   <ul>
-  <h3>Account</h3>
+  <h3>My Account</h3>
   <li><a href="#" data-tab="personal">Personal</a></li>
   </ul>
   <ul>
-  <h3>Jobs</h3>
-  <li><a href="#" data-tab="pending">Pending</a></li>
-  <li><a href="#" data-tab="accepted">Accepted</a></li>
-  <li><a href="#" data-tab="completed">To be completed: </a><%  if @jobs_completed_client.count >= 1 %><%= @jobs_completed_client.count %> *<%end%></li>
-  <li><a href="#" data-tab="history">History</a></li>
+  <h3>My Jobs</h3>
+  <li><a href="#" data-tab="pending">Pending</a><%  if @jobs_pending_client.count >= 1 %>: <%= @jobs_pending_client.count %><%end%></li>
+  <li><a href="#" data-tab="accepted">Accepted</a><%  if @jobs_accepted_client.count >= 1 %>: <%= @jobs_accepted_client.count %><%end%></li>
+  <li><a href="#" data-tab="completed">To be completed</a><%  if @jobs_completed_client.count >= 1 %>: <%= @jobs_completed_client.count %>*<%end%></li>
+  <li><a href="#" data-tab="history">History</a><%  if @jobs_history_client.count >= 1 %>: <%= @jobs_history_client.count %><%end%></li>
   </ul>
     </div>
     <div class="dashboard-feed">
@@ -23,6 +23,9 @@
 <% end %>
   <div class="dashboard-categories">
     <div class="dashboard-categories-boxes">
+      <%= link_to trades_path do %>
+      <h2> Book a new service today! </h2>
+      <% end %>
       <ul>
 
     <% Trade.categories.each do |category| %>

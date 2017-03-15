@@ -62,8 +62,8 @@
     <% end %>
 
     <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
-    <li><%= job.date.strftime('%B %d, %Y') %></li>
-    <li><%= job.time.strftime('%I:%M%p')%></li>
+    <li><%= job.datetime.strftime('%B %d, %Y') %></li>
+    <li><%= job.datetime.strftime('%I:%M%p')%></li>
     <li>Note: <%= job.note %></li>
     <% if job.job_pending? %>
   </br>
@@ -89,8 +89,8 @@
       <% end %>
       <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
       </h2>
-      <li><%= job.date.strftime('%B %d, %Y') %></li>
-      <li><%= job.time.strftime('%I:%M%p')%></li>
+      <li><%= job.datetime.strftime('%B %d, %Y') %></li>
+      <li><%= job.datetime.strftime('%I:%M%p')%></li>
       <li>Note: <%= job.note %></p>
 
       <% if job.job_accepted? %>
@@ -114,8 +114,8 @@
       <li>Service: <%= job.service.type_of_service.capitalize %><li></div>
       <% end %>
       <li>Price: <%= number_to_currency(job.service.price) %><li>
-      <li><%= job.date.strftime('%B %d, %Y') %><li>
-      <li><%= job.time.strftime('%I:%M%p')%><li>
+      <li><%= job.datetime.strftime('%B %d, %Y') %><li>
+      <li><%= job.datetime.strftime('%I:%M%p')%><li>
       <li>Note: <%= job.note %><li>
 
           <li>Worker Name: <b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %></b></li>
@@ -143,8 +143,8 @@
       <li>Service: <%= job.service.type_of_service.capitalize %></li></div>
       <% end %>
       <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
-      <li><%= job.date.strftime('%B %d, %Y') %></li>
-      <li><%= job.time.strftime('%I:%M%p')%></li>
+      <li><%= job.datetime.strftime('%B %d, %Y') %></li>
+      <li><%= job.datetime.strftime('%I:%M%p')%></li>
       <li>Note: <%= job.note %></li>
 
       <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>,</b> completed this job!</li>

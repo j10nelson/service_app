@@ -70,15 +70,17 @@
   <h1>Jobs Accepted: <%= @jobs_accepted_worker.count %></h1>
       <% @jobs_accepted_worker.each do |job| %>
     <%= link_to job_path(job) do %>
+    <ul>
       <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
       <% end %>
-      <p>Price: <%= job.service.price %></p>
-      <p><%= job.date.strftime('%B %d, %Y') %></p>
-      <p><%= job.time.strftime('%I:%M%p')%></p>
-      <p>Note: <%= job.note %></p>
+      <li>Price: <%= number_to_currency(job.service.price) %></li>
+      <li><%= job.date.strftime('%B %d, %Y') %></li>
+      <li><%= job.time.strftime('%I:%M%p')%></li>
+      <li>Note: <%= job.note %></li>
 
-      <p>Name: <%= job.user.first_name %> <%= job.user.last_name %></p>
-      <p>Address: <%= job.user.home_address %></p>
+      <li>Name: <%= job.user.first_name %> <%= job.user.last_name %></li>
+        <li>Address: <%= job.user.home_address %> </li>
+        </ul>
       <% if job.job_accepted? %>
       <p>Status: In Progress</p>
       <%= link_to "Close Job", new_job_review_path(job) %>
@@ -92,7 +94,7 @@
     <%= link_to job_path(job) do %>
       <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
       <% end %>
-      <p>Price: <%= job.service.price %></p>
+      <p>Price: <%= number_to_currency(job.service.price) %></p>
       <p><%= job.date.strftime('%B %d, %Y') %></p>
       <p><%= job.time.strftime('%I:%M%p')%></p>
       <p>Note: <%= job.note %></p>
@@ -115,7 +117,7 @@
     <%= link_to job_path(job) do %>
       <h3>Service: <%= job.service.type_of_service.capitalize %></h3>
       <% end %>
-      <p>Price: <%= job.service.price %></p>
+      <p>Price: <b><%= number_to_currency(job.service.price) %></b></p>
       <p><%= job.date.strftime('%B %d, %Y') %></p>
       <p><%= job.time.strftime('%I:%M%p')%></p>
       <p>Note: <%= job.note %></p>

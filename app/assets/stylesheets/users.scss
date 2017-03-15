@@ -2,6 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: none;
+    color: rgb(0, 66, 144);
+}
+
+a:active {
+    text-decoration: none;
+    color: rgb(0, 66, 144);
+
+}
 .side-menu {
 position: fixed;
 top: 100;
@@ -54,13 +73,46 @@ height: 300px;
 .jobs-dashboard {
   border: 1px solid lightgrey;
   min-height: 400%;
-  width: 90%;
-  margin-bottom: 10px;
+  width: 97%;
+  margin: 0 auto 20px auto;
   padding: 10px;
   display: none;
 }
 
-.account-side-menu{
+.requested{
+border: 1px solid red;
+// line-height: 3px;
+display: inline-block;
+margin-left: 10px;
+padding: 5px 10px 20px 10px;
+text-decoration: none;
+list-style: none;
+margin-top: 10px;
+
+}
+
+.requested ul{
+// line-height: 1px;
+text-decoration: none;
+list-style: none;
+padding-left: 0;
+margin: 0;
+}
+
+  .requested li:last-child{
+  color: red;
+}
+
+.worker-done-review {
+  color: red;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+.job-address p {
+  word-break: break-all;
+  color: red;
 }
 
 .service-side-menu ul {
@@ -74,6 +126,17 @@ height: 300px;
   padding-bottom: 15px;
 }
 
+// .job-title-user li {
+//   text-decoration: none;
+//   list-style: none;
+//   padding-left: 0;
+// }
+
+h2.job-title-user  {
+margin: 0;
+line-height: 2px;
+  padding-top: 0px;
+}
 .account-side-menu a {
   text-decoration: none;
 }

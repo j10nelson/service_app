@@ -8,7 +8,6 @@ class Job < ApplicationRecord
   validates :note, length: { maximum: 255 }, presence: true, on: :create
   validates :datetime, numericality: { greater_than: 0 }
 
-
   def job_pending?
     self.state == "pending"
   end

@@ -81,7 +81,7 @@
       <% end %>
       <li>Price: <%= number_to_currency(job.service.price) %></li>
       <li><%= job.datetime.strftime('%B %d, %Y') %></li>
-      <li><%= job.timetime.strftime('%I:%M%p')%></li>
+      <li><%= job.datetime.strftime('%I:%M%p')%></li>
       <li>Note: <%= job.note %></li>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>

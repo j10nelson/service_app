@@ -6,7 +6,8 @@ class Job < ApplicationRecord
 
   validates :datetime, presence: true, on: :create
   validates :note, length: { maximum: 255 }, presence: true, on: :create
-  validates :datetime, numericality: { greater_than: 0 }
+
+  attr_accessor :house_number, :apt_number, :street, :province, :country, :postal_code, :city
 
   def job_pending?
     self.state == "pending"

@@ -7,12 +7,12 @@
   </div><br>
 
     <div class="field-job">
-      <%= f.label :date %>:
+      <%= f.label "Date:" %>
       <%= date_field_tag :date %>
     </div><br>
 
     <div class="field-job">
-      <%= f.label :time %>:
+      <%= f.label "Time:" %>
     <%= f.time_select :datetime, include_blank: true, ampm:true, start_hour: 7, end_hour: 18, minute_step: 15 %>
     </div><br>
 

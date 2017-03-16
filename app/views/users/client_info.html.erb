@@ -1,26 +1,34 @@
 <% if current_user.role == "client" %>
 <div class="user-dashboard">
 </div>
+<!-- <div class="account-side-menu"> -->
+  <%#= link_to user_path do %>
+<!-- <li><button >Dashboard</button></li> -->
+<%# end %>
+<!-- </div> -->
+
+
 <div class="side-menu">
-  <div class="account-side-menu">
-  </div>
   <ul>
-  <h3>My Account</h3>
-  <li><a href="#" data-tab="personal">Personal</a></li>
+  <li><button data-tab="personal">My Account</button></li>
   </ul>
   <ul>
-  <h3>My Jobs</h3>
-  <li><a href="#" data-tab="pending">Pending</a><%  if @jobs_pending_client.count >= 1 %>: <%= @jobs_pending_client.count %><%end%></li>
-  <li><a href="#" data-tab="accepted">Accepted</a><%  if @jobs_accepted_client.count >= 1 %>: <%= @jobs_accepted_client.count %><%end%></li>
-  <li><a href="#" data-tab="completed">To be completed</a><%  if @jobs_completed_client.count >= 1 %>: <%= @jobs_completed_client.count %>*<%end%></li>
-  <li><a href="#" data-tab="history">History</a><%  if @jobs_history_client.count >= 1 %>: <%= @jobs_history_client.count %><%end%></li>
+  <li><button data-tab="pending">Pending Jobs<%  if @jobs_pending_client.count >= 1 %>: <%= @jobs_pending_client.count %><%end%></button></li>
+  <li><button data-tab="accepted">Accepted Jobs<%  if @jobs_accepted_client.count >= 1 %>: <%= @jobs_accepted_client.count %><%end%></button></li>
+
+  <li><button data-tab="completed">Jobs to be closed<%  if @jobs_completed_client.count >= 1 %>: <%= @jobs_completed_client.count %>*<%end%></button></li>
+
+  <li><button data-tab="history">Jobs History<%  if @jobs_history_client.count >= 1 %>: <%= @jobs_history_client.count %><%end%></button></li>
+
   </ul>
     </div>
+
     <div class="dashboard-feed">
   <div class="personal-dashboard-details" id="dashboard-details">
     <%= link_to user_path do %>
   <h1><%= @user.first_name.capitalize %>'s Dashboard (<%= @user.role.capitalize%>)</h1>
 <% end %>
+<div class="jobs-dashboard show" id="jobs-offers">
   <div class="dashboard-categories">
     <div class="dashboard-categories-boxes">
       <%= link_to trades_path do %>
@@ -29,11 +37,12 @@
       <ul>
 
     <% Trade.categories.each do |category| %>
-      <li><%= category %></li>
+      <button><%= category %></button>
     <% end %>
   </ul>
   </div>
 
+</div>
 </div>
 
 </div>

@@ -19,47 +19,152 @@ a:hover {
 a:active {
     text-decoration: none;
     color: rgb(0, 66, 144);
-
 }
+li {
+  list-style: none;
+}
+
+// .account-side-menu {
+//   text-decoration: none;
+//   width: 230px;
+//   margin: 80px  15px 10px 8px;
+//   // border: 1px solid black;
+//   position: fixed;
+//   top: 20px;
+// }
+//
+// .account-side-menu li {
+//   height: 60px;
+//   width: 90%;
+//   border: none;
+//   border-radius: 1px;
+//   box-shadow: 1px 1px 1px 1px #999;
+//   margin: 10px auto;
+//
+// }
+//
+// .account-side-menu ul {
+//   list-style: none;
+//   padding-left: 0;
+//   margin-top: 0;
+// }
+//
+// .account-side-menu button {
+//   height: 100%;
+//   width: 100%;
+//   font-size: 22px;
+//   background-color: rgba(#000103, 1);
+//   color: #fff;
+// }
 .side-menu {
 position: fixed;
-top: 100;
 z-index: 99;
 background-color: rgba(#f9f9f9, 0.81);
-width: 180px;
-border: 1px solid black;
-margin-left: 17px;
-height: 300px;
+width: 230px;
+// border: 1px solid black;
+margin-left: 8px;
+height: 500px;
 margin-right: 15px;
+top: 90px;
 
 }
 
+.side-menu ul {
+list-style: none;
+padding-left: 0;
+margin-top: 0;
+}
+
+  .side-menu li {
+  // border: 1px solid black;
+  text-align: center;
+  height: 100px;
+  margin: 10px auto;
+  font-size: 22px;
+  font-weight: 600;
+  // padding: 50px 15px;
+  width: 90%;
+  border: none;
+  border-radius: 1px;
+  box-shadow: 1px 1px 1px 1px #999;
+  font-size: 80%;
+
+  }
+
+  .side-menu button {
+    height: 100%;
+    width: 100%;
+    font-size: 22px;
+    background-color: rgba(#000103, 1);
+    color: #fff;
+
+
+  }
+button:focus {
+  outline: 0;
+}
+.side-menu button:focus {
+  border: 3px solid rgba(#3298eb, 0.84);
+}
+.side-menu button:hover {
+  background-color: #242424;
+  color: #fff;
+  }
+
+.side-menu button:active {
+  background-color: rgba(#3298eb, 0.84);
+  box-shadow: 0 1px #666;
+  transform: translateY(1px);
+  }
+
+
+// .side-menu li:first-child {
+// margin-top: 0;
+// }
+// .side-menu li:nth-last-child(2) {
+// font-size: 18px;
+// }
+
+
+
 .dashboard-feed {
-  left: 213px;
-  border: 1px solid lightgrey;
+  left: 250px;
+  // border: 5px solid rgb(80, 155, 255);
   padding-left: 9px;
   width: 80%;
-  margin-top: 70px;
   margin-bottom: 100px;
-  position: relative;
+  position: absolute;
+  top: 100px;
 }
 
 .dashboard-categories-boxes {
   border: 1px dashed lightgrey;
   width: 74%;
-  height: 200px;
+  height: 222px;
   margin: auto auto 20px auto;
 }
-.dashboard-categories-boxes li {
+.dashboard-categories-boxes button {
   border: 1px solid lightgrey;
+  background-color: white;
   display: inline-block;
   text-align: center;
   text-transform: uppercase;
   margin: 10px;
   vertical-align: top;
   width: 150px;
-  padding-top: 45px;
   height: 80px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dashboard-categories-boxes button:hover {
+background-color: #faf4dc;
+// color: #fff;
+}
+
+.dashboard-categories-boxes button:active {
+background-color: rgba(#3298eb, 0.84);
+box-shadow: 0 1px #666;
+transform: translateY(1px);
 }
 
 .dashboard-categories-boxes h2 {
@@ -69,12 +174,17 @@ margin: 10px auto 0 auto;
 
 .dashboard-categories-boxes ul {
   display: inline-block;
-  margin: 10px 140px;
-  height: 100px;
+  margin: 10px 130px;
   padding-left: 0px;
   height: 200px;
+  width: 150%;
+}
+#jobs-offers {
+  border: none;
+}
 
-
+#jobs-personal {
+  border: none;
 }
 
 .jobs-dashboard {
@@ -85,16 +195,22 @@ margin: 10px auto 0 auto;
   padding: 10px;
   display: none;
 }
+.jobs-dashboard h1 {
+  text-align: center;
+  text-decoration: underline;
+}
 
 .requested{
-border: 1px solid red;
+// border: 4px solid red;
 // line-height: 3px;
+background-color: rgba(45, 121, 250, 0.44);
 display: inline-block;
-margin-left: 10px;
-padding: 5px 10px 20px 10px;
+margin: 10px 10px 20px 10px;
+padding: 15px 10px 20px 10px;
 text-decoration: none;
 list-style: none;
-margin-top: 10px;
+
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
@@ -144,9 +260,6 @@ margin: 0;
 line-height: 2px;
   padding-top: 0px;
 }
-.account-side-menu a {
-  text-decoration: none;
-}
 
 .service-side-menu a {
   text-decoration: none;
@@ -155,11 +268,6 @@ line-height: 2px;
   font-size: 25px;
   font-weight: 800;
   padding-left: 17px;
-}
-
-.side-menu ul {
-list-style: none;
-padding-left: 15px;
 }
 
 .user-new {

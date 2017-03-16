@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :reviews, through: :jobs
   belongs_to :trade
+  has_one :address
 
   validates :first_name, :last_name, :email, presence: true, on: :create
   validates :password, length: { minimum: 4 }, presence: true, on: :create
@@ -44,5 +45,10 @@ class User < ApplicationRecord
       return false
     end
   end
+
+  # def am_worker
+  #   self.role = "worker"
+  #
+  # end
 
 end

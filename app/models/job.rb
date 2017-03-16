@@ -4,10 +4,10 @@ class Job < ApplicationRecord
   belongs_to :worker, class_name: "User"
   has_many :reviews
 
-  validates :datetime, presence: { message: "Please Select a Service" }, on: :create
+  validates :datetime, presence: true, on: :create
   validates :note, length: { maximum: 255 }, on: :create
   validate :time_must_be_pressent_and_in_future
-  validates :service_id, presence: { message: "Please Select a Service" }
+  validates :service_id, presence: true
 
   attr_accessor :house_number, :apt_number, :street, :province, :country, :postal_code, :city
 

@@ -1,9 +1,14 @@
 <% if current_user.role == "client" %>
 <div class="user-dashboard">
 </div>
+<!-- <div class="account-side-menu"> -->
+  <%#= link_to user_path do %>
+<!-- <li><button >Dashboard</button></li> -->
+<%# end %>
+<!-- </div> -->
+
+
 <div class="side-menu">
-  <div class="account-side-menu">
-  </div>
   <ul>
   <li><button data-tab="personal">My Account</button></li>
   </ul>
@@ -17,6 +22,7 @@
 
   </ul>
     </div>
+
     <div class="dashboard-feed">
   <div class="personal-dashboard-details" id="dashboard-details">
     <%= link_to user_path do %>
@@ -31,7 +37,7 @@
       <ul>
 
     <% Trade.categories.each do |category| %>
-      <li><%= category %></li>
+      <button><%= category %></button>
     <% end %>
   </ul>
   </div>

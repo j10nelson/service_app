@@ -19,18 +19,54 @@ a:hover {
 a:active {
     text-decoration: none;
     color: rgb(0, 66, 144);
-
 }
+li {
+  list-style: none;
+}
+
+// .account-side-menu {
+//   text-decoration: none;
+//   width: 230px;
+//   margin: 80px  15px 10px 8px;
+//   // border: 1px solid black;
+//   position: fixed;
+//   top: 20px;
+// }
+//
+// .account-side-menu li {
+//   height: 60px;
+//   width: 90%;
+//   border: none;
+//   border-radius: 1px;
+//   box-shadow: 1px 1px 1px 1px #999;
+//   margin: 10px auto;
+//
+// }
+//
+// .account-side-menu ul {
+//   list-style: none;
+//   padding-left: 0;
+//   margin-top: 0;
+// }
+//
+// .account-side-menu button {
+//   height: 100%;
+//   width: 100%;
+//   font-size: 22px;
+//   background-color: rgba(#000103, 1);
+//   color: #fff;
+// }
 .side-menu {
 position: fixed;
-top: 100;
 z-index: 99;
 background-color: rgba(#f9f9f9, 0.81);
 width: 230px;
-border: 1px solid black;
+// border: 1px solid black;
 margin-left: 8px;
-height: 600px;
+height: 500px;
 margin-right: 15px;
+top: 90px;
+
 }
 
 .side-menu ul {
@@ -77,8 +113,8 @@ button:focus {
 
 .side-menu button:active {
   background-color: rgba(#3298eb, 0.84);
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  box-shadow: 0 1px #666;
+  transform: translateY(1px);
   }
 
 
@@ -93,32 +129,42 @@ button:focus {
 
 .dashboard-feed {
   left: 250px;
-  border: 1px solid lightgrey;
+  // border: 5px solid rgb(80, 155, 255);
   padding-left: 9px;
   width: 80%;
-  margin-top: 70px;
   margin-bottom: 100px;
-  position: relative;
+  position: absolute;
+  top: 100px;
 }
 
 .dashboard-categories-boxes {
   border: 1px dashed lightgrey;
   width: 74%;
-  height: 200px;
+  height: 222px;
   margin: auto auto 20px auto;
 }
-.dashboard-categories-boxes li {
+.dashboard-categories-boxes button {
   border: 1px solid lightgrey;
+  background-color: white;
   display: inline-block;
   text-align: center;
   text-transform: uppercase;
   margin: 10px;
   vertical-align: top;
   width: 150px;
-  padding-top: 45px;
   height: 80px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+.dashboard-categories-boxes button:hover {
+background-color: #faf4dc;
+// color: #fff;
+}
+
+.dashboard-categories-boxes button:active {
+background-color: rgba(#3298eb, 0.84);
+box-shadow: 0 1px #666;
+transform: translateY(1px);
 }
 
 .dashboard-categories-boxes h2 {
@@ -159,11 +205,11 @@ margin: 10px auto 0 auto;
 // line-height: 3px;
 background-color: rgba(45, 121, 250, 0.44);
 display: inline-block;
-margin-left: 10px;
+margin: 10px 10px 20px 10px;
 padding: 15px 10px 20px 10px;
 text-decoration: none;
 list-style: none;
-margin-top: 10px;
+
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
@@ -213,9 +259,6 @@ h2.job-title-user  {
 margin: 0;
 line-height: 2px;
   padding-top: 0px;
-}
-.account-side-menu a {
-  text-decoration: none;
 }
 
 .service-side-menu a {

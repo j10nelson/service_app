@@ -23,7 +23,7 @@ class User < ApplicationRecord
   attr_accessor :house_number, :apt_number, :street, :province, :country, :postal_code, :city
 
   def home_address?
-    if self.home_address
+    if self.address
       return false
     else
       return true
@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def filled_home_address?
-    if self.home_address
+    if self.address
       return true
     else
       return false

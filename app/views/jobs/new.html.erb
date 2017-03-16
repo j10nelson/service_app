@@ -18,7 +18,7 @@
  <% if @user.home_address? %>
  <h1>Complete Your Account</h1>
  <h3>Before you can book your first service request, you must complete your account by adding your primary address</h3>
-<%= render 'form_home_address' %>
+<%= render 'form_client_address' %>
 <% else @user.filled_home_address? %>
 <h1>Book a Service</h1>
 <%= render 'form' %>

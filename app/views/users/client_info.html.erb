@@ -49,7 +49,10 @@
 
   <div class="jobs-dashboard" id="jobs-personal">
   <h2>My Account</h2>
-  <h3>My Rating: <%= @client_rating %></h3>
+  <h3>My Rating: <%= @client_rating %> </h3>
+  <% @client_rating.to_i.times do %>
+  *
+  <% end %>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
   <% if @user.filled_home_address? %>

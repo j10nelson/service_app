@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :services, only: [:index, :create, :new]
-  resources :addresses, only: [:new, :create, :show, :edit]
+  resources :addresses, only: [:new, :create, :edit]
 
 
   resources :trades, only: [:index, :new, :create] do

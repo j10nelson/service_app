@@ -2,15 +2,22 @@
 
   <h2><p> <%= @trade.name.capitalize %> </p></h2>
 
+  <div class="field-job">
     <%= f.select :service_id, @trade.services.collect { |s| [ "#{s.type_of_service} - Price: $#{s.price}", s.id ] }, {include_blank: 'Select a Service'} %>
+  </div><br>
 
     <div class="field-job">
-      <p>Date: <%= date_field_tag :date %></p>
-      <p>Time: <%= f.time_select :datetime, include_blank: true, ampm:true, start_hour: 7, end_hour: 18, minute_step: 5 %></p>
-    </div>
+      <%= f.label :date %>:
+      <%= date_field_tag :date %>
+    </div><br>
 
     <div class="field-job">
-      <%= f.label :note %>
+      <%= f.label :time %>:
+    <%= f.time_select :datetime, include_blank: true, ampm:true, start_hour: 7, end_hour: 18, minute_step: 15 %>
+    </div><br>
+
+    <div class="field-job">
+      <%= f.label :note %>:
       <%= f.text_area :note %>
     </div><br><br>
 

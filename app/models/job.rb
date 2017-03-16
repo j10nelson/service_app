@@ -4,16 +4,16 @@ class Job < ApplicationRecord
   belongs_to :worker, class_name: "User"
   has_many :reviews
 
-  validates :datetime, presence: true, on: :create
+  validates :datetime, presence: { message: "Please Select a Service" }, on: :create
   validates :note, length: { maximum: 255 }, on: :create
   validate :time_must_be_pressent_and_in_future
-  validates :service_id, presence: true
+  validates :service_id, presence: { message: "Please Select a Service" }
 
   attr_accessor :house_number, :apt_number, :street, :province, :country, :postal_code, :city
 
   def time_must_be_pressent_and_in_future
     if self.datetime.present? && self.datetime < Time.now
-      errors.add(:datetime, 'Time needs in the future')
+      errors.add(:datetime, 'needs in the future')
     end
   end
 

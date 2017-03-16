@@ -1,10 +1,4 @@
-<%= form_for @user do |f| %>
-
-<div class="field-session">
-   <%= f.label :phone_number %><br />
-   <%= f.text_field :phone_number %>
- </div>
-
+<%= form_for [@address] do |f| %>
 
   <div class="field-session">
      <%= f.label :house_number %><br />
@@ -12,8 +6,8 @@
    </div>
 
    <div class="field-session">
-      <%= f.label :apt_number %><br />
-      <%= f.text_field :apt_number %>
+      <%= f.label :unit_number %><br />
+      <%= f.text_field :unit_number %>
     </div>
 
    <div class="field-session">
@@ -32,7 +26,7 @@
        </div>
 
   <div class="actions-home-address">
-     <%= f.submit("Complete Account", method: "put", class: "btn-session") %>
+     <%= f.submit("Complete Account", class: "btn-session") %>
   </div>
 
 <% end %>

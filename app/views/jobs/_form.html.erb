@@ -2,9 +2,19 @@
 
   <h2><p> <%= @trade.name.capitalize %> </p></h2>
 
+    <%# @trade.services.each do |service| %>
+      <%#= radio_button(:service, :id, service.id) %>
+        <!-- <p>Service: <%#= service.type_of_service %></p> </p> -->
+        <!-- <p>Price: <%#= service.price %></p> -->
+    <%# end %>
+
+    <%= f.select(:service, :id) do %>
+      <% @trade.services.all.each do |s| %>
+        <%= content_tag(:option, s.type_of_service, value: s.id) %>
+      <% end %>
+    <% end %>
+
     <% @trade.services.each do |service| %>
-      <%= radio_button(:service, :id, service.id) %>
-        <p>Service: <%= service.type_of_service %></p> </p>
         <p>Price: <%= service.price %></p>
     <% end %>
 

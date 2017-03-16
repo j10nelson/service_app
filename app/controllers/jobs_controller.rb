@@ -36,7 +36,7 @@ class JobsController < ApplicationController
     @user = current_user
     @job.user = current_user
     @trade = Trade.find(params[:trade_id])
-    @job.service_id = params[:service][:id]
+    @job.service_id = params[:job][:service_id]
     @message = @job.text_message
 
     if @job.save

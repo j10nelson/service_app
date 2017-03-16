@@ -19,9 +19,9 @@ class User < ApplicationRecord
 
   # ROLES = ["client", "worker", "admin"]
 
-  attr_accessor :house_number, :apt_number, :street, :province, :country, :postal_code, :city
+  # attr_accessor :house_number, :apt_number, :street, :province, :country, :postal_code, :city
 
-  def home_address?
+  def address?
     if self.address
       return false
     else
@@ -29,7 +29,7 @@ class User < ApplicationRecord
     end
   end
 
-  def filled_home_address?
+  def filled_address?
     if self.address
       return true
     else

@@ -35,6 +35,7 @@ class UsersController < ApplicationController
     @jobs = []
     @user = current_user
     @trade = Trade.all
+    @address = Address.new
     @requested_services = Service.where(trade_id: @user.trade_id)
     @jobs_from_requested_services = Job.where(service_id: @requested_services.ids)
 
@@ -67,13 +68,13 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(user_params)
-    @user.home_address = [params[:user][:house_number],
-                          params[:user][:street],
-                          params[:user][:apt_number],
-                          params[:user][:city],
-                          params[:user][:province],
-                          params[:user][:postal_code],
-                          params[:user][:country]].join(" ").titleize
+    # @user.home_address = [params[:user][:house_number],
+    #                       params[:user][:street],
+    #                       params[:user][:apt_number],
+    #                       params[:user][:city],
+    #                       params[:user][:province],
+    #                       params[:user][:postal_code],
+    #                       params[:user][:country]].join(" ").titleize
     if @user.save
       # redirect_to "/jobs/#{@job.id}"
       redirect_back(fallback_location: current_user)
@@ -91,7 +92,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation, :photo, :home_address)
+    params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation, :photo)
   end
 
   def worker_request

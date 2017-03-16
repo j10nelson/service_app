@@ -23,6 +23,11 @@
   <h1><%= @user.first_name.capitalize %>'s Dashboard (<%= @user.role.capitalize%>)</h1>
   <% end %>
   <h2> <%= @user.trade.name.capitalize%> </h2>
+  <% if @user.address? %>
+  <h1>Complete Your Account</h1>
+  <h3>Before you can book your first service request, you must complete your account by adding your primary address</h3>
+ <%= render 'form_home_address_worker' %>
+ <% else @user.filled_address? %>
 </div>
 
 
@@ -30,15 +35,10 @@
 
   <h2>My Account</h2>
   <h3>My Rating: <%= @worker_rating %></h3>
-   <% if @user.home_address? %>
-   <h1>Complete Your Account</h1>
-   <h3>Before you can book your first service request, you must complete your account by adding your primary address</h3>
-  <%= render 'form_home_address_worker' %>
-  <% else @user.filled_home_address? %>
 
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
-  <p>Address: <%= @user.home_address %></p>
+  <p>Address: <%= @user.address %></p>
   <p>Phone Number: <%= number_to_phone(@user.phone_number) %></p>
 </div>
 
@@ -60,7 +60,7 @@
     <li>Note: <%= job.note %></li>
 
     <li>Name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
-    <li><b><%= job.user.home_address.titleize %></b></li>
+    <li><b><%= job.user.address %></b></li>
   </ul>
   <% if job.job_pending? %>
       <%= form_tag(job_accept_path(job), method: "put") do %>
@@ -86,7 +86,7 @@
       <li>Note: <%= job.note %></li>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
-        <li>Address: <%= job.user.home_address.titleize %> </li>
+        <li>Address: <%= job.user.address %> </li>
         </ul>
       <% if job.job_accepted? %>
       <p><b>Status: In Progress</b></p>
@@ -110,7 +110,7 @@
       <li>Note: <%= job.note %></p>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
-      <li>Address: <%= job.user.home_address.titleize %></li>
+      <li>Address: <%= job.user.address %></li>
       <% if job.job_completed? %>
       <li>Status: Job Closed</li>
       <!-- <h4>Review</h4> -->
@@ -139,10 +139,12 @@
       <li>Note: <%= job.note %></li>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
-      <li>Address: <%= job.user.home_address.titleize %></li>
+      <li>Address: <%= job.user.address %></li>
     </div>
       <% end %>
   <% end %>
+
+
 <% end %>
 </div>
 </div>

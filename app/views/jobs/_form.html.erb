@@ -2,7 +2,7 @@
 
   <h2><p> <%= @trade.name.capitalize %> </p></h2>
 
-    <%= f.select :service_id, @trade.services.collect { |s| [ "#{s.type_of_service} - Price: $#{s.price}", s.id ] }, prompt: true %>
+    <%= f.select :service_id, @trade.services.collect { |s| [ "#{s.type_of_service} - Price: $#{s.price}", s.id ] }, {include_blank: 'Select a Service'} %>
 
     <div class="field-job">
       <p>Date: <%= date_field_tag :date %></p>

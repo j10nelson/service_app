@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   end
 
+  put '/users/:id/request' => "user#poop", :as => :user_request
   put '/jobs/:id/accept' => "jobs#accept", :as => :job_accept
 
   resources :jobs, except: [:index, :edit] do

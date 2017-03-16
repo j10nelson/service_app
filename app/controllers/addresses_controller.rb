@@ -8,10 +8,9 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     @user = current_user
-    @address = Address.new
     @address.user_id = current_user.id
 
-    if @address.save!
+    if @address.save
 
       redirect_to current_user
       # redirect_to current_user_url

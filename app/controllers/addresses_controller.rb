@@ -15,14 +15,14 @@ class AddressesController < ApplicationController
       redirect_to current_user
       # redirect_to current_user_url
     else
-      render :new
+  redirect_back(fallback_location: current_user)
+
     end
-
   end
 
-  def edit
-
-  end
+  # def edit
+  #
+  # end
 
 
 

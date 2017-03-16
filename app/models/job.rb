@@ -5,8 +5,7 @@ class Job < ApplicationRecord
   has_many :reviews
 
   validates :datetime, presence: true, on: :create
-  validates :note, length: { maximum: 255 }, presence: true, on: :create
-
+  validates :note, length: { maximum: 255 }, on: :create
   validate :time_must_be_pressent_and_in_future
   validates :service_id, presence: true
 

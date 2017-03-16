@@ -36,9 +36,13 @@ class JobsController < ApplicationController
     @user = current_user
     @job.user = current_user
     @trade = Trade.find(params[:trade_id])
-    @job.service_id = params[:job][:service_id]
-    @message = @job.text_message
 
+    if @job.service_id = params[:job][:service_id].present?
+      @message = @job.text_message
+    else
+      @job.service_id = nil
+    end
+    
     if @job.save
        UserMailer.book_service_email(current_user, @job).deliver_now
 

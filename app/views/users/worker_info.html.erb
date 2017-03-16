@@ -5,15 +5,16 @@
   <div class="account-side-menu">
   </div>
   <ul>
-  <h3>My Account</h3>
-  <li><a href="#" data-tab="personal">Personal</a></li>
+  <li><button data-tab="personal">My Account</button></li>
   </ul>
   <ul>
-  <h3>My Jobs</h3>
-  <li><a href="#" data-tab="pending">Pending</a></li>
-  <li><a href="#" data-tab="accepted">Accepted</a></li>
-  <li><a href="#" data-tab="completed">To be completed</a></li>
-  <li><a href="#" data-tab="history">History</a></li>
+  <li><button data-tab="pending">Pending Jobs<%  if @jobs_pending_client.count >= 1 %>: <%= @jobs_pending_client.count %><%end%></button></li>
+  <li><button data-tab="accepted">Accepted Jobs<%  if @jobs_accepted_client.count >= 1 %>: <%= @jobs_accepted_client.count %><%end%></button></li>
+
+  <li><button data-tab="completed">Jobs to be closed<%  if @jobs_completed_client.count >= 1 %>: <%= @jobs_completed_client.count %>*<%end%></button></li>
+
+  <li><button data-tab="history">Jobs History<%  if @jobs_history_client.count >= 1 %>: <%= @jobs_history_client.count %><%end%></button></li>
+
   </ul>
     </div>
 <div class="dashboard-feed">

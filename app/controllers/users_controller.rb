@@ -68,6 +68,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(user_params)
+    @user.update_attributes(worker_request)
+    @user.worker_role_request = "submitted"
+
+
     # @user.home_address = [params[:user][:house_number],
     #                       params[:user][:street],
     #                       params[:user][:apt_number],
@@ -84,10 +88,8 @@ class UsersController < ApplicationController
   end
 
 
-  def poop
-    @user.update_attributes(worker_request)
+  def worker
     @user = current_user
-    @user.worker_role_request = "submitted"
   end
 
   private
@@ -97,7 +99,6 @@ class UsersController < ApplicationController
 
   def worker_request
     params.require(:user).permit(:trade_request, :deliverables_request, :about_request)
-
   end
 
 end

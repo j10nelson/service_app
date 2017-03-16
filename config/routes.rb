@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 
   resources :trades, only: [:index, :new, :create] do
     resources :jobs, except: :index
-
   end
+
+  get '/trades/:trade_id/jobs' => "jobs#new"
 
   put '/users/:id/request' => "user#poop", :as => :user_request
   put '/jobs/:id/accept' => "jobs#accept", :as => :job_accept

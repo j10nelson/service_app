@@ -18,7 +18,6 @@ class Job < ApplicationRecord
     end
   end
 
-
   def job_pending?
     self.state == "pending"
   end
@@ -34,6 +33,30 @@ class Job < ApplicationRecord
   def history?
     self.state == "history"
   end
+
+  def worker_done?
+    self.reviews.each do |review|
+      if review.user == self.user
+        return true
+      end
+    end
+    return false
+  end
+
+  def client_done?
+    self.reviews.each do |review|
+      if review.worker_id == self.worker_id
+        return true
+      end
+    end
+    return false
+  end
+
+  def text_message
+    self.service.trade.users.map(&:phone_number)
+  end
+
+end
 
 
   # def accepted?
@@ -57,28 +80,6 @@ class Job < ApplicationRecord
 #   end
 # end
 
-
-  def worker_done?
-    self.reviews.each do |review|
-      if review.user == self.user
-        return true
-      end
-    end
-    return false
-  end
-
-  def client_done?
-    self.reviews.each do |review|
-      if review.worker_id == self.worker_id
-        return true
-      end
-    end
-    return false
-  end
-
-  def text_message
-    self.service.trade.users.map(&:phone_number)
-  end
 
   # we hope that poop_id is the current user's id, but it's up to whoever calls this to do the right thing
   #accepted for worker
@@ -113,7 +114,7 @@ class Job < ApplicationRecord
 
   # validates :title, :details, presence: true, on: :create
 
-end
+
 
 
 # in the controller:

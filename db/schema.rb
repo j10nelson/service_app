@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170315214137) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +76,6 @@ ActiveRecord::Schema.define(version: 20170315214137) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "home_address"
-    t.string   "billing_address"
     t.string   "company_name"
     t.string   "license_plate"
     t.string   "email",                                           null: false
@@ -89,6 +89,10 @@ ActiveRecord::Schema.define(version: 20170315214137) do
     t.integer  "trade_id"
     t.bigint   "phone_number"
     t.string   "photo"
+    t.string   "worker_role_request",          default: "none"
+    t.string   "trade_request"
+    t.string   "deliverables_request"
+    t.string   "about_request"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   end

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root "services#index"
   resources :users, only: [:new, :create, :index, :show, :update]
   resources :user_sessions, only: [:new, :create, :destroy]
@@ -8,7 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :services, only: [:index, :create, :new]
-  resources :addresses, only: [:new, :create, :show, :edit]
+  resources :addresses, only: [:new, :create, :edit]
 
 
   resources :trades, only: [:index, :new, :create] do
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
 
   end
 
+  put '/users/:id/request' => "user#poop", :as => :user_request
   put '/jobs/:id/accept' => "jobs#accept", :as => :job_accept
 
   resources :jobs, except: [:index, :edit] do

@@ -16,6 +16,7 @@ class JobsController < ApplicationController
   def new
     @user = current_user
     @job = Job.new
+    @address = Address.new
     @trade = Trade.find(params[:trade_id])
   end
 

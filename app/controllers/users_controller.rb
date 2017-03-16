@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
     @worker_rating = Review.where(worker_id: @user.id).average(:rating).to_f
     @client_rating = Review.where(user_id: @user.id).average(:rating).to_f
-    
+
     if @user != current_user
       redirect_to(:back)
     end
@@ -82,8 +82,21 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def poop
+    @user.update_attributes(worker_request)
+    @user = current_user
+    @user.worker_role_request = "submitted"
+  end
+
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation, :photo, :home_address)
   end
+
+  def worker_request
+    params.require(:user).permit(:trade_request, :deliverables_request, :about_request)
+
+  end
+
 end

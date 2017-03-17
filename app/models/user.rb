@@ -11,6 +11,9 @@ class User < ApplicationRecord
   belongs_to :trade
   has_one :address
 
+  has_one :submission
+
+
   validates :first_name, :last_name, :email, presence: true, on: :create
   validates :password, length: { minimum: 4 }, presence: true, on: :create
   validates :password, confirmation: true, on: :create

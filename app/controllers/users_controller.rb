@@ -95,10 +95,8 @@ class UsersController < ApplicationController
   end
 
   def birth
-    byebug
-    @submission = Submission.find(params[:id])
+    @submission = Submission.find(params[:submission_id])
     @submission.user.role = "worker"
-
 
     if @submission.user.save
         redirect_to current_user

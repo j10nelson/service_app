@@ -47,9 +47,10 @@
 <h3> Worker Request </h3>
 <%= j.trade_requested.capitalize %><br>
 <%= j.deliverables_requested.capitalize %><br>
-<%= j.about_worker.capitalize %><br>
+<%= j.about_worker %><br>
 
     <%= form_tag(worker_birth_path, method: "put") do %>
+    <%= hidden_field_tag("submission_id", j.id) %>
       <%= submit_tag ("Birth") %>
   <% end %>
 

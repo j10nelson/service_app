@@ -33,5 +33,24 @@
 <h2><%= @user.role.capitalize %></h2>
 <h2>Jobs Pending: <%= @jobs_pending %></h2>
 <h2>Job Accepted: <%= @jobs_accepted %></h2>
+
+<% @admin_worker_requests.each do |j| %>
+
+<%= j.first_name.capitalize %> <%= j.last_name.capitalize %><br>
+<%= number_to_phone(j.phone_number) %><br>
+<%= j.email %><br>
+<%= j.address.house_number %> <%= j.address.street.capitalize %><br>
+<%= j.address.city.capitalize %><br>
+<%= j.address.province.capitalize %><br>
+<%= j.address.postal_code.capitalize %><br>
+<%= j.address.country.capitalize %><br>
+<h3> Worker Request </h3>
+<%= j.trade_request.capitalize %><br>
+<%= j.deliverables_request.capitalize %><br>
+<%= j.about_request.capitalize %><br>
+
+
+
+  <%end%>
 <% end %>
 </div>

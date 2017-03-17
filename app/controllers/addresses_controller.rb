@@ -11,12 +11,10 @@ class AddressesController < ApplicationController
     @address.user_id = current_user.id
 
     if @address.save
-
       redirect_to current_user
-      # redirect_to current_user_url
-  #   else
-  # redirect_back(fallback_location: current_user)
-  #
+    else
+  redirect_back(fallback_location: current_user)
+
     end
   end
 

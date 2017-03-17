@@ -50,6 +50,8 @@ class UsersController < ApplicationController
     @jobs_completed_client = Job.where(state: "completed").where(user: current_user)
     @jobs_history_client = Job.where(state: "history").where(user: current_user)
 
+    @admin_worker_requests = User.where(worker_role_request: "submitted")
+
     @worker_rating = Review.where(worker_id: @user.id).average(:rating).to_f
     @client_rating = Review.where(user_id: @user.id).average(:rating).to_f
 
@@ -103,8 +105,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:trade_request, :deliverables_request, :about_request)
   end
 
-  def address_params
-    params.require(:address).permit(:house_number, :street, :apt_number, :city, :province, :postal_code, :country, :user_id)
-  end
+  # def address_params
+  #   params.require(:address).permit(:house_number, :street, :apt_number, :city, :province, :postal_code, :country, :user_id)
+  # end
 
 end

@@ -7,8 +7,8 @@
      <h1>Hi <%= @user.first_name %></h1>,
      <p>You have successfully booked a service!</p>
      <h4><%=@job.title %></h4>
-     <p>Date: <%= @job.datetime.strftime('%a, %d %b %Y')%></p>
-     <p>Time: <%= @job.datetime.strftime('%I:%M %p')%></p>
+     <p>Date: <%= @job.date.strftime('%a, %d %b %Y')%></p>
+     <p>Time: <%= @job.date.strftime('%I:%M %p')%></p>
      <p> Note:  <%= @job.note %> </p>
 
     <%= link_to "My account", root_url %>

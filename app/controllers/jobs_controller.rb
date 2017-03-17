@@ -29,9 +29,9 @@ class JobsController < ApplicationController
 
     if params[:date].present?
       d = Date.parse(params[:date])
-      @job.datetime = @job.datetime.change(day: d.day, month: d.month, year: d.year)
+      @job.date = @job.date.change(day: d.day, month: d.month, year: d.year)
     else
-      @job.datetime = nil
+      @job.date = nil
     end
 
     @user = current_user
@@ -43,7 +43,7 @@ class JobsController < ApplicationController
     else
       @job.service_id = nil
     end
-    
+
     if @job.save
        UserMailer.book_service_email(current_user, @job).deliver_now
 
@@ -107,6 +107,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:note, :datetime, :service_id, :price)
+    params.require(:job).permit(:note, :date, :service_id, :price)
   end
 end

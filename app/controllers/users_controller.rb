@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    #@address = Address.new
   end
 
   def create
@@ -49,8 +50,12 @@ class UsersController < ApplicationController
     @jobs_completed_client = Job.where(state: "completed").where(user: current_user)
     @jobs_history_client = Job.where(state: "history").where(user: current_user)
 
+    @admin_worker_requests = Submission.where(request_state: "submitted")
+
     @worker_rating = Review.where(worker_id: @user.id).average(:rating).to_f
     @client_rating = Review.where(user_id: @user.id).average(:rating).to_f
+
+    @worker = User.find_by(role: "worker")
 
     if @user != current_user
       redirect_to(:back)
@@ -68,6 +73,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(user_params)
+
     # @user.home_address = [params[:user][:house_number],
     #                       params[:user][:street],
     #                       params[:user][:apt_number],
@@ -77,27 +83,40 @@ class UsersController < ApplicationController
     #                       params[:user][:country]].join(" ").titleize
     if @user.save
       # redirect_to "/jobs/#{@job.id}"
-      redirect_back(fallback_location: current_user)
+      # redirect_back(fallback_location: current_user)
+      redirect_to current_user
     else
       redirect_to root_path
     end
   end
 
 
-  def poop
-    @user.update_attributes(worker_request)
+  def worker
     @user = current_user
-    @user.worker_role_request = "submitted"
+    @submission = Submission.new
   end
+
+  def birth
+    @submission = Submission.find(params[:submission_id])
+    @submission.user.role = "worker"
+
+    if @submission.user.save
+        redirect_to current_user
+    else
+        redirect_to root_path
+    end
+  end
+
+
 
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation, :photo)
   end
 
-  def worker_request
-    params.require(:user).permit(:trade_request, :deliverables_request, :about_request)
 
-  end
+  # def address_params
+  #   params.require(:address).permit(:house_number, :street, :apt_number, :city, :province, :postal_code, :country, :user_id)
+  # end
 
 end

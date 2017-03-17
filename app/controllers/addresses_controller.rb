@@ -9,26 +9,26 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
     @user = current_user
     @address.user_id = current_user.id
+    @user.phone_number = params[:phone_number][:phone_number]
 
+    @user.save
     if @address.save
-
       redirect_to current_user
-      # redirect_to current_user_url
     else
-      render :new
+  redirect_back(fallback_location: current_user)
+
     end
-
   end
 
-  def edit
-
-  end
+  # def edit
+  #
+  # end
 
 
 
   private
   def address_params
-    params.require(:address).permit(:house_number, :street, :apt_number, :city, :province, :postal_code, :country, :user_id)
+    params.require(:address).permit(:house_number, :street, :unit_number, :city, :province, :postal_code, :country, :user_id)
   end
 
 end

@@ -86,7 +86,7 @@ class JobsController < ApplicationController
     @job.state = "accepted"
 
 
-    if @job.save!
+    if @job.save
 
       UserMailer.service_accepted(@client, @job).deliver_now
 

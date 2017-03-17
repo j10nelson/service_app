@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 20170317192931) do
     t.integer "services_id"
   end
 
+  create_table "submissions", force: :cascade do |t|
+    t.string   "trade_requested"
+    t.string   "deliverables_requested"
+    t.string   "about_worker"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "request_state",          default: "none"
+    t.integer  "user_id"
+  end
+
   create_table "trades", force: :cascade do |t|
     t.string "name"
     t.string "category"
@@ -87,10 +97,6 @@ ActiveRecord::Schema.define(version: 20170317192931) do
     t.integer  "trade_id"
     t.bigint   "phone_number"
     t.string   "photo"
-    t.string   "worker_role_request",          default: "none"
-    t.string   "trade_request"
-    t.string   "deliverables_request"
-    t.string   "about_request"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   end

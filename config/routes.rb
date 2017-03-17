@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :services, only: [:index, :create, :new]
   resources :addresses, only: [:new, :create, :edit]
-
+  resources :submissions, only: [:new, :create]
 
   resources :trades, only: [:index, :new, :create] do
     resources :jobs, except: :index
@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   get '/trades/:trade_id/jobs' => "jobs#new"
 
-  put '/users/:id/request' => "user#poop", :as => :user_request
+  put '/users/:id/birth' => "users#birth", :as => :worker_birth
+  get '/users/:id/worker' => "users#worker", :as => :user_request
+
   put '/jobs/:id/accept' => "jobs#accept", :as => :job_accept
 
   resources :jobs, except: [:index, :edit] do

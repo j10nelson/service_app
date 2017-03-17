@@ -32,13 +32,11 @@ ActiveRecord::Schema.define(version: 20170317192931) do
     t.integer  "user_id"
     t.integer  "worker_id"
     t.integer  "service_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "title"
     t.text     "note"
-    t.string   "state",         default: "pending"
-    t.datetime "job_closed"
-    t.datetime "work_finsihed"
+    t.string   "state",      default: "pending"
     t.datetime "date"
   end
 
@@ -78,7 +76,6 @@ ActiveRecord::Schema.define(version: 20170317192931) do
 
   create_table "trades", force: :cascade do |t|
     t.string "name"
-    t.string "category"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,7 +92,7 @@ ActiveRecord::Schema.define(version: 20170317192931) do
     t.datetime "remember_me_token_expires_at"
     t.string   "role",                         default: "client"
     t.integer  "trade_id"
-    t.bigint   "phone_number"
+    t.string   "phone_number"
     t.string   "photo"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @address = Address.new
+    #@address = Address.new
   end
 
   def create
@@ -54,6 +54,8 @@ class UsersController < ApplicationController
 
     @worker_rating = Review.where(worker_id: @user.id).average(:rating).to_f
     @client_rating = Review.where(user_id: @user.id).average(:rating).to_f
+
+    @worker = User.find_by(role: "worker")
 
     if @user != current_user
       redirect_to(:back)

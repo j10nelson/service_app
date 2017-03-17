@@ -14,9 +14,9 @@ class AddressesController < ApplicationController
 
       redirect_to current_user
       # redirect_to current_user_url
-    else
-  redirect_back(fallback_location: current_user)
-
+  #   else
+  # redirect_back(fallback_location: current_user)
+  #
     end
   end
 
@@ -28,7 +28,7 @@ class AddressesController < ApplicationController
 
   private
   def address_params
-    params.require(:address).permit(:house_number, :street, :apt_number, :city, :province, :postal_code, :country, :user_id)
+    params.require(:address).permit(:house_number, :street, :unit_number, :city, :province, :postal_code, :country, :user_id)
   end
 
 end

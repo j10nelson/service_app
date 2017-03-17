@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @address = Address.new
   end
 
   def create
@@ -81,7 +82,8 @@ class UsersController < ApplicationController
     #                       params[:user][:country]].join(" ").titleize
     if @user.save
       # redirect_to "/jobs/#{@job.id}"
-      redirect_back(fallback_location: current_user)
+      # redirect_back(fallback_location: current_user)
+      redirect_to current_user
     else
       redirect_to root_path
     end
@@ -99,6 +101,10 @@ class UsersController < ApplicationController
 
   def worker_request
     params.require(:user).permit(:trade_request, :deliverables_request, :about_request)
+  end
+
+  def address_params
+    params.require(:address).permit(:house_number, :street, :apt_number, :city, :province, :postal_code, :country, :user_id)
   end
 
 end

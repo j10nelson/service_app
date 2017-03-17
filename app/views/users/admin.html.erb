@@ -49,6 +49,9 @@
 <%= j.deliverables_request.capitalize %><br>
 <%= j.about_request.capitalize %><br>
 
+    <%= form_tag(worker_birth_path, method: "put") do %>
+      <%= submit_tag ("Birth") %>
+  <% end %>
 
 
   <%end%>

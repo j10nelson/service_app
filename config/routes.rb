@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :jobs, except: :index
 
   end
-
+  put '/users/:id/birth' => "users#birth", :as => :worker_birth
   get '/users/:id/worker' => "users#worker", :as => :user_request
   put '/jobs/:id/accept' => "jobs#accept", :as => :job_accept
 

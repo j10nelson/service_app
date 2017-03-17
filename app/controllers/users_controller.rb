@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     @jobs_completed_client = Job.where(state: "completed").where(user: current_user)
     @jobs_history_client = Job.where(state: "history").where(user: current_user)
 
-    @admin_worker_requests = User.where(worker_role_request: "submitted")
+    @admin_worker_requests = Submission.where(request_state: "submitted")
 
     @worker_rating = Review.where(worker_id: @user.id).average(:rating).to_f
     @client_rating = Review.where(user_id: @user.id).average(:rating).to_f
@@ -71,9 +71,6 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(user_params)
-    @user.update_attributes(worker_request)
-    @user.worker_role_request = "submitted"
-
 
     # @user.home_address = [params[:user][:house_number],
     #                       params[:user][:street],
@@ -94,13 +91,16 @@ class UsersController < ApplicationController
 
   def worker
     @user = current_user
+    @submission = Submission.new
   end
 
   def birth
-    @user.role = "worker"
+    byebug
+    @submission = Submission.find(params[:id])
+    @submission.user.role = "worker"
 
 
-    if @user.save
+    if @submission.user.save
         redirect_to current_user
     else
         redirect_to root_path
@@ -114,9 +114,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation, :photo)
   end
 
-  def worker_request
-    params.require(:user).permit(:trade_request, :deliverables_request, :about_request)
-  end
 
   # def address_params
   #   params.require(:address).permit(:house_number, :street, :apt_number, :city, :province, :postal_code, :country, :user_id)

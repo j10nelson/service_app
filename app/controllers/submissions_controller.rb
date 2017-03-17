@@ -1,22 +1,25 @@
 class SubmissionsController < ApplicationController
 
   def new
-    @job = Job.find(params[:job_id])
-    @review = Review.new
-
-
+    @submission = Submission.new
   end
 
   def create
+    byebug
     @user = current_user
-    @review = Review.new(review_params)
-    @review.job_id = params[:job_id]
+    @submission = Submission.new(worker_request)
+    @submission.request_state = "submitted"
+    @submission.user_id = current_user.id
 
-    if @review.save
+    if @submission.save
+      redirect_to current_user
+    end
+    end
+
+
+def worker_request
+  params.require(:submission).permit(:trade_requested, :deliverables_requested, :about_requested)
 end
-end
-
-
 
 
 end

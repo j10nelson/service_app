@@ -36,18 +36,18 @@
 
 <% @admin_worker_requests.each do |j| %>
 
-<%= j.first_name.capitalize %> <%= j.last_name.capitalize %><br>
-<%= number_to_phone(j.phone_number) %><br>
-<%= j.email %><br>
-<%= j.address.house_number %> <%= j.address.street.capitalize %><br>
-<%= j.address.city.capitalize %><br>
-<%= j.address.province.capitalize %><br>
-<%= j.address.postal_code.capitalize %><br>
-<%= j.address.country.capitalize %><br>
+<%= j.user.first_name.capitalize %> <%= j.user.last_name.capitalize %><br>
+<%= number_to_phone(j.user.phone_number) %><br>
+<%= j.user.email %><br>
+<%= j.user.address.house_number %> <%= j.user.address.street.capitalize %><br>
+<%= j.user.address.city.capitalize %><br>
+<%= j.user.address.province.capitalize %><br>
+<%= j.user.address.postal_code.capitalize %><br>
+<%= j.user.address.country.capitalize %><br>
 <h3> Worker Request </h3>
-<%= j.trade_request.capitalize %><br>
-<%= j.deliverables_request.capitalize %><br>
-<%= j.about_request.capitalize %><br>
+<%= j.trade_requested.capitalize %><br>
+<%= j.deliverables_requested.capitalize %><br>
+<%= j.about_worker.capitalize %><br>
 
     <%= form_tag(worker_birth_path, method: "put") do %>
       <%= submit_tag ("Birth") %>

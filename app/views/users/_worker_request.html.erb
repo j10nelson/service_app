@@ -1,24 +1,24 @@
-<%= form_for @user do |f| %>
+<%= form_for [@submission] do |f| %>
 
 <div class="field-session">
-   <%= f.label :trade_request %><br />
-   <%= f.text_field :trade_request %>
+   <%= f.label :trade_requested %><br />
+   <%= f.text_field :trade_requested %>
  </div>
 
 
   <div class="field-session">
-     <%= f.label :deliverables_request %><br />
-     <%= f.text_field :deliverables_request %>
+     <%= f.label :deliverables_requested %><br />
+     <%= f.text_field :deliverables_requested %>
    </div>
 
    <div class="field-session">
-      <%= f.label :about_request %><br />
-      <%= f.text_field :about_request %>
+      <%= f.label :about_worker %><br />
+      <%= f.text_field :about_worker %>
     </div>
 
 
   <div class="actions-home-address">
-     <%= f.submit("Complete Request", method: "put", class: "btn-session") %>
+     <%= f.submit("Complete Request", class: "btn-session") %>
   </div>
 
 <% end %>

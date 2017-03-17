@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :services, only: [:index, :create, :new]
   resources :addresses, only: [:new, :create, :edit]
+  resources :submissions, only: [:new, :create]
+
 
 
   resources :trades, only: [:index, :new, :create] do

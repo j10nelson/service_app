@@ -9,7 +9,9 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
     @user = current_user
     @address.user_id = current_user.id
+    @user.phone_number = params[:phone_number][:phone_number]
 
+    @user.save
     if @address.save
       redirect_to current_user
     else

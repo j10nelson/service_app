@@ -22,11 +22,14 @@
   <%= link_to user_path do %>
   <h1><%= @user.first_name.capitalize %>'s Dashboard (<%= @user.role.capitalize%>)</h1>
   <% end %>
-  <h2> <%#= @user.trade.name.capitalize%> </h2>
+  <!-- <h2> <%#= @user.trade.name.capitalize%> </h2> -->
+
   <% if @user.address? %>
   <h1>Complete Your Account</h1>
   <h3>Before you can book your first service request, you must complete your account by adding your primary address</h3>
+
  <%= render 'form_home_address_worker' %>
+
  <% else @user.filled_address? %>
 </div>
 

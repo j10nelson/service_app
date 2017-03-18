@@ -5,7 +5,6 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    byebug
     @user = current_user
     @submission = Submission.new(worker_request)
     @submission.request_state = "submitted"
@@ -16,10 +15,7 @@ class SubmissionsController < ApplicationController
     end
     end
 
-
 def worker_request
   params.require(:submission).permit(:trade_requested, :deliverables_requested, :about_requested)
 end
-
-
 end

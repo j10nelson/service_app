@@ -8,31 +8,17 @@
 puts "beginning seed file"
 
 Service.destroy_all
+# Trade.destroy_all
 
+# Trade.create!(
+# name: "hairdresser"
+# )
 Service.create!(
 type_of_service: "Cut",
-price: 20
+price: 20,
+# trade_id: Trade.find_by(name: "hairdresser").id
 )
 
-Service.create!(
-type_of_service: "Deep Tissue",
-price: 80
-)
-
-Service.create!(
-type_of_service: "Paint Nails",
-price: 40
-)
-
-Service.create!(
-type_of_service: "Clean Pool",
-price: 100
-)
-
-Service.create!(
-type_of_service: "Clean Driveway",
-price: 90
-)
 
 
 

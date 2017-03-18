@@ -15,6 +15,7 @@ class SubmissionsController < ApplicationController
     end
   end
 
+private
   def worker_request
     params.require(:submission).permit(:trade_requested, :deliverables_requested, :about_requested)
   end

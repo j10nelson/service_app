@@ -67,6 +67,7 @@ class JobsController < ApplicationController
     else
       render :new
     end
+
   end
 
   def update

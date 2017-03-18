@@ -19,9 +19,6 @@ class ServicesController < ApplicationController
     end
   end
 
-
-
-
   private
   def service_params
   params.require(:service).permit(:type_of_service, :trade_id, :price)

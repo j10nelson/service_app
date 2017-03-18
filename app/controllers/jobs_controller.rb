@@ -18,6 +18,14 @@ class JobsController < ApplicationController
     @job = Job.new
     @address = Address.new
     @trade = Trade.find(params[:trade_id])
+
+    if current_user.role == "client"
+      if @user.address?
+        redirect_to new_address_path( :trade_id => params[:trade_id] )
+
+      # else @user.filled_address?
+      end
+    end
   end
 
   def edit
@@ -77,7 +85,6 @@ class JobsController < ApplicationController
       redirect_to current_user
   end
 
-
   def accept
     @job = Job.find(params[:id])
     @job.worker_id = current_user.id
@@ -85,14 +92,11 @@ class JobsController < ApplicationController
     @client = @job.user.email
     @job.state = "accepted"
 
-
     if @job.save
 
       UserMailer.service_accepted(@client, @job).deliver_now
 
       client = Twilio::REST::Client.new(ENV['sid'], ENV['token'])
-
-      # Create and send an SMS message
       client.account.sms.messages.create(
         from: ENV['from'],
         to: @user.phone_number,

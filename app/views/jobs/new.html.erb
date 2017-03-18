@@ -9,37 +9,29 @@
 
     </ul>
   </div>
-
 <% end %>
 
 <div class="book-service">
+  <% if current_user.role == "client" %>
+    <% if @user.filled_address? %>
+      <h1>Book a Service</h1>
+        <%= render 'form' %>
+        <%= link_to "Back to Home", root_url %>
+    <% end %>
+  <% end %>
 
-<% if current_user.role == "client" %>
- <% if @user.address? %>
- <h1>Complete Your Account</h1>
- <h3>Before you can book your first service request, you must complete your account by adding your primary address</h3>
-<%= render 'form_client_address' %>
-<% else @user.filled_address? %>
-<h1>Book a Service</h1>
-<%= render 'form' %>
-<%= link_to "Back to Home", root_url %>
-<% end %>
-<% end %>
-
-
-<% if current_user.role == "worker" %>
-
-<h1>Worker cannot book a Service</h1>
-<p>COMING SOON!!</p>
+  <% if current_user.role == "worker" %>
+    <h1>Worker cannot book a Service</h1>
+    <p>COMING SOON!!</p>
+  <% end %>
 </div>
-<% end %>
 
-<% if current_user.role == "admin" %>
-<h1>Book a Service</h1>
-  <h2><p><%= @service.trade.name.capitalize %> </p></h2>
-  <p>Service: <%= @service.type_of_service %> </p>
-  <p>Price: <%= @service.price %> </p>
+  <% if current_user.role == "admin" %>
+    <h1>Book a Service</h1>
+    <h2><p><%= @service.trade.name.capitalize %> </p></h2>
+      <p>Service: <%= @service.type_of_service %> </p>
+      <p>Price: <%= @service.price %> </p>
 
-<%= render 'form' %>
-<%= link_to "Back to Home", root_url %>
-<% end %>
+    <%= render 'form' %>
+    <%= link_to "Back to Home", root_url %>
+  <% end %>

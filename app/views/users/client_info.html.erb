@@ -165,9 +165,16 @@
     </div>
     <% end %>
   </div>
+  <% if @user.no_request? == 'true'%>
   <%= link_to user_request_path do %>
   <p> want to become a worker? </p>
+
   <% end %>
+  <% else %>
+  <p> Your submission is under review. Please expect to hear from us within 48 hours. </p>
+
+  <% end %>
+
 </div>
 
 

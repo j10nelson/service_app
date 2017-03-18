@@ -1,10 +1,12 @@
 <%= form_for([@trade, @job], html: {multipart: true}) do |f| %>
 
-  <h2><p> <%= @service.name.capitalize %> </p></h2>
+  <h2><p> <%= @job.service.trade.name.capitalize %> </p></h2>
+  <h2><p> <%= @job.service.type_of_service.capitalize %> - $<%= @job.service.price %> </h2>
 
-  <div class="field-job">
-    <%= f.select :service_id, @trade.services.collect { |s| [ "#{s.type_of_service}: (Price: $#{s.price} and Time: #{s.time} minutes)", s.id ] }, {include_blank: 'Select a Service'} %>
-  </div><br>
+
+  <!-- <div class="field-job">
+    <%#= f.select :service_id, @trade.services.collect { |s| [ "#{s.type_of_service}: (Price: $#{s.price} and Time: #{s.time} minutes)", s.id ] }, {include_blank: 'Select a Service'} %>
+  </div><br> -->
 
     <div class="field-job">
       <%= f.label "Date:" %>

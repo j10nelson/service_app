@@ -27,9 +27,7 @@ class AddressesController < ApplicationController
       #   @address.errors.full_messages.each do |msg|
       #     msg.city
       #  end
-        flash[:error] = @user.errors.full_messages.join(', ') && @address.errors.full_messages.join(', ')
-
-
+        flash[:error] = @user.errors.full_messages.to_sentence && @address.errors.full_messages.to_sentence
     end
   end
 

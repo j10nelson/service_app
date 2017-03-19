@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "services#index"
-  resources :users, only: [:new, :create, :index, :show, :update]
+  resources :users, only: [:new, :create, :show, :update]
   resources :user_sessions, only: [:new, :create, :destroy]
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   end
 
   get '/trades/:trade_id/jobs' => "jobs#new"
+  get '/user_sessions' => 'user_sessions#new'
+  get '/users' => "users#new"
 
   put '/users/:id/birth' => "users#birth", :as => :worker_birth
   get '/users/:id/worker' => "users#worker", :as => :user_request

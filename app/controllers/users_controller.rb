@@ -22,12 +22,11 @@ class UsersController < ApplicationController
       #         to: @user.phone_number,
       #         body: "Thanks for signing up. Click the link to go to your account: http://localhost:3000/users/#{@user.id}"
       #       )
-
       flash[:notice] = "Signed up!"
       auto_login(@user)
       redirect_to root_path
     else
-      flash.now[:error] = 'Sorry, try again!'
+      #flash.now[:error] = 'Sorry, try again!'
       render 'new'
     end
   end

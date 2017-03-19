@@ -1,24 +1,25 @@
 <%= form_for [@service] do |f| %>
 
+<div class="field-new-user">
 <%= f.select(:trade_id) do %>
   <% Trade.all.each do |c| %>
     <%= content_tag(:option, c.name, value: c.id) %>
   <% end %>
 <% end %>
+</div>
 
 
-<div class="field">
+<div class="field-new-user">
      <%= f.label :type_of_service %><br />
      <%= f.text_field :type_of_service %>
-  </div>
+   </div>
 
-  <div class="field">
+   <div class="field-new-user">
        <%= f.label :price %><br />
        <%= f.text_field :price %>
-    </div>
+    </div><br>
 
-  <div class="actions">
-     <%= f.submit %>
-  </div>
-
+        <div class="actions-new-user">
+          <%= f.submit(class: "btn-new-user") %>
+        </div><br>
 <% end %>

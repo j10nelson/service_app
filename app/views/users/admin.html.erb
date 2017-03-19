@@ -1,7 +1,5 @@
 <% if current_user.role == "admin" %>
 <div class="user-dashboard">
-<%= @user.role.capitalize%> Dashboard</p>
-</div>
 <div class="side-menu-admin">
   <!-- <div class="account-side-menu"> -->
     <ul>
@@ -10,28 +8,127 @@
     <ul>
     <!-- </div> -->
     <!-- <div class="service-side-menu"> -->
-    <h3> Services </h3>
+    <h3></h3>
     <li><button><%= link_to "Create a service", new_service_url %></button></li>
-    <h3> Trade </h3>
+    <h3></h3>
     <li><button><%= link_to "Create a trade", new_trade_url %></button></li>
   </ul>
       <!-- </div> -->
 
       <!-- <div class="job-side-menu"> -->
-      <h3> Jobs </h3>
+      <h3></h3>
         <!-- </div> -->
 </div>
 <div class="dashboard-feed">
-  <h1>Jobs Pending: <%= @jobs_pending_admin.count %></h1>
-  <h1>Jobs Accepted: <%= @jobs_accepted_admin.count %></h1>
-  <h1>Jobs Completed: <%= @jobs_completed_admin.count %></h1>
-  <h1>Jobs History: <%= @jobs_history_admin.count %></h1>
+  <div class="personal-dashboard-details" id="dashboard-details">
+    <%= link_to user_path do %>
+  <h1><%= @user.first_name.capitalize %>'s Dashboard (<%= @user.role.capitalize%>)</h1>
+<% end %>
+  <div class="jobs-dashboard show" id="jobs-pending">
+    <h1>Jobs Pending: <%= @jobs_pending_admin.count %></h1>
+      <% @jobs_pending_admin.each do |job| %>
+      <div class="requested">
+        <div class="job-title-user">
+        <%= link_to job_path(job) do %>
+        <ul>
+        <li><%= job.service.trade.name.capitalize %></li>
+      <li>Service: <%= job.service.type_of_service.capitalize %></li></div>
+      <% end %>
 
+      <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
+      <li><%= job.date.strftime('%B %d, %Y') %></li>
+      <li><%= job.date.strftime('%I:%M%p')%></li>
+      <li>Note: <%= job.note %></li><br>
+      <li>Client: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
 
-  <h2>My Account</h2>
-  <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-  <p>Email: <%= @user.email %></p>
-<h2><%= @user.role.capitalize %></h2>
+      <% if job.job_pending? %>
+        <li>Status: <b> Awaiting Acceptance</b></li>
+      </ul>
+    <br>
+        <%= link_to "Edit", edit_trade_job_path(job.service.trade, job) %> |
+        <%= link_to "Delete", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
+        <% end %>
+      </div>
+        <% end %>
+  </div>
+  <div class="jobs-dashboard show" id="jobs-accepted">
+    <h1>Jobs Accepted: <%= @jobs_accepted_admin.count %></h1>
+        <% @jobs_accepted_admin.each do |job| %>
+        <div class="requested">
+        <div class="job-title-user">
+      <%= link_to job_path(job) do %>
+      <ul>
+      <li><%= job.service.trade.name.capitalize %>
+        <li>Service: <%= job.service.type_of_service.capitalize %></li></div>
+        <% end %>
+        <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
+        </h2>
+        <li><%= job.date.strftime('%B %d, %Y') %></li>
+        <li><%= job.date.strftime('%I:%M%p')%></li>
+        <li>Note: <%= job.note %></p>
+
+        <% if job.job_accepted? %>
+        <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>, at your service!</b></li>
+        <li><%= job.user.address %></li>
+      </ul>
+    </br>
+        <%= link_to "Cancel Request", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="jobs-dashboard show" id="jobs-completed">
+  <h1>Jobs Requiring Client Completion: <%= @jobs_completed_admin.count %></h1>
+        <% @jobs_completed_admin.each do |job| %>
+        <div class="requested">
+        <div class="job-title-user">
+      <%= link_to job_path(job) do %>
+      <ul>
+      <li><%= job.service.trade.name.capitalize %><li>
+        <li>Service: <%= job.service.type_of_service.capitalize %><li></div>
+        <% end %>
+        <li>Price: <%= number_to_currency(job.service.price) %><li>
+        <li><%= job.date.strftime('%B %d, %Y') %><li>
+        <li><%= job.date.strftime('%I:%M%p')%><li>
+        <li>Note: <%= job.note %><li>
+
+            <li>Worker Name: <b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %></b></li>
+        <li>Address: <%= job.user.address %></li>
+  <div class="worker-done-review">
+        <% if job.worker_done? %>
+        <br>
+        <li>PLEASE REVIEW WORKER TO COMPLETE JOB!</li>
+      </ul>
+      <br>
+    </div>
+        <%= link_to "Close Job", new_job_review_path(job) %><br><br>
+            <% end %>
+          </div>
+        <% end %>
+  </div>
+
+  <div class="jobs-dashboard show" id="jobs-history">
+    <h1>Jobs Completed: <%= @jobs_history_admin.count %></h1>
+        <% @jobs_history_admin.each do |job| %>
+        <div class="requested">
+          <div class="job-title-user">
+      <%= link_to job_path(job) do %>
+      <ul>
+      <li><%= job.service.trade.name.capitalize %></li>
+        <li>Service: <%= job.service.type_of_service.capitalize %></li></div>
+        <% end %>
+        <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
+        <li><%= job.date.strftime('%B %d, %Y') %></li>
+        <li><%= job.date.strftime('%I:%M%p')%></li>
+        <li>Note: <%= job.note %></li>
+
+        <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>,</b> completed this job!</li>
+        <li><%= job.user.address %></li>
+
+      </div>
+      <% end %>
+    </div>
 
 <div class="jobs-dashboard show wtv" id="jobs-">
 <div class="requested">
@@ -51,9 +148,7 @@
     </div>
   </div>
 
-<h2>Jobs Pending: <%= @jobs_pending %></h2>
-<h2>Job Accepted: <%= @jobs_accepted %></h2>
-
+  <h3> Client worker requests</h3>
 <% @admin_worker_requests.each do |j| %>
 <div class="requested">
 <%= j.user.first_name.capitalize %> <%= j.user.last_name.capitalize %><br>
@@ -78,5 +173,9 @@
 
 
 </div>
+</div>
+
+</div>
+
 
 <% end %>

@@ -16,8 +16,8 @@
     <%= f.time_select :date, ampm:true, start_hour: 8, end_hour: 18, minute_step: 15, :default => {:hour => '8', :minute => '00'} %>
     </div><br>
 
-    <div class="field-job">
-      <%= f.label "Note:" %>
+    <div class="field-job-note">
+      <%= f.label("Notes:", id: :new_job_note) %>
       <%= f.text_area :note %>
     </div><br><br>
 

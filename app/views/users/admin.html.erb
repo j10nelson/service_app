@@ -56,5 +56,20 @@
 
 
   <%end%>
+
+
+<h3> Client turned workers</h3>
+<% @admin_worker_granted.each do |j| %>
+
+<%= j.user.first_name.capitalize %> <%= j.user.last_name.capitalize %><br>
+<%= number_to_phone(j.user.phone_number) %><br>
+<%= j.user.email %><br>
+<%= j.user.address.house_number %> <%= j.user.address.street.capitalize %><br>
+<%= j.user.address.city.capitalize %><br>
+<%= j.user.address.province.capitalize %><br>
+<%= j.user.address.postal_code.capitalize %><br>
+<%= j.user.address.country.capitalize %><br>
+<% end %>
+
 <% end %>
 </div>

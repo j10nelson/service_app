@@ -39,13 +39,21 @@ class User < ApplicationRecord
       return false
     end
   end
-  # 
+
   # def request_submitted?
   #   if self.submission == "submitted"
   #     return false
   #   else
   #     return true
   #   end
+  # end
+
+  # def request_granted?
+  # if self.submission.request_state == "completed"
+  #     return true
+  #   else
+  #     return false
+  #    end
   # end
 
   def no_request?

@@ -51,11 +51,15 @@ class UsersController < ApplicationController
     @jobs_history_client = Job.where(state: "history").where(user: current_user)
 
     @admin_worker_requests = Submission.where(request_state: "submitted")
+    @admin_worker_granted = Submission.where(request_state: "completed")
+
+
 
     @worker_rating = Review.where(worker_id: @user.id).average(:rating).to_f
     @client_rating = Review.where(user_id: @user.id).average(:rating).to_f
 
     @worker = User.find_by(role: "worker")
+
 
     if @user != current_user
       redirect_to(:back)
@@ -99,7 +103,9 @@ class UsersController < ApplicationController
   def birth
     @submission = Submission.find(params[:submission_id])
     @submission.user.role = "worker"
-
+    @submission.request_state = "completed"
+    
+    @submission.save
     if @submission.user.save
         redirect_to current_user
     else

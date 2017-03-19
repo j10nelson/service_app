@@ -1,12 +1,12 @@
 <%= form_for [@trade] do |f| %>
 
-  <div class="">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="field-new-user">
+    <%#= f.label  %>
+    <%= f.text_field :name, placeholder: 'Trade Name' %>
   </div>
 
-  <br><div class="">
-     <%= f.submit(class: "") %>
+  <br><div class="actions-new-user">
+     <%= f.submit(class: "btn-new-user") %>
   </div>
 
 

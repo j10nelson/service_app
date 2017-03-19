@@ -57,7 +57,6 @@ li {
 //   color: #fff;
 // }
 .side-menu-admin {
-position: fixed;
 z-index: 99;
 background-color: rgba(#f9f9f9, 0.81);
 width: 230px;
@@ -66,6 +65,7 @@ margin-left: 8px;
 height: 500px;
 margin-right: 15px;
 top: 90px;
+float: left;
 
 }
 
@@ -90,7 +90,38 @@ margin-top: 0;
   font-size: 80%;
   }
 
-  .side-menu-admin button {
+  .side-menu-admin input {
+    height: 100%;
+    width: 100%;
+    font-size: 22px;
+    background-color: rgba(#000103, 1);
+    color: #fff;
+  }
+
+.side-menu-admin input a {
+    color: white;
+  }
+.side-menu-admin input a:visited {
+  color: white;
+}
+input:focus {
+  outline: 0;
+}
+.side-menu-admin input:focus {
+  border: 3px solid rgba(#3298eb, 0.84);
+}
+.side-menu-admin input:hover {
+  background-color: #242424;
+  color: #fff;
+  }
+
+.side-menu-admin input:active {
+  background-color: rgba(#3298eb, 0.84);
+  box-shadow: 0 1px #666;
+  transform: translateY(1px);
+  }
+
+  .side-menu-admin input {
     height: 100%;
     width: 100%;
     font-size: 22px;
@@ -120,9 +151,19 @@ button:focus {
   box-shadow: 0 1px #666;
   transform: translateY(1px);
   }
+
+  .side-menu-admin button {
+    height: 100%;
+    width: 100%;
+    font-size: 22px;
+    background-color: rgba(#000103, 1);
+    color: #fff;
+  }
+
+
 .side-menu {
-position: fixed;
-z-index: 99;
+// position: fixed;
+z-index: 50;
 background-color: rgba(#f9f9f9, 0.81);
 width: 230px;
 // border: 1px solid black;
@@ -130,6 +171,7 @@ margin-left: 8px;
 height: 500px;
 margin-right: 15px;
 top: 90px;
+float: left;
 
 }
 
@@ -197,7 +239,6 @@ button:focus {
 
 
 .dashboard-feed {
-  left: 250px;
   border: 5px solid rgb(80, 155, 255);
   padding-left: 9px;
   width: 80%;

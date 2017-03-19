@@ -86,7 +86,7 @@
       <li>Note: <%= job.note %></li>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
-        <li>Address: <%= job.user.address %> </li>
+        <li>Address: <%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %> </li>
         </ul>
       <% if job.job_accepted? %>
       <p><b>Status: In Progress</b></p>
@@ -110,7 +110,7 @@
       <li>Note: <%= job.note %></p>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
-      <li>Address: <%= job.user.address %></li>
+      <li>Address: <%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %></li>
       <% if job.job_completed? %>
       <li>Status: Job Closed</li>
       <!-- <h4>Review</h4> -->
@@ -139,7 +139,7 @@
       <li>Note: <%= job.note %></li>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
-      <li>Address: <%= job.user.address %></li>
+      <li>Address: <%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %> %></li>
     </div>
       <% end %>
   <% end %>

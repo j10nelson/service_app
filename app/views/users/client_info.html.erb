@@ -106,7 +106,7 @@
 
       <% if job.job_accepted? %>
       <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>, at your service!</b></li>
-      <li><%= job.user.address %></li>
+      <li><%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %></li>
     </ul>
   </br>
       <%= link_to "Cancel Request", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>
@@ -130,7 +130,7 @@
       <li>Note: <%= job.note %><li>
 
           <li>Worker Name: <b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %></b></li>
-      <li>Address: <%= job.user.address %></li>
+      <li>Address: <%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %></li>
 <div class="worker-done-review">
       <% if job.worker_done? %>
       <br>
@@ -159,7 +159,7 @@
       <li>Note: <%= job.note %></li>
 
       <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>,</b> completed this job!</li>
-      <li><%= job.user.address %></li>
+      <li><%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %></li>
 
     </div>
     <% end %>

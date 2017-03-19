@@ -4,20 +4,12 @@
   <!-- <div class="account-side-menu"> -->
     <ul>
     <li><button data-tab="personal">My Account</button></li>
-    </ul>
-    <ul>
+
     <!-- </div> -->
     <!-- <div class="service-side-menu"> -->
-    <h3></h3>
-    <li><button><%= link_to "Create a service", new_service_url %></button></li>
-    <h3></h3>
-    <li><button><%= link_to "Create a trade", new_trade_url %></button></li>
+    <li><input type="button" value="Create a service" onclick="window.location.href='/services/new'"></li>
+    <li><input type="button" value="Create a trade" onclick="window.location.href='/trades/new'"></li>
   </ul>
-      <!-- </div> -->
-
-      <!-- <div class="job-side-menu"> -->
-      <h3></h3>
-        <!-- </div> -->
 </div>
 <div class="dashboard-feed">
   <div class="personal-dashboard-details" id="dashboard-details">
@@ -94,16 +86,9 @@
         <li>Note: <%= job.note %><li>
 
             <li>Worker Name: <b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %></b></li>
-        <li>Address: <%= job.user.address %></li>
-  <div class="worker-done-review">
-        <% if job.worker_done? %>
-        <br>
-        <li>PLEASE REVIEW WORKER TO COMPLETE JOB!</li>
-      </ul>
-      <br>
-    </div>
-        <%= link_to "Close Job", new_job_review_path(job) %><br><br>
-            <% end %>
+        <li>Address: <%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %></li>
+        <li>Worker done:<b> <%= job.job_closed.strftime('%B %d, %Y') %>, <%= job.job_closed.strftime('%I:%M%p') %><b/></li>
+
           </div>
         <% end %>
   </div>
@@ -124,7 +109,9 @@
         <li>Note: <%= job.note %></li>
 
         <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>,</b> completed this job!</li>
-        <li><%= job.user.address %></li>
+        <li>Address: <%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %></li>
+        <li>Closed:<b> <%= job.job_closed.strftime('%B %d, %Y') %>, <%= job.job_closed.strftime('%I:%M%p') %><b/></li>
+
 
       </div>
       <% end %>

@@ -35,9 +35,11 @@
       <% end %>
       <ul>
 
-    <%# Trade.categories.each do |category| %>
-      <!-- <button><%#= category %></button> -->
-    <%# end %>
+    <% @trade.each do |trade| %>
+    <%= link_to(new_trade_job_path(trade), method: "get", class: '') do%>
+      <button><%= trade.name %></button>
+      <% end %>
+    <% end %>
   </ul>
   </div>
 
@@ -52,11 +54,11 @@
   <% @client_rating.to_i.times do %>
   *
   <% end %>
-  <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-  <p>Email: <%= @user.email %></p>
+  <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></p>
+  <p><%= @user.email %></p>
   <% if @user.filled_address? %>
-  <p>Address: <%= @user.address %></p>
-  <p>Phone Number: <%= number_to_phone(@user.phone_number) %></p>
+  <p><%= @user.address.house_number%> <%=@user.address.street.titleize%>,<br> <%= @user.address.city.capitalize %>, <%= @user.address.province.capitalize %>, <%= @user.address.country.capitalize %>, <br> <%= @user.address.postal_code.capitalize %>%></p>
+  <p><%= number_to_phone(@user.phone_number) %></p>
   <% end %>
 </div>
 
@@ -165,9 +167,9 @@
     <% end %>
   </div>
 
-  <% if @user.no_request? == 'true'%>
+  <% if @user.no_request?%>
   <%= link_to user_request_path do %>
-  <p> want to become a worker? </p>
+  <p> Want to become a worker? </p>
 
   <% end %>
   <% else %>

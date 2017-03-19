@@ -57,7 +57,7 @@ class User < ApplicationRecord
   # end
 
   def no_request?
-    if self.submission == "submitted"
+    if self.submission
       return false
     else
       return true

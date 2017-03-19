@@ -36,10 +36,10 @@
   <h2>My Account</h2>
   <h3>My Rating: <%= @worker_rating %></h3>
 
-  <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-  <p>Email: <%= @user.email %></p>
-  <p>Address: <%= @user.address %></p>
-  <p>Phone Number: <%= number_to_phone(@user.phone_number) %></p>
+  <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize%></p>
+  <p><%= @user.email %></p>
+  <p><%= @user.address.house_number%> <%=@user.address.street.titleize%>,<br> <%= @user.address.city.capitalize %>, <%= @user.address.province.capitalize %>, <%= @user.address.country.capitalize %>, <br> <%= @user.address.postal_code.capitalize %></p>
+  <p><%= number_to_phone(@user.phone_number) %></p>
 </div>
 
 
@@ -60,7 +60,7 @@
     <li>Note: <%= job.note %></li>
 
     <li>Name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
-    <li><b><%= job.user.address %></b></li>
+    <li><b>Address: <%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %></b> </li>
   </ul>
   <% if job.job_pending? %>
       <%= form_tag(job_accept_path(job), method: "put") do %>

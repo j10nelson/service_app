@@ -32,15 +32,18 @@
 
 .services-offered {
   border: 1px solid lightgrey;
-  margin: 0px 15px 15px 15px ;
-  width: 200px;
+  // margin: 0px 15px 15px 15px ;
+  width: 20%;
+  background-color: rgb(234, 238, 213);
   float: left;
-  background-color: rgb(234, 238, 213)
+  margin: 20px 20px;
 }
 
 .services-offered-details {
   text-align: center;
-  padding-top: 10px;
+  padding-top: 20px;
+  line-height: 15px;
+  font-size: 150%;
 
 }
 
@@ -52,16 +55,25 @@
 
 .job-title {
   text-transform: capitalize;
-  font-size: 20px;
-  padding-top: 9px;
+  font-size: 150%;
+  padding-top: 20px;
 }
 
-.service-home {
+.services-home {
+  // overflow: hidden;
   border: 1px solid lightgrey;
+  min-height: 500px;
+  width: 90%;
+  margin: auto auto;
+  margin-bottom: 50px;
+
 }
 
 .services-offered-home {
   padding-left: 15px;
+  // border: 1px solid lightgrey;
+
+
 }
 .book-service-button {
   text-align: center;
@@ -70,7 +82,6 @@
 
 
 .btn-book-home {
-display: inline-block;
 text-align: center;
 padding: 6px;
 font-size: 24px;
@@ -84,7 +95,6 @@ background-color: #fff;
 border: none;
 border-radius: 1px;
 box-shadow: 0 2px #999;
-margin: auto;
 }
 
 .btn-book-home:hover {

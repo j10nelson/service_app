@@ -50,6 +50,11 @@ class UsersController < ApplicationController
     @jobs_completed_client = Job.where(state: "completed").where(user: current_user)
     @jobs_history_client = Job.where(state: "history").where(user: current_user)
 
+    @jobs_accepted_admin = Job.where(state: "accepted")
+    @jobs_pending_admin = Job.where(state: "pending")
+    @jobs_completed_admin = Job.where(state: "completed")
+    @jobs_history_admin = Job.where(state: "history")
+
     @admin_worker_requests = Submission.where(request_state: "submitted")
     @admin_worker_granted = Submission.where(request_state: "completed")
 
@@ -104,7 +109,7 @@ class UsersController < ApplicationController
     @submission = Submission.find(params[:submission_id])
     @submission.user.role = "worker"
     @submission.request_state = "completed"
-    
+
     @submission.save
     if @submission.user.save
         redirect_to current_user

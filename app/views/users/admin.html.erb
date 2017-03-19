@@ -2,40 +2,60 @@
 <div class="user-dashboard">
 <%= @user.role.capitalize%> Dashboard</p>
 </div>
-<div class="side-menu">
-  <div class="account-side-menu">
+<div class="side-menu-admin">
+  <!-- <div class="account-side-menu"> -->
     <ul>
-    <h3>Account</h3>
-    <li><a href="#">Personal</a></li>
-    <li><a href="#">Billing</a></li>
+    <li><button data-tab="personal">My Account</button></li>
     </ul>
-    </div>
-
-    <div class="service-side-menu">
     <ul>
+    <!-- </div> -->
+    <!-- <div class="service-side-menu"> -->
     <h3> Services </h3>
-    <li><%= link_to "Create a service", new_service_url %></li>
+    <li><button><%= link_to "Create a service", new_service_url %></button></li>
     <h3> Trade </h3>
-    <li><%= link_to "Create a trade", new_trade_url %></li>
+    <li><button><%= link_to "Create a trade", new_trade_url %></button></li>
   </ul>
-      </div>
+      <!-- </div> -->
 
-      <div class="job-side-menu">
+      <!-- <div class="job-side-menu"> -->
       <h3> Jobs </h3>
-        </div>
+        <!-- </div> -->
 </div>
 <div class="dashboard-feed">
+  <h1>Jobs Pending: <%= @jobs_pending_admin.count %></h1>
+  <h1>Jobs Accepted: <%= @jobs_accepted_admin.count %></h1>
+  <h1>Jobs Completed: <%= @jobs_completed_admin.count %></h1>
+  <h1>Jobs History: <%= @jobs_history_admin.count %></h1>
 
 
   <h2>My Account</h2>
   <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
   <p>Email: <%= @user.email %></p>
 <h2><%= @user.role.capitalize %></h2>
+
+<div class="jobs-dashboard show wtv" id="jobs-">
+<div class="requested">
+
+<h3> Client turned workers</h3>
+<% @admin_worker_granted.each do |j| %>
+
+<%= j.user.first_name.capitalize %> <%= j.user.last_name.capitalize %><br>
+<%= number_to_phone(j.user.phone_number) %><br>
+<%= j.user.email %><br>
+<%= j.user.address.house_number %> <%= j.user.address.street.capitalize %><br>
+<%= j.user.address.city.capitalize %><br>
+<%= j.user.address.province.capitalize %><br>
+<%= j.user.address.postal_code.capitalize %><br>
+<%= j.user.address.country.capitalize %><br>
+<% end %>
+    </div>
+  </div>
+
 <h2>Jobs Pending: <%= @jobs_pending %></h2>
 <h2>Job Accepted: <%= @jobs_accepted %></h2>
 
 <% @admin_worker_requests.each do |j| %>
-
+<div class="requested">
 <%= j.user.first_name.capitalize %> <%= j.user.last_name.capitalize %><br>
 <%= number_to_phone(j.user.phone_number) %><br>
 <%= j.user.email %><br>
@@ -53,23 +73,10 @@
     <%= hidden_field_tag("submission_id", j.id) %>
       <%= submit_tag ("Birth") %>
   <% end %>
-
-
-  <%end%>
-
-
-<h3> Client turned workers</h3>
-<% @admin_worker_granted.each do |j| %>
-
-<%= j.user.first_name.capitalize %> <%= j.user.last_name.capitalize %><br>
-<%= number_to_phone(j.user.phone_number) %><br>
-<%= j.user.email %><br>
-<%= j.user.address.house_number %> <%= j.user.address.street.capitalize %><br>
-<%= j.user.address.city.capitalize %><br>
-<%= j.user.address.province.capitalize %><br>
-<%= j.user.address.postal_code.capitalize %><br>
-<%= j.user.address.country.capitalize %><br>
-<% end %>
-
-<% end %>
+<%end%>
 </div>
+
+
+</div>
+
+<% end %>

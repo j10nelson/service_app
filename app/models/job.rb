@@ -13,7 +13,7 @@ class Job < ApplicationRecord
 
   def time_must_be_pressent_and_in_future
     if self.date.present? && self.date < Time.now
-      errors.add(:date, 'needs in the future')
+      errors.add(:date, 'needs to be in the future')
     end
   end
 

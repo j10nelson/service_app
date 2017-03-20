@@ -7,19 +7,68 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "beginning seed file"
 
-Service.destroy_all
-# Trade.destroy_all
+# Service.destroy_all
+Trade.destroy_all
 
-# Trade.create!(
-# name: "hairdresser"
-# )
-Service.create!(
-type_of_service: "Cut",
-price: 20,
-# trade_id: Trade.find_by(name: "hairdresser").id
+Trade.create!(
+name: "hairdresser"
+)
+
+Trade.create!(
+name: "masseuse"
+)
+
+Trade.create!(
+name: "trainer"
+)
+
+Trade.create!(
+name: "beauty"
+)
+
+Trade.create!(
+name: "manicurist"
+)
+
+Trade.create!(
+name: "automotive"
+)
+
+Trade.create!(
+name: "dog care"
+)
+
+Trade.create!(
+name: "home chef"
+)
+
+Trade.create!(
+name: "babysitting"
+)
+
+Trade.create!(
+name: "pest control "
+)
+
+Trade.create!(
+name: "groceries"
+)
+
+Trade.create!(
+name: "seasonal"
 )
 
 
 
 
-  puts "#{Service.count} trades created"
+
+# Service.create!(
+# type_of_service: "Cut",
+# price: 20,
+# trade_id: Trade.find_by(name: "hairdresser").id
+# )
+
+
+
+
+  puts "#{Trade.count} trades created"

@@ -29,6 +29,7 @@ body {
   padding-top: 20px;
   line-height: 30px;
   font-size: 1.5rem;
+  float: left;
 }
 
 .logo a {
@@ -41,19 +42,17 @@ body {
 }
 
 main {
-  // overflow: hidden;
+clear: both;
 }
 
 h1.logo {
   width: 30px;
 }
-
-.site-nav {
-  // position: fixed;
-  // right: 15px;
-  // top: 27px;
-  // float: right;
+nav.site-nav {
+    padding: 30px 10px 0 0;
+    /* float: right; */
 }
+
 
 .site-nav a {
   text-decoration: none;

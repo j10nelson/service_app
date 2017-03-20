@@ -33,10 +33,10 @@
 .services-offered {
   border: 1px solid lightgrey;
   // margin: 0px 15px 15px 15px ;
-  width: 20%;
+  width: 23%;
   background-color: rgb(234, 238, 213);
   float: left;
-  margin: 20px 20px;
+  margin: 20px 14px;
 }
 
 .services-offered-details {
@@ -63,7 +63,7 @@
   // overflow: hidden;
   border: 1px solid lightgrey;
   min-height: 500px;
-  width: 90%;
+  width: 92%;
   margin: auto auto;
   margin-bottom: 50px;
 
@@ -82,12 +82,10 @@
 
 
 .btn-book-home {
-text-align: center;
 padding: 6px;
 font-size: 24px;
 width: 90%;
 cursor: pointer;
-margin: 10px;
 text-decoration: none;
 outline: 1px solid rgba(214, 214, 214, 0.68);
 color: #000;
@@ -95,6 +93,8 @@ background-color: #fff;
 border: none;
 border-radius: 1px;
 box-shadow: 0 2px #999;
+margin-left: 17px;
+margin-bottom: 20px;
 }
 
 .btn-book-home:hover {

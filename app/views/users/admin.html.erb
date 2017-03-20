@@ -14,7 +14,7 @@
 <div class="dashboard-feed">
   <div class="personal-dashboard-details" id="dashboard-details">
     <%= link_to user_path do %>
-  <h1><%= @user.first_name.capitalize %>'s Dashboard (<%= @user.role.capitalize%>)</h1>
+  <h1>Hello, <%= @user.first_name.capitalize %> <br> <%= @user.role.capitalize%>'s Dashboard </h1>
 <% end %>
   <div class="jobs-dashboard show" id="jobs-pending">
     <h1>Jobs Pending: <%= @jobs_pending_admin.count %></h1>
@@ -149,7 +149,7 @@
 <h3> Worker Request </h3>
 <%= j.trade_requested.capitalize %><br>
 <%= j.deliverables_requested.capitalize %><br>
-<%= j.about_worker %><br>
+<%= j.about_requested %><br>
 
     <%= form_tag(worker_birth_path, method: "put") do %>
     <%= hidden_field_tag("submission_id", j.id) %>

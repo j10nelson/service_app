@@ -9,7 +9,7 @@ class Job < ApplicationRecord
   validate :time_must_be_pressent_and_in_future
   validates :service_id, presence: true
 
-  attr_accessor :house_number, :apt_number, :street, :province, :country, :postal_code, :city
+  # attr_accessor :house_number, :apt_number, :street, :province, :country, :postal_code, :city
 
   def time_must_be_pressent_and_in_future
     if self.date.present? && self.date < Time.now

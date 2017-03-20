@@ -27,7 +27,7 @@ class AddressesController < ApplicationController
       #   @address.errors.full_messages.each do |msg|
       #     msg.city
       #  end
-        flash[:error] = @user.errors.full_messages.to_sentence && @address.errors.full_messages.to_sentence
+        flash[:error] = "Please fill in all fields"
     end
   end
 

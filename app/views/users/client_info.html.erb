@@ -27,7 +27,7 @@
     <%= link_to user_path do %>
   <h1><%= @user.first_name.capitalize %>'s Dashboard</h1>
 <% end %>
-<div class="jobs-dashboard show" id="jobs-offers">
+<div class="jobs-dashboard show trade" id="jobs-offers">
   <div class="dashboard-categories">
     <div class="dashboard-categories-boxes">
       <%= link_to trades_path do %>
@@ -57,9 +57,21 @@
   <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></p>
   <p><%= @user.email %></p>
   <% if @user.filled_address? %>
-  <p><%= @user.address.house_number%> <%=@user.address.street.titleize%>,<br> <%= @user.address.city.capitalize %>, <%= @user.address.province.capitalize %>, <%= @user.address.country.capitalize %>, <br> <%= @user.address.postal_code.capitalize %>%></p>
+  <p><%= @user.address.house_number%> <%=@user.address.street.titleize%>,<br> <%= @user.address.city.capitalize %>, <%= @user.address.province.capitalize %>, <%= @user.address.country.capitalize %>, <br> <%= @user.address.postal_code.capitalize %></p>
   <p><%= number_to_phone(@user.phone_number) %></p>
   <% end %>
+  <div class="user-to-worker">
+    <% if @user.no_request?%>
+    <%= link_to user_request_path do %>
+
+    <li> Want to become a worker? Click here to fill out the request form <button>Let's Go!</button></li>
+
+    <% end %>
+    <% else %>
+    <p> Your submission is under review. Please expect to hear from us within 48 hours. </p>
+
+    <% end %>
+    </div>
 </div>
 
 
@@ -166,18 +178,6 @@
     </div>
     <% end %>
   </div>
-<div class="user-to-worker">
-  <% if @user.no_request?%>
-  <%= link_to user_request_path do %>
-  <p> Want to become a worker? Click here to fill out the request form. </p>
-
-  <% end %>
-  <% else %>
-  <p> Your submission is under review. Please expect to hear from us within 48 hours. </p>
-
-  <% end %>
-  </div>
-
 </div>
 </div>
 

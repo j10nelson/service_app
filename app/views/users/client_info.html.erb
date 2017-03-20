@@ -166,16 +166,17 @@
     </div>
     <% end %>
   </div>
-
+<div class="user-to-worker">
   <% if @user.no_request?%>
   <%= link_to user_request_path do %>
-  <p> Want to become a worker? </p>
+  <p> Want to become a worker? Click here to fill out the request form. </p>
 
   <% end %>
   <% else %>
   <p> Your submission is under review. Please expect to hear from us within 48 hours. </p>
 
   <% end %>
+  </div>
 
 </div>
 </div>

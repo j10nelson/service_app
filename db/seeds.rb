@@ -8,55 +8,55 @@
 puts "beginning seed file"
 
 # Service.destroy_all
-Trade.destroy_all
-
-Trade.create!(
-name: "hairdresser"
-)
-
-Trade.create!(
-name: "masseuse"
-)
-
-Trade.create!(
-name: "trainer"
-)
-
-Trade.create!(
-name: "beauty"
-)
-
-Trade.create!(
-name: "manicurist"
-)
-
-Trade.create!(
-name: "automotive"
-)
-
-Trade.create!(
-name: "dog care"
-)
-
-Trade.create!(
-name: "home chef"
-)
-
-Trade.create!(
-name: "babysitting"
-)
-
-Trade.create!(
-name: "pest control "
-)
-
-Trade.create!(
-name: "groceries"
-)
-
-Trade.create!(
-name: "seasonal"
-)
+# Trade.destroy_all
+#
+# Trade.create!(
+# name: "hairdresser"
+# )
+#
+# Trade.create!(
+# name: "masseuse"
+# )
+#
+# Trade.create!(
+# name: "trainer"
+# )
+#
+# Trade.create!(
+# name: "beauty"
+# )
+#
+# Trade.create!(
+# name: "manicurist"
+# )
+#
+# Trade.create!(
+# name: "automotive"
+# )
+#
+# Trade.create!(
+# name: "dog care"
+# )
+#
+# Trade.create!(
+# name: "home chef"
+# )
+#
+# Trade.create!(
+# name: "babysitting"
+# )
+#
+# Trade.create!(
+# name: "pest control "
+# )
+#
+# Trade.create!(
+# name: "groceries"
+# )
+#
+# Trade.create!(
+# name: "seasonal"
+# )
 
 
 

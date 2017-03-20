@@ -184,7 +184,7 @@ margin-top: 0;
   .side-menu li {
   // border: 1px solid black;
   text-align: center;
-  height: 100px;
+  height: 70px;
   margin: 10px auto;
   font-size: 22px;
   font-weight: 600;
@@ -244,14 +244,14 @@ button:focus {
   width: 80%;
   margin-left: 280px;
   margin-top: 20px;
-  margin-bottom: 220px;
+  margin-bottom: 70px;
 
 }
 
 .dashboard-categories-boxes {
   border: 1px dashed lightgrey;
-  width: 74%;
-  height: 222px;
+  width: 90%;
+  height: 300px;
   margin: auto auto 20px auto;
 }
 .dashboard-categories-boxes button {
@@ -285,10 +285,9 @@ margin: 10px auto 0 auto;
 
 .dashboard-categories-boxes ul {
   display: inline-block;
-  margin: 10px 130px;
+  margin: 30px 65px;
   padding-left: 0px;
   height: 200px;
-  width: 150%;
 }
 #jobs-offers {
   border: none;
@@ -296,6 +295,11 @@ margin: 10px auto 0 auto;
 
 #jobs-personal {
   border: none;
+}
+
+.user-to-worker {
+  margin-top: 100px;
+
 }
 
 .jobs-dashboard {

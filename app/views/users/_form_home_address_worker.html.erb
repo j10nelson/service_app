@@ -22,15 +22,27 @@
       <%= f.text_field :street %>
     </div>
 
-     <div class="field-session">
-        <%= f.label :province %><br />
-        <%= f.text_field :province %>
-      </div>
+    <div class="field-session">
+       <%= f.label :city %><br />
+       <%= f.text_field :city %>
+     </div>
 
-      <div class="field-session">
-         <%= f.label :country %><br />
-         <%= f.text_field :country %>
-       </div>
+     <div class="field-session">
+       <p>Province: <%= f.select(:province) do %></p>
+         <%= content_tag(:option, "Ontario", value: "ontario") %>
+       <% end %>
+     </div>
+
+     <div class="field-session">
+      <%= f.label :postal_code %><br />
+      <%= f.text_field :postal_code %>
+     </div>
+
+     <div class="field-session">
+       <p>Country: <%= f.select(:country) do %></p>
+         <%= content_tag(:option, "Canada", value: "canada") %>
+       <% end %>
+     </div><br>
 
   <div class="actions-home-address">
      <%= f.submit("Complete Account", class: "btn-session") %>

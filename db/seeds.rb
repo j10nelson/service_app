@@ -8,6 +8,7 @@
 puts "beginning seed file"
 
 # Service.destroy_all
+
 # Trade.destroy_all
 #
 # Trade.create!(
@@ -59,16 +60,26 @@ puts "beginning seed file"
 # )
 
 
-
-
-
 # Service.create!(
 # type_of_service: "Cut",
 # price: 20,
 # trade_id: Trade.find_by(name: "hairdresser").id
 # )
 
+  # puts "#{Trade.count} trades created"
 
-
-
-  puts "#{Trade.count} trades created"
+# # Trade.destroy_all
+#
+# # Trade.create!(
+# # name: "hairdresser"
+# # )
+# Service.create!(
+# type_of_service: "Cut",
+# price: 20,
+# # trade_id: Trade.find_by(name: "hairdresser").id
+# )
+#
+#
+#
+#
+#   puts "#{Service.count} trades created"

@@ -16,6 +16,12 @@
       <%= f.text_field :about_requested %>
     </div>
 
+  <div class="field-session">
+    <%= fields_for :photo, @user do |d| %>
+      <%= d.label :photo %><br />
+      <%= d.file_field :photo %>
+    <% end %>
+  </div>
 
   <div class="actions-home-address">
      <%= f.submit("Complete Request", class: "btn-session") %>

@@ -14,17 +14,20 @@ class AddressesController < ApplicationController
 
     @user.save
     if @address.save
-      # flash[:trade_id] = @trade.id
-      #  redirect_back(fallback_location: current_user)
+      @user.save
       if @user.role == "client"
         redirect_to new_trade_job_path(params[:address][:trade_id])
          #redirect_to address_path( :trade_id => params[:trade_id] )
-       else @user.role == "worker"
+      else @user.role == "worker"
          redirect_to current_user
-       end
+      end
 
-      else
-      redirect_to root_url  
+    else
+      redirect_back(fallback_location: current_user)
+      #   @address.errors.full_messages.each do |msg|
+      #     msg.city
+      #  end
+        flash[:error] = "Please fill in all fields"
     end
   end
 

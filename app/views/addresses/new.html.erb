@@ -1,3 +1,15 @@
+<% if @address.errors.any? %>
+  <div id="error_explanation">
+    <h2>Please fix <%= pluralize(@user.errors.count, "error") %> below:</h2>
+    <ul>
+    <% @address.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+
+    </ul>
+  </div>
+<% end %>
+
 <h1>Please enter your information</h1>
 
 <% if current_user.role == "client" %>

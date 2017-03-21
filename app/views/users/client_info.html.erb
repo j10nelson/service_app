@@ -77,7 +77,7 @@
 
 
 <div class="jobs-dashboard show wtv" id="jobs-pending">
-  <h1>Jobs Pending: <%= @jobs_pending_client.count %></h1>
+  <h1>Jobs Pending</h1>
     <% @jobs_pending_client.each do |job| %>
     <div class="requested">
       <div class="job-title-user">
@@ -89,7 +89,7 @@
 
     <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
     <li><%= job.date.strftime('%B %d, %Y') %></li>
-    <li><%= job.date.strftime('%I:%M%p')%></li>
+    <li><%= job.date.strftime('%I:%M %p')%></li>
     <li>Note: <%= job.note %></li>
     <% if job.job_pending? %>
   </br>
@@ -104,9 +104,12 @@
 </div>
 
 <div class="jobs-dashboard show wtv" id="jobs-accepted">
-  <h1>Jobs Accepted: <%= @jobs_accepted_client.count %></h1>
+  <h1>Jobs Accepted</h1>
       <% @jobs_accepted_client.each do |job| %>
       <div class="requested">
+        <% if @worker.photo.present? %>
+          <%= image_tag(@worker.photo_url.to_s)%>
+        <% end %>
       <div class="job-title-user">
     <%= link_to job_path(job) do %>
     <ul>
@@ -116,16 +119,16 @@
       <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
       </h2>
       <li><%= job.date.strftime('%B %d, %Y') %></li>
-      <li><%= job.date.strftime('%I:%M%p')%></li>
-      <li>Note: <%= job.note %></p>
-
-      <% if job.job_accepted? %>
-      <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>, at your service!</b></li>
+      <li><%= job.date.strftime('%I:%M %p')%></li>
+      <li>Note: <%= job.note %></p><br>
       <li><%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %></li>
 
-      <% if @user.photo.present? %>
-        <%= image_tag(@user.photo_url.to_s)%>
-      <% end %>
+      <% if job.job_accepted? %>
+      <div class="worker-name">
+      <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>, at your service!</b></li>
+    </div>
+
+
 
     </ul>
   </br>
@@ -135,7 +138,7 @@
   <% end %>
 </div>
 <div class="jobs-dashboard" id="jobs-completed">
-  <h1>Jobs To Be Closed: <%=  @jobs_completed_client.count %></h1>
+  <h1>Jobs To Be Closed</h1>
       <% @jobs_completed_client.each do |job| %>
       <div class="requested">
       <div class="job-title-user">
@@ -146,7 +149,7 @@
       <% end %>
       <li>Price: <%= number_to_currency(job.service.price) %><li>
       <li><%= job.date.strftime('%B %d, %Y') %><li>
-      <li><%= job.date.strftime('%I:%M%p')%><li>
+      <li><%= job.date.strftime('%I:%M %p')%><li>
       <li>Note: <%= job.note %><li>
 
           <li>Worker Name: <b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %></b></li>
@@ -164,7 +167,7 @@
       <% end %>
 </div>
 <div class="jobs-dashboard" id="jobs-history">
-  <h1>Closed Jobs : <%= @jobs_history_client.count %> </h1>
+  <h1>Closed Jobs</h1>
       <% @jobs_history_client.each do |job| %>
       <div class="requested">
         <div class="job-title-user">
@@ -175,7 +178,7 @@
       <% end %>
       <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
       <li><%= job.date.strftime('%B %d, %Y') %></li>
-      <li><%= job.date.strftime('%I:%M%p')%></li>
+      <li><%= job.date.strftime('%I:%M %p')%></li>
       <li>Note: <%= job.note %></li>
 
       <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>,</b> completed this job!</li>

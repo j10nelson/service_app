@@ -239,22 +239,33 @@ button:focus {
 
 
 .dashboard-feed {
-  border: 5px solid rgb(80, 155, 255);
+  border: 3px solid black;
+  box-shadow: 3px #999;
+
   padding-left: 9px;
   width: 80%;
   margin-left: 280px;
   margin-top: 20px;
   margin-bottom: 170px;
   min-height: 600px;
+  background-color: white;
 
 }
-
 .dashboard-categories-boxes {
   border: 1px dashed lightgrey;
   width: 90%;
   height: 300px;
   margin: auto auto 20px auto;
+  background: url("background.png");
 }
+
+div#jobs-personal img {
+    width: 250px;
+    border: 1px solid;
+    border-radius: 15px;
+}
+
+
 .dashboard-categories-boxes button {
   border: 1px solid lightgrey;
   background-color: white;
@@ -310,6 +321,8 @@ margin: 10px auto 0 auto;
   margin: 0 auto 20px auto;
   padding: 10px;
   display: none;
+  background: url("background.png");
+
 }
 .jobs-dashboard h1 {
   text-align: center;
@@ -325,8 +338,21 @@ padding: 22px 20px 20px 20px;
 text-decoration: none;
 list-style: none;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-border-radius: 3px;
+border-radius: 4px;
+float: left;
+min-width: 400px;
+}
 
+.requested img{
+width: 33%;
+border-radius: 4px;
+// display: inline-block;
+float: right;
+padding-right: 70px;
+margin-right: 20px;
+}
+.worker-name li {
+  float: right;
 }
 
 .requested ul{
@@ -337,12 +363,17 @@ padding-left: 0;
 margin: 0;
 }
 
+.requested li {
+  width: 50%;
+  margin-right: 0;
+}
+
   .requested li:last-child{
-  color: red;
+  // color: red;
 }
 
 .worker-done-review {
-  color: red;
+  // color: red;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -350,7 +381,7 @@ margin: 0;
 
 .job-address p {
   word-break: break-all;
-  color: red;
+  // color: red;
 }
 
 .service-side-menu ul {
@@ -490,9 +521,19 @@ transform: translateY(4px);
 
 .jobs-dashboard.show.trade {
   margin-bottom: 50px;
-
 }
 
+// .jobs-dashboard.show.admin {
+// width: 40%;
+// margin: 10px 50px;
+// vertical-align: top;
+//
+// }
+
+
+div#jobs-offers {
+  background: none;
+}
 .wtv {
   width: 47%;
   margin: 10px 5px;

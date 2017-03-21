@@ -10,27 +10,25 @@
   </div>
 <% end %>
 
-<div class="book-service">
   <% if current_user.role == "client" %>
     <% if @user.filled_address? %>
+    <div class="book-service">
       <h1>Book a Service</h1>
         <%= render 'form' %>
         <%= link_to "Back to Home", root_url %>
+      </div>
     <% end %>
-  <% end %>
 
-  <% if current_user.role == "worker" %>
+  <% elsif current_user.role == "worker" %>
+  <div class="book-service nothing">
     <h1>Worker cannot book a Service</h1>
     <p>COMING SOON!!</p>
-  <% end %>
 </div>
 
-  <% if current_user.role == "admin" %>
+  <% else current_user.role == "admin" %>
+  <div class="book-service">
     <h1>Book a Service</h1>
-    <h2><p><%= @service.trade.name.capitalize %> </p></h2>
-      <p>Service: <%= @service.type_of_service %> </p>
-      <p>Price: <%= @service.price %> </p>
-
     <%= render 'form' %>
     <%= link_to "Back to Home", root_url %>
+  </div>
   <% end %>

@@ -60,7 +60,7 @@
 </div>
 
 <div class="jobs-dashboard show wtv" id="jobs-pending">
-<h1>Jobs Pending: <%= @jobs_pending_worker.count %> </h1>
+<h1>Jobs Pending</h1>
     <% @jobs_pending_worker.each do |job| %>
     <div class="requested">
       <div class="job-title-user">
@@ -70,7 +70,7 @@
     <% end %>
     <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
     <li><%= job.date.strftime('%B %d, %Y') %></li>
-    <li><%= job.date.strftime('%I:%M%p')%></li>
+    <li><%= job.date.strftime('%I:%M %p')%></li>
     <li>Note: <%= job.note %></li>
 
     <li>Name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
@@ -86,7 +86,7 @@
 </div>
 
 <div class="jobs-dashboard show wtv" id="jobs-accepted">
-  <h1>Jobs Accepted: <%= @jobs_accepted_worker.count %></h1>
+  <h1>Jobs Accepted</h1>
       <% @jobs_accepted_worker.each do |job| %>
       <div class="requested">
         <div class="job-title-user">
@@ -96,7 +96,7 @@
       <% end %>
       <li>Price: <%= number_to_currency(job.service.price) %></li>
       <li><%= job.date.strftime('%B %d, %Y') %></li>
-      <li><%= job.date.strftime('%I:%M%p')%></li>
+      <li><%= job.date.strftime('%I:%M %p')%></li>
       <li>Note: <%= job.note %></li>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
@@ -111,7 +111,7 @@
 </div>
 
 <div class="jobs-dashboard" id="jobs-completed">
-  <h1>Jobs Completed: <%= @jobs_completed_worker.count %> </h1>
+  <h1>Jobs Completed</h1>
       <% @jobs_completed_worker.each do |job| %>
       <div class="requested">
       <div class="job-title-user">
@@ -120,7 +120,7 @@
       <% end %>
       <li>Price: <%= number_to_currency(job.service.price) %></li>
       <li><%= job.date.strftime('%B %d, %Y') %></li>
-      <li><%= job.date.strftime('%I:%M%p')%></li>
+      <li><%= job.date.strftime('%I:%M %p')%></li>
       <li>Note: <%= job.note %></p>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>
@@ -140,7 +140,7 @@
 </div>
 
 <div class="jobs-dashboard" id="jobs-history">
-  <h1>History: <%= @jobs_history_worker.count %> </h1>
+  <h1>History</h1>
       <% @jobs_history_worker.each do |job| %>
       <div class="requested">
         <div class="job-title-user">
@@ -149,7 +149,7 @@
       <% end %>
       <li><b>Price: <%= number_to_currency(job.service.price) %></b></li>
       <li><%= job.date.strftime('%B %d, %Y') %></li>
-      <li><%= job.date.strftime('%I:%M%p')%></li>
+      <li><%= job.date.strftime('%I:%M %p')%></li>
       <li>Note: <%= job.note %></li>
 
       <li>Client name: <%= job.user.first_name.capitalize %> <%= job.user.last_name.capitalize %></li>

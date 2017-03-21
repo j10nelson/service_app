@@ -7,10 +7,10 @@
   <div class="job-details">
 
 
-<p><b><%= @job.service.type_of_service %> - <%= number_to_currency(@job.service.price)%></b></p>
+<p><b><%= @job.service.type_of_service.capitalize %> - <%= number_to_currency(@job.service.price)%></b></p>
 
 <p><%= @job.date.strftime('%B %d, %Y') %></p>
-<p><%= @job.date.strftime('%I:%M%p')%></p>
+<p><%= @job.date.strftime('%I:%M %p')%></p>
 <p>Notes: <%= @job.note %></p>
 <h2><%= @job.user.address.house_number%> <%=@job.user.address.street.titleize%>,<br> <%= @job.user.address.city.capitalize %>, <%= @job.user.address.province.capitalize %>, <%= @job.user.address.country.capitalize %>, <br> <%= @job.user.address.postal_code.capitalize %></h2>
 

@@ -138,6 +138,9 @@
   <h3> Client worker requests</h3>
 <% @admin_worker_requests.each do |j| %>
 <div class="requested">
+  <% if @user.photo.present? %>
+<%= image_tag(@user.photo_url.to_s)%>
+<% end %>
 <%= j.user.first_name.capitalize %> <%= j.user.last_name.capitalize %><br>
 <%= number_to_phone(j.user.phone_number) %><br>
 <%= j.user.email %><br>

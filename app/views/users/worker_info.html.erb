@@ -38,7 +38,9 @@
 
   <h2>My Account</h2>
   <h3>My Rating: <%= @worker_rating %></h3>
-
+  <% if @user.photo.present? %>
+  <%= image_tag(@user.photo_url.to_s)%>
+  <% end %>
   <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize%></p>
   <p><%= @user.email %></p>
   <p><%= @user.address.house_number%> <%=@user.address.street.titleize%>,<br> <%= @user.address.city.capitalize %>, <%= @user.address.province.capitalize %>, <%= @user.address.country.capitalize %>, <br> <%= @user.address.postal_code.capitalize %></p>

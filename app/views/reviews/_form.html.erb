@@ -1,5 +1,5 @@
 <%= form_for [@job, @review] do |f| %>
-<div class="rating">
+<div class="stars">
 <legend>Please rate your worker:</legend>
 <%= radio_button(:review, :rating, "5", class: "star-5") %><%= f.label "Perfect!" %>
 
@@ -10,12 +10,12 @@
 <%= radio_button(:review, :rating, "1", class: "star-1") %><%= f.label "Would stay away from" %>
 </div>
 
-  <div class="field-job">
+<div class="stars">
     Job <%= f.label :comments %><br />
      <%= f.text_area :comment %>
   </div>
 
-  <br><div class="actions">
-     <%= submit_tag("Submit Review", class: "btn-new-review") %>
+  <br><div class="actions-new-user">
+     <%= submit_tag("Submit Review", class: "btn-new-user") %>
   </div>
 <% end %>

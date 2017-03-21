@@ -12,11 +12,11 @@ class User < ApplicationRecord
   has_one :submission
 
   validates :first_name, :last_name, :email, presence: true, on: :create
-  validates :password, length: { minimum: 4 }, presence: true, on: :create
-  validates :password, confirmation: true, on: :create
+  validates :password, length: { minimum: 4 }, presence: true, confirmation: true, on: :create
+  # validates :password, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create
   validates :email, uniqueness: true
-  validates :phone_number, length: { minimum: 10 }
+  # validates :phone_number
 
   # ROLES = ["client", "worker", "admin"]
   # attr_accessor :house_number, :apt_number, :street, :province, :country, :postal_code, :city

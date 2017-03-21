@@ -1,9 +1,16 @@
+<%#= form_for @user do |f| %>
+<!-- <div class="field-session"> -->
+<!-- <%#= d.label :phone_number %><br /> -->
+<%#= d.text_field :phone_number, placeholder: "4161234567", maxlength: 10 %>
+<!-- </div> -->
+ <%# end %>
+
 <%= form_for [@address] do |f| %>
 
 <div class="field-session">
 <%= fields_for :phone_number, @user do |d| %>
 <%= d.label :phone_number %><br />
-<%= d.text_field :phone_number, placeholder: "4161234567" %>
+<%= d.text_field :phone_number, placeholder: "4161234567", maxlength: 10 %>
  <% end %>
  </div>
 

@@ -54,6 +54,7 @@
   <% @client_rating.to_i.times do %>
   *
   <% end %>
+
   <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></p>
   <p><%= @user.email %></p>
   <% if @user.filled_address? %>
@@ -121,6 +122,11 @@
       <% if job.job_accepted? %>
       <li><b><%= job.worker.first_name.capitalize %> <%= job.worker.last_name.capitalize %>, at your service!</b></li>
       <li><%= job.user.address.house_number%> <%=job.user.address.street.titleize%>,<br> <%= job.user.address.city.capitalize %>, <%= job.user.address.province.capitalize %>, <%= job.user.address.country.capitalize %>, <br> <%= job.user.address.postal_code.capitalize %></li>
+
+      <% if @user.photo.present? %>
+        <%= image_tag(@user.photo_url.to_s)%>
+      <% end %>
+
     </ul>
   </br>
       <%= link_to "Cancel Request", job_path(job), method: :delete, data: {confirm: "Are you sure you want to delete this service request?"}  %>

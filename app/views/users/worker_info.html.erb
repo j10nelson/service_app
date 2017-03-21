@@ -38,15 +38,26 @@
 
   <h2>My Account</h2>
   <h3>My Rating: <%= @worker_rating %></h3>
+  
+  <% if @user.photo.present? %>
+    <%= image_tag(@user.photo_url.to_s)%>
+  <% else %>
+    <%= form_for @user do |f| %>
+      <div class="field-photo">
+        <%= f.label "Photo:" %>
+        <%= f.file_field :photo %>
+      </div><br>
+      <div class="actions-photo">
+         <%= f.submit "Submit " %>
+      </div>
+    <% end %>
+  <% end %>
 
   <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize%></p>
   <p><%= @user.email %></p>
   <p><%= @user.address.house_number%> <%=@user.address.street.titleize%>,<br> <%= @user.address.city.capitalize %>, <%= @user.address.province.capitalize %>, <%= @user.address.country.capitalize %>, <br> <%= @user.address.postal_code.capitalize %></p>
   <p><%= number_to_phone(@user.phone_number) %></p>
 </div>
-
-
-
 
 <div class="jobs-dashboard show wtv" id="jobs-pending">
 <h1>Jobs Pending: <%= @jobs_pending_worker.count %> </h1>

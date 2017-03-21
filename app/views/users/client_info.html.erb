@@ -54,6 +54,7 @@
   <% @client_rating.to_i.times do %>
   *
   <% end %>
+
   <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></p>
   <p><%= @user.email %></p>
   <% if @user.filled_address? %>

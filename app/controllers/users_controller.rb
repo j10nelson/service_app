@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # @home_address = User.where()
     if @user.save
-       UserMailer.welcome_email(@user).deliver_now
+      #  UserMailer.welcome_email(@user).deliver_now
       #  render text: "Thank you! You will receive an SMS shortly with verification instructions."
 
       #  # Instantiate a Twilio client

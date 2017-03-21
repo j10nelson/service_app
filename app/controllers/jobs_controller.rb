@@ -53,7 +53,7 @@ class JobsController < ApplicationController
     end
 
     if @job.save
-       UserMailer.book_service_email(current_user, @job).deliver_now
+      #  UserMailer.book_service_email(current_user, @job).deliver_now
 
        client = Twilio::REST::Client.new(ENV['sid'], ENV['token'])
        # Create and send an SMS message
@@ -95,7 +95,7 @@ class JobsController < ApplicationController
 
     if @job.save
 
-      UserMailer.service_accepted(@client, @job).deliver_now
+      # UserMailer.service_accepted(@client, @job).deliver_now
 
       client = Twilio::REST::Client.new(ENV['sid'], ENV['token'])
       client.account.sms.messages.create(

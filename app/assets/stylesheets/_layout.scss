@@ -1,7 +1,7 @@
 html,
 body {
   font-family: 'Lato', 'Arial', sans-serif;
-  background: url("background.png");
+  background: url("/images/background.png");
 
 }
 
@@ -83,6 +83,16 @@ footer {
 }
 
 .flash-error{
+  background-color: red;
+  height: 22px;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  z-index: 90;
+  font-weight: 500;
+}
+
+.flash-alert{
   background-color: red;
   height: 22px;
   text-align: center;

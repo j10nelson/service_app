@@ -45,14 +45,17 @@ class JobsController < ApplicationController
     @user = current_user
     @job.user = current_user
     @trade = Trade.find(params[:trade_id])
+    # @job.service_id = params[:job][:service_id]
 
-    if @job.service_id = params[:job][:service_id].present?
+    # if @job.service_id = params[:job][:service_id].present?
       @message = @job.text_message
-    else
-      @job.service_id = nil
-    end
+    # else
+    #   @job.service_id = nil
+    # end
+
 
     if @job.save
+
       #  UserMailer.book_service_email(current_user, @job).deliver_now
 
        client = Twilio::REST::Client.new(ENV['sid'], ENV['token'])
@@ -112,6 +115,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:note, :date, :service_id, :price)
+    params.require(:job).permit(:note, :date, :service_id, :trade_id, :price)
   end
 end
